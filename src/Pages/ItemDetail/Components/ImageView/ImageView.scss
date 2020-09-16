@@ -1,0 +1,37 @@
+@import '../../../../Styles/common.scss';
+
+.itemDetail {
+  .imageView {
+    width: 50%;
+    border: 1px solid rgba(237, 237, 237, 0.7);
+    overflow: hidden;
+
+    .imageContainer {
+      width: 510px;
+      height: 510px;
+      @include flex(center);
+      border-bottom: 1px solid rgba(237, 237, 237, 0.7);
+    }
+
+    .thumbnailContainer {
+      @include flex(center, center);
+      padding: 20px 0;
+      cursor: pointer;
+
+      li {
+        opacity: 0.6;
+        @include flex(center, center);
+        box-sizing: initial;
+
+        &:not(:last-child) {
+          margin-right: 4px;
+        }
+
+        &.isActive {
+          border: 2px solid #000;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
