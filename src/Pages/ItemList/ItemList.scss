@@ -1,1 +1,6 @@
 @import '../../Styles/common.scss';
+
+.itemListContainer {
+  margin: 0 auto;
+  @include flex(center, null, column);
+}

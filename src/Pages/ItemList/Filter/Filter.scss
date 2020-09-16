@@ -1,0 +1,35 @@
+@import '../../../Styles/common.scss';
+
+.filterControlBar {
+  @include flex(space-between, center, row);
+}
+.filter {
+  color: #888888;
+}
+.viewBox {
+  @include flex(flex-end, null, row);
+}
+.controlImageView {
+  @include flex(null, null, row);
+}
+.imageViewBox {
+  width: 27px;
+  height: 27px;
+  border: 1px solid #e0e0e0;
+  margin-left: -1px;
+}
+.listView {
+  background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+  background-size: 311px 276px;
+  background-position: -187px -213px;
+  width: 11px;
+  height: 11px;
+}
+
+#delivery::before {
+  background-color: #aaa;
+}
+
+#delivery:checked {
+  background-color: #3498db;
+}
