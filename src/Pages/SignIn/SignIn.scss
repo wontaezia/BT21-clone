@@ -1,1 +1,79 @@
 @import '../../Styles/common.scss';
+* {
+  background-color: #f5f6f7;
+}
+main {
+  width: 580px;
+  margin: auto;
+
+  .selectLanguage {
+    width: 120px;
+    font-size: 10px;
+    margin-left: 85%;
+  }
+  .signInLogoBorder {
+    text-align: center;
+    margin: 100px 0 40px 0;
+  }
+  .signInLogo {
+    width: 250px;
+    height: 60px;
+    background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+    background-position: -150px -90px;
+    text-align: center;
+    padding: 30px 0 30px 0px;
+  }
+  .signInInput {
+    display: inline-block;
+  }
+  .signInIdInput {
+    display: flex;
+    width: 500px;
+    height: 50px;
+    margin-left: 45px;
+    padding: 7px 35 10px 11px;
+    border: 1px solid #dadada;
+    background-color: white;
+  }
+  .signInPwdInput {
+    display: flex;
+    width: 500px;
+    height: 50px;
+    margin: 20px 0 0 45px;
+    padding: 7px 35 10px 11px;
+    border: 1px solid #dadada;
+    background-color: white;
+  }
+  .signInBtn {
+    width: 500px;
+    height: 50px;
+    margin: 20px 0 0 45px;
+    background-color: #03c75a;
+    color: white;
+    font-size: 16px;
+  }
+  .signInOption {
+    display: inline-flex;
+  }
+  .signInStayCheck {
+    width: 20px;
+    height: 30px;
+    background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+    background-position: 0 -110px;
+    background-size: 460px;
+    padding: 7px 35px 10px 11px;
+    margin: 10px 0 0 30px;
+  }
+  .ipSecurity {
+    margin-left: 250px;
+  }
+  .securityOnOff {
+    width: 30px;
+    height: 20px;
+    background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+    background-position: 0 -62px;
+    background-size: 460px;
+    padding: 7px 35px 10px 11px;
+    margin: 20px 0 0 30px;
+  }
+}

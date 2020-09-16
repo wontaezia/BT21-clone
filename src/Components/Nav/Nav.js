@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import Dropdown from './Dropdown/Dropdown';
 
-class Nav extends Component {
+export default class Nav extends Component {
   render() {
     return <div></div>;
   }
 }
-
-export default Nav;
