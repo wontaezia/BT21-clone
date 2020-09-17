@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Main.scss';
+import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
 
 class Main extends Component {
   render() {
@@ -20,7 +21,6 @@ class Main extends Component {
     return (
       <div className="Main">
         <div className="mainSlideshowContainer">
-          {/* <div class="mainSlidePanel"></div> */}
           <Slider {...settings}>
             <div>
               <img
@@ -73,6 +73,7 @@ class Main extends Component {
             </div>
           </Slider>
         </div>
+        <MainBottomBanner />
       </div>
     );
   }

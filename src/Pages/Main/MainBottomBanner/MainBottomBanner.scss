@@ -1,0 +1,101 @@
+.wrapMainBottomBanner {
+  background-image: url('https://shop-phinf.pstatic.net/20200504_67/1588583879437rnq1f_PNG/bg_p.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 478.8px;
+  padding: 100px;
+}
+
+.mainBottomContent::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: '';
+}
+
+.mainBottomContent {
+  width: 845px;
+  height: 278.8px;
+  margin: 0 auto;
+  text-align: center;
+
+  img {
+    max-width: 320px;
+    max-height: 112px;
+    z-index: 2;
+  }
+
+  p {
+    margin-top: 32px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 30px;
+    white-space: pre-line;
+    z-index: 2;
+  }
+
+  .wrapMainBottomBannerButton {
+    width: 855px;
+    height: 50px;
+    margin: 48px -5px 0px 0px;
+    text-align: center;
+
+    .mainBottomBannerWishButton {
+      width: 300px;
+      height: 50px;
+      border: 1px solid white;
+      color: white;
+      font-size: 13px;
+      font-weight: bolder;
+      opacity: 1;
+
+      .wishIcon {
+        display: inline-block;
+        width: 19px;
+        height: 15px;
+        background-image: url(https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spBs_icon_svg.svg);
+        background-size: 236px 163px;
+        background-position: -202px -52px;
+        z-index: 10;
+      }
+
+      .wishText {
+        width: 19px;
+        height: 15px;
+        z-index: 10;
+        font-size: 13px;
+        font-weight: bolder;
+      }
+
+      span {
+        margin-right: 5px;
+      }
+    }
+
+    .mainBottomBannerShare {
+      width: 50px;
+      height: 50px;
+      margin-left: 10px;
+      border: 1px solid white;
+      color: white;
+      font-size: 13px;
+      font-weight: bolder;
+      opacity: 1;
+
+      .shareIcon {
+        display: inline-block;
+        width: 19px;
+        height: 15px;
+        background-image: url(https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spBs_icon_svg.svg);
+        background-position: -194px -89px;
+        background-size: 236px 163px;
+        z-index: 10;
+      }
+    }
+  }
+}
