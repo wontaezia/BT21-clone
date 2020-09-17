@@ -1,1 +1,60 @@
 @import '../../Styles/common.scss';
+* {
+  background-color: #f5f6f7;
+}
+
+.signUpLogoBorder {
+  text-align: center;
+  margin: 60px 0 40px 0;
+}
+.signUpLogo {
+  width: 250px;
+  height: 60px;
+  background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+  background-position: -150px -90px;
+  text-align: center;
+  padding: 30px 0 30px 0px;
+}
+content {
+  .signUpId {
+    .signUpIdText {
+      display: block;
+    }
+    .signUpIdInput {
+    }
+  }
+  .signUpPwd {
+    .signUpPwdText {
+      display: block;
+    }
+    .signUpPwdInput {
+    }
+  }
+  .signUpPwdRepeat {
+    .signUpPwdTextRepeat {
+      display: block;
+    }
+    .signUpPwdCheck {
+      display: block;
+    }
+  }
+  .signUpName {
+    .signUpNameText {
+      display: block;
+    }
+    .signUpNameInput {
+      display: block;
+    }
+  }
+  .signUpBday {
+    .signUpBdayText {
+    }
+    .bDayYr {
+      display: inline;
+    }
+    .month {
+    }
+    .bDayDay {
+    }
+  }
+}
