@@ -2,32 +2,29 @@ import React, { Component } from 'react';
 import './Item.scss';
 
 class Item extends Component {
-  /* gotoItemDetail(e) {
-        e.preventDefault();
-        fetch('', {
-          method: 'POST',
-          body: JSON.stringify({
-            email: this.state.id,
-            password: this.state.password,
-          }),
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            if (result.Authorization) {
-              localStorage.setItem('token', result.Authorization);
-              this.props.history.push('/itemdetail');
-
-               src={`https://robohash.org/${this.props.id}?set=set2&size=180x180`}
-            }
-          });
-      }*/
-
+  gotoItemDetail = () => {
+    this.props.history.push('/ItemDetail');
+  };
+  numberWithCommas = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
   render() {
+    const {
+      itemImage,
+      itemName,
+      itemPrice,
+      itemReview,
+      itemGrade,
+    } = this.props;
     return (
-      <li className="itemBox" key={this.props.id}>
+      <li className="itemBox">
         <div className="image">
-          <a className="gotoItemDetail" onClick={this.gotoItemDetail}>
-            <img alt="itemimage" src={this.props.itemImage} />
+          <a
+            className="gotoItemDetail"
+            onClick={this.gotoItemDetail}
+            href="#none"
+          >
+            <img alt="itemimage" src={itemImage} />
           </a>
           <div className="imageButtonBox">
             <div className="likeButtonBox">
@@ -39,17 +36,17 @@ class Item extends Component {
           </div>
         </div>
         <div className="itemName">
-          <p className="name">{this.props.itemName}</p>
+          <p className="name">{itemName}</p>
           <button className="like"></button>
         </div>
         <div className="itemPrice">
-          <p className="price">{this.props.itemPrice}원</p> {/*데이터형식*/}
+          <p className="price">{this.numberWithCommas(itemPrice)}원</p>
         </div>
         <div className="reviewGrade">
           <span className="review">리뷰</span>
-          <span className="value">{this.props.itemReview}</span>
+          <span className="value">{Number(itemReview)}</span>
           <span className="grade">평점</span>
-          <span className="value">{this.props.itemGrade}</span>
+          <span className="value">{parseFloat(itemGrade).toFixed(1)}</span>
           <span className="slash">/</span>
           <span className="value">5</span>
         </div>
