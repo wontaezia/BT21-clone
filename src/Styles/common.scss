@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap');
+$notoSans: 'Noto Sans KR', sans-serif;
+$lightGrayBorder: 1px solid rgba(237, 237, 237, 0.7);
 @mixin flex($justify: null, $align: null, $direction: null) {
   display: flex;
   flex-direction: $direction;

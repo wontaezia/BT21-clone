@@ -1,0 +1,37 @@
+@import '../../../../Styles/common.scss';
+
+.itemDetail {
+  .imageView {
+    width: 50%;
+    border: $lightGrayBorder;
+    overflow: hidden;
+
+    .imageContainer {
+      @include flex(center);
+      width: 510px;
+      height: 510px;
+      border-bottom: $lightGrayBorder;
+    }
+
+    .thumbnailContainer {
+      @include flex(center, center);
+      padding: 20px 0;
+      cursor: pointer;
+
+      li {
+        @include flex(center, center);
+        box-sizing: initial;
+        opacity: 0.6;
+
+        &:not(:last-child) {
+          margin-right: 4px;
+        }
+
+        &.isActive {
+          border: 2px solid #000;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
