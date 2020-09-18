@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './Main.scss';
 import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
+import MainLookAround from './MainLookAround/MainLookAround';
 
 class Main extends Component {
   render() {
@@ -73,6 +74,7 @@ class Main extends Component {
             </div>
           </Slider>
         </div>
+        <MainLookAround />
         <MainBottomBanner />
       </div>
     );

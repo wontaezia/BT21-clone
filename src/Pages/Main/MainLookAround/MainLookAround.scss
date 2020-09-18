@@ -1,0 +1,94 @@
+@import '../../../Styles/common.scss';
+@import '../../../Styles/reset.scss';
+
+.wrapMainLookAround {
+  margin-top: 114px;
+  margin-bottom: 114px;
+  width: 100%;
+  height: auto;
+
+  .wrapMainLookAroundTitle {
+    display: block;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    line-height: 48px;
+    word-break: break-all;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 54px;
+  }
+
+  .LookAroundItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1200px;
+    margin: auto;
+  }
+
+  .LookAroundItem > div {
+    width: 327px;
+    height: 514.38px;
+    padding: 0px 14px 50px;
+    position: relative;
+    display: inline-block;
+    width: 299px;
+    vertical-align: top;
+
+    img {
+      width: 299px;
+      height: 364.78px;
+      border-radius: 5%;
+    }
+
+    .LookAroundItemTextContainer {
+      margin-top: 20px;
+
+      .price,
+      .won {
+        font-size: 13px;
+        font-weight: bolder;
+      }
+
+      .productName {
+        margin-top: 4px;
+        font-size: 12px;
+        font-weight: lighter;
+      }
+    }
+
+    .LookAroundItemReviewContainer {
+      margin-top: 10px;
+
+      .grade {
+        position: relative;
+        color: #8f8f8f;
+        margin-right: 4px;
+        font-size: 11px;
+        font-weight: lighter;
+      }
+
+      .review {
+        position: relative;
+        color: #8f8f8f;
+        margin-left: 14px;
+        margin-right: 4px;
+        font-size: 11px;
+        font-weight: lighter;
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: -8px;
+          width: 2px;
+          height: 2px;
+          margin-top: -1px;
+          background-color: #d8d8d8;
+          content: '';
+        }
+      }
+    }
+  }
+}
