@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Filter from './Filter/Filetr';
 import ListBox from './ListBox/ListBox';
+import Pagination from './Pagination/Pagination';
 import './ItemList.scss';
 
 class ItemList extends Component {
@@ -9,6 +10,7 @@ class ItemList extends Component {
 
     this.state = {
       items: [],
+      currentidx: 3,
     };
   }
 
@@ -21,55 +23,51 @@ class ItemList extends Component {
         })
       );
   }
+
   handlefiltering = (e) => {
-    const { items } = this.state;
-    if (e.target.id === 'lowPrice') {
+    const { items, currentidx } = this.state;
+    const { className } = e.target;
+    const filter = {
+      popular: [0, 'itemReview'], //인기도순 알길이 없어서 그냥 넣음
+      accumulate: [1, 'itemReview'], //마찬가지
+      lowPrice: [2, 'itemPrice'],
+      recent: [3, 'itemReview'], //마찬가지
+      reviewVolume: [4, 'itemReview'],
+      itemGrade: [5, 'itemGrade'],
+    };
+    const index = className === 'checked' ? 6 : filter[className][0];
+    const standard = className === 'checked' ? 6 : filter[className][1];
+    const c = index === 2 ? 1 : -1;
+    if (index === 6 || standard === 6) {
+      return;
+    } else {
       this.setState({
-        items: items.sort(function (a, b) {
-          if (Number(a.itemPrice) > Number(b.itemPrice)) {
-            return 1;
+        items: [...items].sort(function (a, b) {
+          if (a[standard] > b[standard]) {
+            return 1 * c;
           }
-          if (Number(a.itemPrice) < Number(b.itemPrice)) {
-            return -1;
+          if (a[standard] < b[standard]) {
+            return -1 * c;
           }
           return 0;
         }),
-      });
-    } else if (e.target.id === 'reviewVolume') {
-      this.setState({
-        items: items.sort(function (a, b) {
-          if (Number(a.itemReview) < Number(b.itemReview)) {
-            return 1;
-          }
-          if (Number(a.itemReview) > Number(b.itemReview)) {
-            return -1;
-          }
-          return 0;
-        }),
-      });
-    } else if (e.target.id === 'highGrade') {
-      console.log('a');
-      this.setState({
-        items: items.sort(function (a, b) {
-          if (Number(a.itemGrade) < Number(b.itemGrade)) {
-            return 1;
-          }
-          if (Number(a.itemGrade) > Number(b.itemGrade)) {
-            return -1;
-          }
-          return 0;
-        }),
+        currentidx: index,
       });
     }
   };
 
   render() {
-    const { items } = this.state;
+    const { items, currentidx } = this.state;
     return (
       <div className="itemListContainer">
         <div className="itemListCategory"></div>
-        <Filter handlefiltering={this.handlefiltering} />
+        <Filter
+          handlefiltering={this.handlefiltering}
+          items={items}
+          currentidx={currentidx}
+        />
         <ListBox items={items} />
+        <Pagination />
       </div>
     );
   }

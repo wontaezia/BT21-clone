@@ -43,23 +43,12 @@
 .lowPrice,
 .recent,
 .reviewVolume,
-.highGrade {
+.itemGrade {
   padding: 0;
   color: #888888;
   font-size: 13px;
   position: relative;
-}
-
-#popular,
-#accumulate,
-#lowPrice,
-#recent,
-#reviewVolume,
-#highGrade {
-  padding: 0;
-  color: #888888;
-  font-size: 13px;
-  position: relative;
+  cursor: pointer;
 }
 
 .checked {
@@ -68,6 +57,7 @@
   font-weight: bold;
   font-size: 13px;
   position: relative;
+  cursor: pointer;
 
   &::before {
     background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200916132238/img/sprite/svg/spSs_icon_svg.svg);
@@ -76,7 +66,7 @@
     width: 14px;
     height: 10px;
     display: inline-block;
-    margin: 9px 5px 0 0;
+    margin: 6px 5px 0 0;
     vertical-align: top;
     content: '';
   }

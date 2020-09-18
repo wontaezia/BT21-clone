@@ -7,16 +7,16 @@ class ListBox extends Component {
     const { items } = this.props;
     return (
       <ul className="listBox">
-        {items !== [] ? (
+        {items ? (
           items.map((iteminfo, index) => (
             <Item
-              key={index} //컴포넌트 자체에 키값을 준다!!!sort로 정렬시키고 나면 인덱스로 밖에 키값을 줄 수없을 것같아요. 다른 좋은 방법이 있을까욧?
+              key={index}
               itemName={iteminfo.itemName}
               itemPrice={iteminfo.itemPrice}
               itemImage={iteminfo.itemImage}
               itemReview={iteminfo.itemReview}
               itemGrade={iteminfo.itemGrade}
-              isliked={iteminfo.isLiked}
+              isLiked={iteminfo.isLiked}
             />
           ))
         ) : (

@@ -13,6 +13,10 @@
     padding: 0 15px;
     margin: 20px 0;
 
+    .clickBox {
+      cursor: pointer;
+    }
+
     .image {
       width: 232px;
       height: 232px;
@@ -24,19 +28,38 @@
 
       .imageButtonBox {
         position: absolute;
-        top: 0;
-        padding: 162px 61px 100px;
-        left: 0;
+        top: 162px;
+        padding: 0;
+        left: 61px;
         z-index: 1;
         opacity: 0%;
         transition: opacity 0.8s;
         @include flex(space-between, center, null);
 
         .likeButtonBox {
+          cursor: pointer;
           width: 50px;
           height: 50px;
           border-radius: 50%;
           background-color: white;
+          @include flex(center, center, null);
+
+          .imageInnerLike {
+            width: 21px;
+            height: 19px;
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+              no-repeat;
+            background-size: 100% auto;
+            content: '';
+          }
+        }
+
+        .likeChecked {
+          cursor: pointer;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: #f54c4a;
           @include flex(center, center, null);
 
           .imageInnerLike {
@@ -57,10 +80,6 @@
           background-color: white;
           @include flex(center, center, null);
         }
-
-        &:hover {
-          opacity: 100%;
-        }
       }
     }
 
@@ -79,9 +98,18 @@
       }
 
       .like {
+        cursor: pointer;
         width: 17px;
         height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+          no-repeat;
+        background-position: auto;
+      }
+      .smallLikeChecked {
+        cursor: pointer;
+        width: 17px;
+        height: 14px;
+        background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
           no-repeat;
         background-position: auto;
       }
@@ -152,6 +180,10 @@
         background-color: #535967;
         text-align: center;
       }
+    }
+
+    &:hover .imageButtonBox {
+      opacity: 100%;
     }
   }
 
