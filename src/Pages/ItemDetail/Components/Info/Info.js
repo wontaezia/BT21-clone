@@ -8,7 +8,6 @@ class Info extends Component {
   constructor() {
     super();
     this.state = {
-      totalItemCount: 0,
       isClicked: false,
       optionSelected: false,
     };
@@ -22,46 +21,42 @@ class Info extends Component {
   };
 
   handleOptionDisplay = () => {
-    const { optionSelected, totalItemCount } = this.state;
+    const { optionSelected } = this.state;
+    const { increaseTotalItemCount } = this.props;
     if (optionSelected) {
       alert('이미 선택된 옵션입니다.');
       return;
     }
 
-    this.setState({
-      optionSelected: true,
-      isClicked: false,
-      totalItemCount: totalItemCount + 1,
-    });
-  };
-
-  increaseTotalCount = () => {
-    const { totalItemCount } = this.state;
-    this.setState({
-      totalItemCount: totalItemCount + 1,
-    });
-  };
-
-  decreaseTotalCount = () => {
-    const { totalItemCount } = this.state;
-    totalItemCount > 1 &&
-      this.setState({
-        totalItemCount: totalItemCount - 1,
-      });
+    this.setState(
+      {
+        optionSelected: true,
+        isClicked: false,
+      },
+      increaseTotalItemCount
+    );
   };
 
   deleteOption = () => {
-    this.setState({
-      optionSelected: false,
-      totalItemCount: 0,
-    });
+    const { deleteTotalItemCount } = this.props;
+    this.setState(
+      {
+        optionSelected: false,
+      },
+      deleteTotalItemCount
+    );
   };
 
   render() {
+    const {
+      totalItemCount,
+      increaseTotalItemCount,
+      decreaseTotalItemCount,
+    } = this.props;
     let { itemName, itemPrice, shipCost, sizeOption } = this.props.itemData;
     itemPrice = Number(itemPrice);
     shipCost = Number(shipCost);
-    const { totalItemCount, isClicked, optionSelected } = this.state;
+    const { isClicked, optionSelected } = this.state;
 
     return (
       <div className="info">
@@ -144,12 +139,12 @@ class Info extends Component {
           <div className="name">{sizeOption}</div>
           <div className="option">
             <div className="countContainer">
-              <span onClick={this.decreaseTotalCount} className="decrease">
+              <span onClick={decreaseTotalItemCount} className="decrease">
                 <AiOutlineMinus />
               </span>
 
               <div className="count">{totalItemCount}</div>
-              <span onClick={this.increaseTotalCount} className="increase">
+              <span onClick={increaseTotalItemCount} className="increase">
                 <HiOutlinePlus />
               </span>
             </div>

@@ -10,12 +10,30 @@ class ItemDetail extends Component {
     super();
     this.state = {
       itemData: {},
+      totalItemCount: 0,
     };
   }
 
-  componentDidMount() {
-    this.getItemData();
-  }
+  increaseTotalItemCount = () => {
+    const { totalItemCount } = this.state;
+    this.setState({
+      totalItemCount: totalItemCount + 1,
+    });
+  };
+
+  decreaseTotalItemCount = () => {
+    const { totalItemCount } = this.state;
+    totalItemCount > 1 &&
+      this.setState({
+        totalItemCount: totalItemCount - 1,
+      });
+  };
+
+  deleteTotalItemCount = () => {
+    this.setState({
+      totalItemCount: 0,
+    });
+  };
 
   getItemData = () => {
     fetch('/data/itemData.json')
@@ -27,8 +45,12 @@ class ItemDetail extends Component {
       });
   };
 
+  componentDidMount() {
+    this.getItemData();
+  }
+
   render() {
-    const { itemData } = this.state;
+    const { itemData, totalItemCount } = this.state;
     return (
       <main className="itemDetail">
         <nav>
@@ -46,7 +68,13 @@ class ItemDetail extends Component {
         </nav>
         <div className="detailMain">
           <ImageView itemData={itemData} />
-          <Info itemData={itemData} />
+          <Info
+            itemData={itemData}
+            totalItemCount={totalItemCount}
+            decreaseTotalItemCount={this.decreaseTotalItemCount}
+            increaseTotalItemCount={this.increaseTotalItemCount}
+            deleteTotalItemCount={this.deleteTotalItemCount}
+          />
         </div>
         <PhotoReview />
         <BestItem />
