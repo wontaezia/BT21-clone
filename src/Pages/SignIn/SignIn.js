@@ -11,10 +11,6 @@ class SignIn extends Component {
       staySignIn: false,
       ipSecurity: false,
     };
-    this.colorIdChange = this.colorIdChange.bind(this);
-    this.colorPasswordChange = this.colorPasswordChange.bind(this);
-    this.staySignIn = this.staySignIn.bind(this);
-    this.ipSecurity = this.ipSecurity.bind(this);
   }
 
   colorIdChange = (event) => {
@@ -34,7 +30,6 @@ class SignIn extends Component {
   };
 
   ipSecurity = () => {
-    console.log('clicked');
     this.setState((secure) => ({ ipSecurity: !secure.ipSecurity }));
   };
 
