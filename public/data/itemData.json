@@ -1,11 +1,11 @@
 {
-  "ITEM_DATA": [
+  "itemData": [
     {
       "itemNumber": "5090624624",
       "itemName": "라인프렌즈 BT21 MANG 유니버스 스탠딩 인형 세트 (3개입)",
-      "itemPrice": "55000",
-      "shipCost": "3000",
-      "size": ["단품"],
+      "itemPrice": 55000,
+      "shipCost": 3000,
+      "sizeOption": ["단품"],
       "productImage": [
         "https://shop-phinf.pstatic.net/20200901_6/1598927112348sx5eC_JPEG/17781365_49998930.jpg?type=m510",
         "https://shop-phinf.pstatic.net/20200901_5/1598927112338qOlbh_JPEG/7085_2859927.jpg?type=m510",

@@ -9,29 +9,30 @@ class Info extends Component {
     super();
     this.state = {
       totalItemCount: 0,
-      isActive: false,
       isClicked: false,
+      optionSelected: false,
     };
   }
 
   handleActive = () => {
-    const { isActive } = this.state;
+    const { isClicked } = this.state;
     this.setState({
-      isActive: !isActive,
+      isClicked: !isClicked,
     });
   };
 
-  handleOption = () => {
-    const { isClicked, totalItemCount } = this.state;
-    if (!isClicked) {
-      this.setState({
-        isClicked: true,
-        isActive: false,
-        totalItemCount: totalItemCount + 1,
-      });
-    } else {
+  handleOptionDisplay = () => {
+    const { optionSelected, totalItemCount } = this.state;
+    if (optionSelected) {
       alert('이미 선택된 옵션입니다.');
+      return;
     }
+
+    this.setState({
+      optionSelected: true,
+      isClicked: false,
+      totalItemCount: totalItemCount + 1,
+    });
   };
 
   increaseTotalCount = () => {
@@ -51,21 +52,24 @@ class Info extends Component {
 
   deleteOption = () => {
     this.setState({
-      isClicked: false,
+      optionSelected: false,
       totalItemCount: 0,
     });
   };
 
   render() {
-    let { itemName, itemPrice, shipCost, size } = this.props.ITEM_DATA;
+    let { itemName, itemPrice, shipCost, sizeOption } = this.props.itemData;
     itemPrice = Number(itemPrice);
     shipCost = Number(shipCost);
-    const { totalItemCount, isActive, isClicked } = this.state;
+    const { totalItemCount, isClicked, optionSelected } = this.state;
 
     return (
       <div className="info">
         <h2 className="itemName">{itemName}</h2>
         <span className="itemPrice">{itemPrice.toLocaleString()}</span>
+        <div className="NHBanner">
+          <span>NH농협카드 간편결제 시 5% 청구할인</span>
+        </div>
         <div className="promotion">
           <h3>라인프렌즈 고객을 위한 혜택</h3>
           <div className="basicReward">
@@ -77,26 +81,26 @@ class Info extends Component {
           </div>
           <ul className="tipRewardContainer">
             <li className="tipReward">
-              <span className="left">포인트 더 받는 방법</span>
-              <b className="right">
+              <span className="rewardOption">포인트 더 받는 방법</span>
+              <b className="reward">
                 +최대 {(itemPrice * 0.08).toLocaleString()}원
               </b>
             </li>
             <li className="plusMembReward">
-              <div className="left">무료 가입하고 추가 4% 적립!</div>
-              <div className="right">
+              <div className="rewardOption">무료 가입하고 추가 4% 적립!</div>
+              <div className="reward">
                 {(itemPrice * 0.04).toLocaleString()}원
               </div>
             </li>
             <li className="chargeReward">
-              <div className="left">충전포인트로 결제시</div>
-              <div className="right">
+              <div className="rewardOption">충전포인트로 결제시</div>
+              <div className="reward">
                 {(itemPrice * 0.02).toLocaleString()}원
               </div>
             </li>
             <li className="favReward">
-              <div className="left">MY단골스토어에서 결제시</div>
-              <div className="right">
+              <div className="rewardOption">MY단골스토어에서 결제시</div>
+              <div className="reward">
                 {(itemPrice * 0.02).toLocaleString()}원
               </div>
             </li>
@@ -120,24 +124,24 @@ class Info extends Component {
         </div>
         <div className="itemOption">
           <button
-            className={isActive && isClicked ? 'isActive' : ''}
+            className={isClicked && optionSelected ? 'isClicked' : ''}
             onClick={this.handleActive}
           >
             사이즈
           </button>
           <ul
-            className={isActive ? 'isActive' : ''}
-            onClick={this.handleOption}
+            className={isClicked ? 'isClicked' : ''}
+            onClick={this.handleOptionDisplay}
           >
-            <li>{size}</li>
+            <li>{sizeOption}</li>
           </ul>
         </div>
         <div
           className={
-            isClicked ? 'itemOptionChoice isClicked' : 'itemOptionChoice'
+            optionSelected ? 'itemOptionChoice selected' : 'itemOptionChoice'
           }
         >
-          <div className="name">{size}</div>
+          <div className="name">{sizeOption}</div>
           <div className="option">
             <div className="countContainer">
               <span onClick={this.decreaseTotalCount} className="decrease">

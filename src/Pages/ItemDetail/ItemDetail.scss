@@ -1,28 +1,29 @@
 @import '../../Styles/common.scss';
 
 .itemDetail {
-  font-family: $notoSans;
   width: 1020px;
   margin: 0 auto;
+  font-family: $notoSans;
 
   .detailMain {
     display: flex;
   }
+
   b {
     font-weight: bold;
   }
 
   nav {
-    padding: 10px 0;
     @include flex(space-between, center);
+    padding: 10px 0;
 
     .share {
       display: flex;
 
       li {
+        @include flex(center, center);
         width: 29px;
         height: 29px;
-        @include flex(center, center);
         margin-right: 6px;
 
         button {
@@ -33,7 +34,7 @@
         }
 
         &.release {
-          border: 1px solid rgba(237, 237, 237, 0.7);
+          border: $lightGrayBorder;
 
           button {
             width: 16px;

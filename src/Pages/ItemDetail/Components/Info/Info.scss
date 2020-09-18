@@ -3,13 +3,13 @@
 .itemDetail {
   .info {
     width: 50%;
-    border: 1px solid rgba(237, 237, 237, 0.7);
-    border-left: 0;
     padding: 30px 40px;
+    border: $lightGrayBorder;
+    border-left: 0;
 
     .itemName {
-      font-size: 20px;
       font-weight: bold;
+      font-size: 20px;
       line-height: 1.2;
     }
 
@@ -18,9 +18,9 @@
       padding: 10px 0;
       margin-bottom: 10px;
       color: #6b90dc;
-      text-align: right;
-      font-size: 24px;
       font-weight: bolder;
+      font-size: 24px;
+      text-align: right;
 
       &::after {
         content: '원';
@@ -28,26 +28,50 @@
       }
     }
 
-    .promotion {
+    .NHBanner {
       position: relative;
-      background: #fff;
-      padding-bottom: 16px;
+      width: 100%;
+      padding: 10px 16px;
+      margin-top: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      background: #f7f8fa;
+      color: #3fc910;
+      font-size: 13px;
+      text-align: left;
+      cursor: pointer;
 
       &::before {
         content: '';
-        width: calc(100% + 2px);
-        height: calc(100% + 2px);
+        display: inline-block;
+        width: 15px;
+        height: 11px;
+        margin-right: 6px;
+        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200916190316/img/sprite/svg/spIcon_svg.svg');
+        background-position: -466px -391px;
+      }
+    }
+
+    .promotion {
+      position: relative;
+      padding-bottom: 16px;
+      background: #fff;
+
+      &::before {
+        content: '';
         position: absolute;
         top: -1px;
         right: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
         background: linear-gradient(125deg, #04ec6b, #7d86d6);
         z-index: -1;
       }
 
       h3 {
-        font-weight: bold;
         padding: 16px;
-        border-bottom: 1px solid rgba(237, 237, 237, 0.7);
+        border-bottom: $lightGrayBorder;
+        font-weight: bold;
       }
 
       .basicReward {
@@ -79,12 +103,12 @@
           font-weight: bold;
           font-size: 13px;
 
-          .left {
+          .rewardOption {
             &::before {
               content: '';
+              display: inline-block;
               width: 28px;
               height: 11px;
-              display: inline-block;
               margin-right: 4px;
               background: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/svg/spText_svg.svg') -299px -97px;
             }
@@ -98,7 +122,7 @@
           font-size: 12px;
           cursor: pointer;
 
-          .left {
+          .rewardOption {
             text-decoration: underline;
 
             &::before {
@@ -115,7 +139,7 @@
         .favReward {
           padding-top: 6px;
 
-          .left {
+          .rewardOption {
             &::before {
               width: 34px;
               height: 14px;
@@ -125,7 +149,7 @@
         }
 
         .plusMembReward {
-          .left {
+          .rewardOption {
             &::before {
               width: 57px;
               height: 14px;
@@ -137,21 +161,21 @@
     }
 
     .rewardBanner {
-      width: 100%;
-      padding: 10px 16px;
       position: relative;
+      width: 100%;
       margin-top: 12px;
+      padding: 10px 16px;
       background: #414e96;
       text-align: left;
       cursor: pointer;
 
       &::after {
         content: '';
+        position: absolute;
+        top: 16px;
+        right: 16px;
         width: 6px;
         height: 10px;
-        position: absolute;
-        right: 16px;
-        top: 16px;
         background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spArrow_svg.svg');
         background-position: -178px -99px;
       }
@@ -164,9 +188,9 @@
 
         &::before {
           content: '';
+          display: inline-block;
           width: 57px;
           height: 14px;
-          display: inline-block;
           margin-right: 4px;
           background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/svg/spIcon_svg.svg');
           background-position: -601px -530px;
@@ -175,9 +199,9 @@
 
         &::after {
           content: '5%';
+          margin-left: 4px;
           color: #fff13e;
           letter-spacing: normal;
-          margin-left: 4px;
         }
       }
     }
@@ -185,14 +209,14 @@
     .zeroInterest {
       @include flex(null, center);
       padding: 16px 0;
-      border-bottom: 1px solid rgba(237, 237, 237, 0.7);
+      border-bottom: $lightGrayBorder;
 
       span {
         font-size: 13px;
 
         &:first-child {
-          border-right: 1px solid #ddd;
           padding-right: 6px;
+          border-right: 1px solid #ddd;
         }
 
         &:nth-child(2) {
@@ -200,8 +224,8 @@
         }
       }
       button {
-        border: 1px solid #ddd;
         margin-left: 6px;
+        border: 1px solid #ddd;
         font-size: 10px;
         cursor: pointer;
       }
@@ -210,7 +234,7 @@
     .ship {
       padding: 16px 0;
       margin-bottom: 16px;
-      border-bottom: 1px solid rgba(237, 237, 237, 0.7);
+      border-bottom: $lightGrayBorder;
       font-size: 13px;
 
       > div {
@@ -220,8 +244,8 @@
       .shipCost {
         span {
           &:first-child {
-            border-right: 1px solid #ddd;
             padding-right: 6px;
+            border-right: 1px solid #ddd;
           }
 
           &:nth-child(2) {
@@ -251,10 +275,9 @@
 
         &::after {
           content: '';
+          display: inline-block;
           width: 14px;
           height: 14px;
-          display: inline-block;
-          background: #000;
           background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spIcon_svg.svg');
           background-position: -358px -610px;
           vertical-align: bottom;
@@ -265,26 +288,28 @@
     .itemOption {
       position: relative;
       width: 100%;
+
       button {
         display: block;
         width: 100%;
+        padding: 8px 16px;
         border: 1px solid #ddd;
         text-align: left;
-        padding: 8px 16px;
+        cursor: pointer;
 
         &::after {
           content: '';
-          width: 14px;
-          height: 8px;
           position: absolute;
           top: 50%;
           right: 16px;
+          width: 14px;
+          height: 8px;
           margin-top: -4px;
           background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spIcon_svg.svg');
           background-position: -365px -326px;
         }
 
-        &.isActive {
+        &.isClicked {
           border: 1px solid #000;
           &::after {
             background-position: -387px -326px;
@@ -292,17 +317,17 @@
         }
       }
       ul {
-        width: 100%;
         position: absolute;
+        display: none;
+        width: 100%;
         padding: 10px 16px;
         border: 1px solid #ddd;
         border-top: 0;
         background: #fff;
         font-size: 12px;
         cursor: pointer;
-        display: none;
 
-        &.isActive {
+        &.isClicked {
           display: block;
         }
       }
@@ -315,13 +340,13 @@
       border-top: 1px solid #aaa;
       border-bottom: 1px solid #aaa;
 
-      &.isClicked {
+      &.selected {
         display: block;
       }
 
       .name {
-        font-size: 14px;
         margin-bottom: 16px;
+        font-size: 14px;
       }
       .option {
         @include flex(space-between, center);
@@ -331,9 +356,9 @@
 
           div,
           span {
+            @include flex(center, center);
             width: 34px;
             height: 34px;
-            @include flex(center, center);
           }
 
           div {
@@ -346,6 +371,7 @@
           span {
             border: 1px solid #ddd;
             background: #f1f2f4;
+            cursor: pointer;
           }
         }
 
@@ -365,9 +391,9 @@
     }
 
     .totalItem {
+      @include flex(space-between, center);
       margin-top: 35px;
       font-size: 13px;
-      @include flex(space-between, center);
 
       .totalItemPrice {
         font-weight: bold;
@@ -405,9 +431,9 @@
       }
 
       button {
+        @include flex(center, center);
         width: calc(50% - 1px);
         height: 50px;
-        @include flex(center, center);
         border: 1px solid #ddd;
         cursor: pointer;
       }
@@ -421,30 +447,30 @@
         background: #565656;
       }
 
-      .buyButton::after {
-        content: '';
-        width: 82px;
-        height: 24px;
-        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
-        background-position: -140px -24px;
-      }
-      .askButton::after {
-        content: '';
-        width: 77px;
-        height: 19px;
-        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
-        background-position: -4px -127px;
-      }
-      .addBasketButton::after {
-        content: '';
-        width: 53px;
-        height: 14px;
-        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
-        background-position: -235px -49px;
-      }
+      .buyButton::after,
+      .askButton::after,
+      .addBasketButton::after,
       .myFavButton::after {
         content: '';
         background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
+      }
+
+      .buyButton::after {
+        width: 82px;
+        height: 24px;
+        background-position: -140px -24px;
+      }
+      .askButton::after {
+        width: 77px;
+        height: 19px;
+        background-position: -4px -127px;
+      }
+      .addBasketButton::after {
+        width: 53px;
+        height: 14px;
+        background-position: -235px -49px;
+      }
+      .myFavButton::after {
         width: 40px;
         height: 14px;
         background-position: -4px -252px;
@@ -460,13 +486,13 @@
 
         &::before {
           content: '';
+          display: inline-block;
           width: 14px;
           height: 14px;
-          display: inline-block;
           margin-right: 4px;
           background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/png/spIcon_png.png');
           background-position: -158px -67px;
-          vertical-align: text-top;
+          transform: translateY(2px);
         }
       }
 

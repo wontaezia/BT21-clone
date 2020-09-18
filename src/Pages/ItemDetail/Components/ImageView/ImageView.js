@@ -5,48 +5,42 @@ class ImageView extends Component {
   constructor() {
     super();
     this.state = {
-      current: 0,
+      currentImage: 0,
     };
   }
 
-  handleCurrentOnHover = (index) => {
+  handleCurrentImage = (index) => {
     this.setState({
-      current: index,
+      currentImage: index,
     });
   };
 
   render() {
-    const { current } = this.state;
-    const { productImage, thumbnail } = this.props.ITEM_DATA;
+    const { currentImage } = this.state;
+    const { productImage, thumbnail } = this.props.itemData;
 
     return (
       <div className="imageView">
         <div className="imageContainer">
           {productImage && (
             <img
-              onMouseMove={(e) => {
-                e.target.style.transform = `scale(1.3) translate(${
-                  e.target.pageX - 450
-                }px, ${e.target.pageY - 100}px)`;
-              }}
-              src={productImage[current]}
-              alt={`추가이미지${current}`}
+              src={productImage[currentImage]}
+              alt={`추가이미지${currentImage}`}
             />
           )}
         </div>
         <ul className="thumbnailContainer">
-          {thumbnail &&
-            thumbnail.map((image, index) => {
-              return (
-                <li
-                  key={index}
-                  className={current === index ? 'isActive' : null}
-                  onMouseOver={() => this.handleCurrentOnHover(index)}
-                >
-                  <img src={image} alt={`추가이미지${index}`} />
-                </li>
-              );
-            })}
+          {thumbnail?.map((image, index) => {
+            return (
+              <li
+                key={index}
+                className={currentImage === index ? 'isActive' : ''}
+                onMouseEnter={() => this.handleCurrentImage(index)}
+              >
+                <img src={image} alt={`추가이미지${index}`} />
+              </li>
+            );
+          })}
         </ul>
       </div>
     );

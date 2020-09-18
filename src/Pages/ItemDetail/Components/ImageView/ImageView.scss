@@ -3,14 +3,14 @@
 .itemDetail {
   .imageView {
     width: 50%;
-    border: 1px solid rgba(237, 237, 237, 0.7);
+    border: $lightGrayBorder;
     overflow: hidden;
 
     .imageContainer {
+      @include flex(center);
       width: 510px;
       height: 510px;
-      @include flex(center);
-      border-bottom: 1px solid rgba(237, 237, 237, 0.7);
+      border-bottom: $lightGrayBorder;
     }
 
     .thumbnailContainer {
@@ -19,9 +19,9 @@
       cursor: pointer;
 
       li {
-        opacity: 0.6;
         @include flex(center, center);
         box-sizing: initial;
+        opacity: 0.6;
 
         &:not(:last-child) {
           margin-right: 4px;

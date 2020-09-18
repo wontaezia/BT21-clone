@@ -1,48 +1,34 @@
 import React, { Component } from 'react';
+import BestItem from './Components/BestItem/BestItem';
 import ImageView from './Components/ImageView/ImageView';
 import Info from './Components/Info/Info';
+import PhotoReview from './Components/PhotoReview/PhotoReview';
 import './ItemDetail.scss';
 
 class ItemDetail extends Component {
   constructor() {
     super();
     this.state = {
-      SHARE_ICON: [],
-      ITEM_DATA: {},
+      itemData: {},
     };
   }
 
   componentDidMount() {
     this.getItemData();
-    this.getShareIconData();
   }
 
-  getShareIconData = () => {
-    fetch('http://localhost:3000/data/SHARE_ICON.json', {
-      method: 'GET',
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          SHARE_ICON: res.SHARE_ICON,
-        });
-      });
-  };
-
   getItemData = () => {
-    fetch('http://localhost:3000/data/ITEM_DATA.json', {
-      method: 'GET',
-    })
+    fetch('/data/itemData.json')
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          ITEM_DATA: res.ITEM_DATA[0],
+          itemData: res.itemData[0],
         });
       });
   };
 
   render() {
-    const { SHARE_ICON, ITEM_DATA } = this.state;
+    const { itemData } = this.state;
     return (
       <main className="itemDetail">
         <nav>
@@ -59,13 +45,33 @@ class ItemDetail extends Component {
           <div className="category"></div>
         </nav>
         <div className="detailMain">
-          <ImageView ITEM_DATA={ITEM_DATA} />
-          <Info ITEM_DATA={ITEM_DATA} />
+          <ImageView itemData={itemData} />
+          <Info itemData={itemData} />
         </div>
-        <div className="relatedItems"></div>
+        <PhotoReview />
+        <BestItem />
       </main>
     );
   }
 }
 
 export default ItemDetail;
+
+const SHARE_ICON = [
+  {
+    name: 'blog',
+    backgroundPosition: '-10px -127px',
+  },
+  {
+    name: 'cafe',
+    backgroundPosition: '-44px -127px',
+  },
+  {
+    name: 'keep',
+    backgroundPosition: '-49px -216px',
+  },
+  {
+    name: 'release',
+    backgroundPosition: '-114px -162px',
+  },
+];
