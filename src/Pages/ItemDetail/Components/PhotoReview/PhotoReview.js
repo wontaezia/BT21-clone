@@ -37,8 +37,8 @@ class PhotoReview extends Component {
   };
 
   handlePopUpRightButton = () => {
-    let { currentReview, REVIEW } = this.state;
-    const max = currentReview >= REVIEW.length - 1;
+    let { currentReview, reviews } = this.state;
+    const max = currentReview >= reviews.length - 1;
 
     this.setState({
       currentReview: max ? 0 : currentReview + 1,
