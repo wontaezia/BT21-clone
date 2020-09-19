@@ -1,46 +1,36 @@
-import React, { Component } from 'react';
-// import Dropdown from './Dropdown/Dropdown';
-import Dropdown, { Selection } from 'react-dropdown-now';
-import 'react-dropdown-now/style.css';
+import React from 'react';
+import NavbarCategory from './NavbarCategory/NavbarCategory';
+import './Navbar.css';
 
-const options = [
-  { id: 'one', value: 'one', label: 'One', view: <span>One</span> },
-  { value: 'two', label: 'Two', className: 'myOptionClassName' },
-  {
-    name: 'group1',
-    items: [
-      { value: 'three', label: 'Three', className: 'myOptionClassName' },
-      { value: 'four', label: 'Four' },
-    ],
-  },
-  {
-    name: 'group2',
-    items: [
-      { value: 'five', label: 'Five' },
-      { value: 'six', label: 'Six' },
-    ],
-  },
-];
+const FURNITURE_OPTIONS = { bedroom: '/bedroom', livingroom: '/livingroom' };
 
-class Nav extends Component {
+const TOY_OPTIONS = {
+  dragonballZ: '/dragonballz',
+  pokemon: '/pokemon',
+  digimon: '/digimon',
+};
+
+const KITCHENWARE_OPTIONS = {
+  plates: '/plates',
+  silverware: '/silverware',
+};
+
+const SALE_OPTIONS = {
+  clearence: '/clearence',
+  seasonal: '/seasonal',
+};
+
+class Navbar extends React.Component {
   render() {
     return (
-      <div>
-        <Dropdown
-          placeholder="Select an option"
-          options={['one', 'two', 'three']}
-          value="one"
-          onChange={(value) => console.log('change!', value)}
-          onSelect={(value) => console.log('selected!', value)} // always fires once a selection happens even if there is no change
-          onClose={(closedBySelection) =>
-            console.log('closedBySelection?:', closedBySelection)
-          }
-          onOpen={() => console.log('open!')}
-        />
-        ;
+      <div className="Navbar">
+        <NavbarCategory text="toys" options={TOY_OPTIONS} />
+        <NavbarCategory text="furniture" options={FURNITURE_OPTIONS} />
+        <NavbarCategory text="kitchenware" options={KITCHENWARE_OPTIONS} />
+        <NavbarCategory text="sale" options={SALE_OPTIONS} />
       </div>
     );
   }
 }
 
-export default Nav;
+export default Navbar;

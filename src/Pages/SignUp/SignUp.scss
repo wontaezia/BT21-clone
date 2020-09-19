@@ -203,26 +203,22 @@ main {
   }
 }
 
-.good {
+.good,
+.nameShort,
+.yrShort,
+.dayShort,
+.numShort,
+.monthShort,
+.genderShort {
   display: none;
 }
 
-.notGood {
-  display: block;
-}
-
-.nameShort {
-  display: none;
-}
-
-.nameLong {
-  display: block;
-}
-
-.yrShort {
-  display: none;
-}
-
-.yrLong {
+.notGood,
+.nameLong,
+.yrLong,
+.dayLong,
+.numLong,
+.monthLong,
+.genderLong {
   display: block;
 }
