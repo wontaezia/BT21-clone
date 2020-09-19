@@ -56,6 +56,21 @@ class ItemList extends Component {
     }
   };
 
+  handleLike = (e) => {
+    console.log(e.target.id);
+    const { items } = this.state;
+    this.setState({
+      items: [
+        ...items.map((iteminfo, index) => {
+          if (iteminfo.itemName === e.target.id) {
+            iteminfo.isLiked = !iteminfo.isLiked;
+          }
+          return iteminfo;
+        }),
+      ],
+    });
+  };
+
   render() {
     const { items, currentidx } = this.state;
     return (
@@ -66,7 +81,7 @@ class ItemList extends Component {
           items={items}
           currentidx={currentidx}
         />
-        <ListBox items={items} />
+        <ListBox items={items} handleLike={this.handleLike} />
         <Pagination />
       </div>
     );

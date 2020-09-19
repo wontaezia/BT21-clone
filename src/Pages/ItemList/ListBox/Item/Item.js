@@ -6,18 +6,19 @@ class Item extends Component {
   gotoItemDetail = () => {
     this.props.history.push('/ItemDetail');
   };
-  numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
+  // numberWithCommas = (x) => {
+  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  // };
 
   render() {
-    let {
+    const {
       itemImage,
       itemName,
       itemPrice,
       itemReview,
       itemGrade,
       isLiked,
+      handleLike,
     } = this.props;
     return (
       <li className="itemBox">
@@ -31,7 +32,9 @@ class Item extends Component {
             <div className="imageButtonBox">
               <div className="likeButtonBox">
                 <button
+                  id={itemName}
                   className={isLiked ? 'likeChecked' : 'imageInnerLike'}
+                  onClick={(e) => handleLike(e)}
                 ></button>
               </div>
               <div className="viewButtonBox">
@@ -44,7 +47,7 @@ class Item extends Component {
             <button className={isLiked ? 'smallLikeChecked' : 'like'}></button>
           </div>
           <div className="itemPrice">
-            <p className="price">{this.numberWithCommas(itemPrice)}원</p>
+            <p className="price">{Number(itemPrice).toLocaleString()}원</p>
           </div>
         </div>
         <div className="reviewGrade">

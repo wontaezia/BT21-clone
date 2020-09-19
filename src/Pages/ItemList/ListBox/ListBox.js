@@ -4,7 +4,7 @@ import Item from './Item/Item';
 
 class ListBox extends Component {
   render() {
-    const { items } = this.props;
+    const { items, handleLike } = this.props;
     return (
       <ul className="listBox">
         {items?.map((iteminfo, index) => (
@@ -16,6 +16,7 @@ class ListBox extends Component {
             itemReview={iteminfo.itemReview}
             itemGrade={iteminfo.itemGrade}
             isLiked={iteminfo.isLiked}
+            handleLike={handleLike}
           />
         ))}
       </ul>

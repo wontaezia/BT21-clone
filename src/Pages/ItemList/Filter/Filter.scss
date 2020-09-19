@@ -4,8 +4,7 @@
 .itemListContainer {
   .filterControlBar {
     @include flex(space-between, center, row);
-    width: 1325px;
-    padding: 0 25px;
+    width: 1280px;
   }
 
   .buttonBox {

@@ -4,5 +4,5 @@
 .itemListContainer {
   width: 1325px;
   margin: 256px auto;
-  @include flex(center, flex-start, column);
+  @include flex(center, center, column);
 }
