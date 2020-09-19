@@ -30,7 +30,9 @@ class Item extends Component {
               onClick={this.gotoItemDetail}
             />
             <div className="imageButtonBox">
-              <div className="likeButtonBox">
+              <div
+                className={isLiked ? 'likeCheckedButtonBox' : 'likeButtonBox'}
+              >
                 <button
                   id={itemName}
                   className={isLiked ? 'likeChecked' : 'imageInnerLike'}
@@ -44,7 +46,10 @@ class Item extends Component {
           </div>
           <div className="itemName">
             <p className="name">{itemName}</p>
-            <button className={isLiked ? 'smallLikeChecked' : 'like'}></button>
+            <button
+              className={isLiked ? 'smallLikeChecked' : 'like'}
+              onClick={(e) => handleLike(e)}
+            ></button>
           </div>
           <div className="itemPrice">
             <p className="price">{Number(itemPrice).toLocaleString()}원</p>

@@ -57,7 +57,6 @@ class ItemList extends Component {
   };
 
   handleLike = (e) => {
-    console.log(e.target.id);
     const { items } = this.state;
     this.setState({
       items: [
