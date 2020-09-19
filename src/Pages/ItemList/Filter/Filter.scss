@@ -1,130 +1,132 @@
 @import '../../../Styles/common.scss';
 @import '../../../Styles/reset.scss';
 
-.filterControlBar {
-  @include flex(space-between, center, row);
-  width: 1325px;
-  padding: 0 25px;
-}
-
-.buttonBox {
-  @include flex(null, center, row);
-}
-
-.filterAccumulate,
-.filterLowPrice,
-.filterRecent,
-.filterReviewVolume,
-.filterHighGrade {
-  padding: 0;
-  margin: 0 12px;
-  position: relative;
-
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: -12px;
-    width: 1px;
-    height: 12px;
-    margin-top: -6px;
-    background-color: #e1e1e1;
-    content: '';
+.itemListContainer {
+  .filterControlBar {
+    @include flex(space-between, center, row);
+    width: 1325px;
+    padding: 0 25px;
   }
-}
 
-.filterPopular {
-  padding: 0;
-  margin: 0 12px 0 0;
-  position: relative;
-}
+  .buttonBox {
+    @include flex(null, center, row);
+  }
 
-.popular,
-.accumulate,
-.lowPrice,
-.recent,
-.reviewVolume,
-.itemGrade {
-  padding: 0;
-  color: #888888;
-  font-size: 13px;
-  position: relative;
-  cursor: pointer;
-}
+  .filterAccumulate,
+  .filterLowPrice,
+  .filterRecent,
+  .filterReviewVolume,
+  .filterHighGrade {
+    padding: 0;
+    margin: 0 12px;
+    position: relative;
 
-.checked {
-  padding: 0;
-  color: black;
-  font-weight: bold;
-  font-size: 13px;
-  position: relative;
-  cursor: pointer;
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: -12px;
+      width: 1px;
+      height: 12px;
+      margin-top: -6px;
+      background-color: #e1e1e1;
+      content: '';
+    }
+  }
 
-  &::before {
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200916132238/img/sprite/svg/spSs_icon_svg.svg);
+  .filterPopular {
+    padding: 0;
+    margin: 0 12px 0 0;
+    position: relative;
+  }
+
+  .popular,
+  .accumulate,
+  .lowPrice,
+  .recent,
+  .reviewVolume,
+  .itemGrade {
+    padding: 0;
+    color: #888888;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .checked {
+    padding: 0;
+    color: black;
+    font-weight: bold;
+    font-size: 13px;
+    position: relative;
+    cursor: pointer;
+
+    &::before {
+      background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200916132238/img/sprite/svg/spSs_icon_svg.svg);
+      background-size: 311px 276px;
+      background-position: -196px -119px;
+      width: 14px;
+      height: 10px;
+      display: inline-block;
+      margin: 6px 5px 0 0;
+      vertical-align: top;
+      content: '';
+    }
+  }
+
+  .viewBox {
+    @include flex(flex-end, null, row);
+  }
+
+  .controlImageView {
+    @include flex(null, null, row);
+  }
+
+  .imageViewBox {
+    width: 27px;
+    height: 27px;
+    border: 1px solid #e0e0e0;
+    margin-left: -1px;
+    @include flex(center, center, null);
+  }
+
+  .listView {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
     background-size: 311px 276px;
-    background-position: -196px -119px;
-    width: 14px;
-    height: 10px;
-    display: inline-block;
-    margin: 6px 5px 0 0;
-    vertical-align: top;
-    content: '';
+    background-position: -187px -213px;
+    width: 11px;
+    height: 11px;
   }
-}
 
-.viewBox {
-  @include flex(flex-end, null, row);
-}
+  .imageView {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -149px -213px;
+    width: 11px;
+    height: 11px;
+  }
+  //background-position: -206px -213px;
+  //background-position: -168px -213px;
+  //background-position: -285px -188px;
+  //background-position: -130px -213px;
+  //##2f2f2f
 
-.controlImageView {
-  @include flex(null, null, row);
-}
+  .bigImageView {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -266px -188px;
+    width: 11px;
+    height: 11px;
+  }
 
-.imageViewBox {
-  width: 27px;
-  height: 27px;
-  border: 1px solid #e0e0e0;
-  margin-left: -1px;
-  @include flex(center, center, null);
-}
-
-.listView {
-  align-self: center;
-  background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-  background-size: 311px 276px;
-  background-position: -187px -213px;
-  width: 11px;
-  height: 11px;
-}
-
-.imageView {
-  align-self: center;
-  background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-  background-size: 311px 276px;
-  background-position: -149px -213px;
-  width: 11px;
-  height: 11px;
-}
-//background-position: -206px -213px;
-//background-position: -168px -213px;
-//background-position: -285px -188px;
-//background-position: -130px -213px;
-//##2f2f2f
-
-.bigImageView {
-  align-self: center;
-  background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-  background-size: 311px 276px;
-  background-position: -266px -188px;
-  width: 11px;
-  height: 11px;
-}
-
-.galleryView {
-  align-self: center;
-  background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-  background-size: 311px 276px;
-  background-position: -111px -213px;
-  width: 11px;
-  height: 11px;
+  .galleryView {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -111px -213px;
+    width: 11px;
+    height: 11px;
+  }
 }

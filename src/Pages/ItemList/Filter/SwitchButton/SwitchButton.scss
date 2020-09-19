@@ -1,58 +1,59 @@
 @import '../../../../Styles/common.scss';
+.itemListContainer {
+  .toggleButton {
+    padding-top: 3px;
+    margin-right: 20px;
+    position: relative;
+    @include flex(null, center, row);
+  }
 
-.toggleButton {
-  padding-top: 3px;
-  margin-right: 20px;
-  position: relative;
-  @include flex(null, center, row);
-}
+  #viewFreeDelivery {
+    display: none;
+  }
 
-#viewFreeDelivery {
-  display: none;
-}
+  .text {
+    margin-right: 10px;
+    font-size: 13px;
+  }
 
-.text {
-  margin-right: 10px;
-  font-size: 13px;
-}
+  .toggleBackground {
+    display: block;
+    position: relative;
+    width: 44px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #c8ccd0;
+    color: white;
+  }
 
-.toggleBackground {
-  display: block;
-  position: relative;
-  width: 44px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: #c8ccd0;
-  color: white;
-}
+  .toggleBackground:checked {
+    background-color: #00c021;
+  }
 
-.toggleBackground:checked {
-  background-color: #00c021;
-}
+  .off {
+    position: absolute;
+    right: 4px;
+    top: 6px;
+    font-size: 9px;
+  }
 
-.off {
-  position: absolute;
-  right: 4px;
-  top: 6px;
-  font-size: 9px;
-}
+  .on {
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    font-size: 9px;
+  }
 
-.on {
-  position: absolute;
-  left: 4px;
-  top: 6px;
-  font-size: 9px;
-}
-
-.ball {
-  // 1. 스위치 볼
-  position: absolute;
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  top: 1.5px;
-  left: 55.5px;
-  transition: transform 0.2s linear;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  .ball {
+    // 1. 스위치 볼
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    top: 1.5px;
+    left: 55.5px;
+    transition: transform 0.2s linear;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+  }
 }

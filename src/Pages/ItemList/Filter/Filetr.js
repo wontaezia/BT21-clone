@@ -14,13 +14,14 @@ class Filter extends Component {
     ];
     const { handlefiltering, currentidx } = this.props;
     const filterbuttonmap = filterbutton.map((e, index) => {
+      const [filterName, buttonName, buttonContent] = e;
       return (
-        <div className={e[0]} key={index}>
+        <div className={filterName} key={index}>
           <button
-            className={currentidx === index ? 'checked' : e[1]}
+            className={currentidx === index ? 'checked' : buttonName}
             onClick={handlefiltering}
           >
-            {e[2]}
+            {buttonContent}
           </button>
         </div>
       );
