@@ -1,0 +1,507 @@
+@import '../../../../Styles/common.scss';
+
+.itemDetail {
+  .info {
+    width: 50%;
+    padding: 30px 40px;
+    border: $lightGrayBorder;
+    border-left: 0;
+
+    .itemName {
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 1.2;
+    }
+
+    .itemPrice {
+      display: block;
+      padding: 10px 0;
+      margin-bottom: 10px;
+      color: #6b90dc;
+      font-weight: bolder;
+      font-size: 24px;
+      text-align: right;
+
+      &::after {
+        content: '원';
+        font-size: 20px;
+      }
+    }
+
+    .NHBanner {
+      position: relative;
+      width: 100%;
+      padding: 10px 16px;
+      margin-top: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #ddd;
+      background: #f7f8fa;
+      color: #3fc910;
+      font-size: 13px;
+      text-align: left;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 15px;
+        height: 11px;
+        margin-right: 6px;
+        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200916190316/img/sprite/svg/spIcon_svg.svg');
+        background-position: -466px -391px;
+      }
+    }
+
+    .promotion {
+      position: relative;
+      padding-bottom: 16px;
+      background: #fff;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        background: linear-gradient(125deg, #04ec6b, #7d86d6);
+        z-index: -1;
+      }
+
+      h3 {
+        padding: 16px;
+        border-bottom: $lightGrayBorder;
+        font-weight: bold;
+      }
+
+      .basicReward {
+        @include flex(space-between, center);
+        padding: 13px 16px;
+        font-weight: bold;
+        font-size: 13px;
+
+        b {
+          span {
+            font-weight: normal;
+          }
+        }
+      }
+
+      .tipRewardContainer {
+        width: calc(100% - 32px);
+        padding: 16px;
+        margin: 0 auto;
+        background: #f7f8fa;
+        border: 1px solid #ddd;
+
+        li {
+          @include flex(space-between, center);
+        }
+
+        .tipReward {
+          padding-bottom: 13px;
+          font-weight: bold;
+          font-size: 13px;
+
+          .rewardOption {
+            &::before {
+              content: '';
+              display: inline-block;
+              width: 28px;
+              height: 11px;
+              margin-right: 4px;
+              background: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/svg/spText_svg.svg') -299px -97px;
+            }
+          }
+        }
+
+        .plusMembReward,
+        .chargeReward,
+        .favReward {
+          color: #aaa;
+          font-size: 12px;
+          cursor: pointer;
+
+          .rewardOption {
+            text-decoration: underline;
+
+            &::before {
+              content: '';
+              display: inline-block;
+              margin-right: 4px;
+              background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/svg/spIcon_svg.svg');
+              vertical-align: top;
+            }
+          }
+        }
+
+        .chargeReward,
+        .favReward {
+          padding-top: 6px;
+
+          .rewardOption {
+            &::before {
+              width: 34px;
+              height: 14px;
+              background-position: -236px -391px;
+            }
+          }
+        }
+
+        .plusMembReward {
+          .rewardOption {
+            &::before {
+              width: 57px;
+              height: 14px;
+              background-position: -601px -530px;
+            }
+          }
+        }
+      }
+    }
+
+    .rewardBanner {
+      position: relative;
+      width: 100%;
+      margin-top: 12px;
+      padding: 10px 16px;
+      background: #414e96;
+      text-align: left;
+      cursor: pointer;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 6px;
+        height: 10px;
+        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spArrow_svg.svg');
+        background-position: -178px -99px;
+      }
+
+      span {
+        display: block;
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: -1px;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 57px;
+          height: 14px;
+          margin-right: 4px;
+          background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/svg/spIcon_svg.svg');
+          background-position: -601px -530px;
+          transform: translateY(2px);
+        }
+
+        &::after {
+          content: '5%';
+          margin-left: 4px;
+          color: #fff13e;
+          letter-spacing: normal;
+        }
+      }
+    }
+
+    .zeroInterest {
+      @include flex(null, center);
+      padding: 16px 0;
+      border-bottom: $lightGrayBorder;
+
+      span {
+        font-size: 13px;
+
+        &:first-child {
+          padding-right: 6px;
+          border-right: 1px solid #ddd;
+        }
+
+        &:nth-child(2) {
+          padding-left: 6px;
+        }
+      }
+      button {
+        margin-left: 6px;
+        border: 1px solid #ddd;
+        font-size: 10px;
+        cursor: pointer;
+      }
+    }
+
+    .ship {
+      padding: 16px 0;
+      margin-bottom: 16px;
+      border-bottom: $lightGrayBorder;
+      font-size: 13px;
+
+      > div {
+        padding-bottom: 8px;
+      }
+
+      .shipCost {
+        span {
+          &:first-child {
+            padding-right: 6px;
+            border-right: 1px solid #ddd;
+          }
+
+          &:nth-child(2) {
+            padding-left: 6px;
+            font-weight: bold;
+
+            &::after {
+              content: '(주문시 결제)';
+              margin-left: 4px;
+              color: #6b90dc;
+              font-weight: normal;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+
+      .shipCostNum {
+        color: #aaa;
+      }
+
+      .shipDiscountItemList {
+        padding: 0;
+        color: #6b90dc;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spIcon_svg.svg');
+          background-position: -358px -610px;
+          vertical-align: bottom;
+        }
+      }
+    }
+
+    .itemOption {
+      position: relative;
+      width: 100%;
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 8px 16px;
+        border: 1px solid #ddd;
+        text-align: left;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          width: 14px;
+          height: 8px;
+          margin-top: -4px;
+          background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spIcon_svg.svg');
+          background-position: -365px -326px;
+        }
+
+        &.isClicked {
+          border: 1px solid #000;
+          &::after {
+            background-position: -387px -326px;
+          }
+        }
+      }
+      ul {
+        position: absolute;
+        display: none;
+        width: 100%;
+        padding: 10px 16px;
+        border: 1px solid #ddd;
+        border-top: 0;
+        background: #fff;
+        font-size: 12px;
+        cursor: pointer;
+
+        &.isClicked {
+          display: block;
+        }
+      }
+    }
+
+    .itemOptionChoice {
+      display: none;
+      padding: 16px 0;
+      margin-top: 16px;
+      border-top: 1px solid #aaa;
+      border-bottom: 1px solid #aaa;
+
+      &.selected {
+        display: block;
+      }
+
+      .name {
+        margin-bottom: 16px;
+        font-size: 14px;
+      }
+      .option {
+        @include flex(space-between, center);
+
+        .countContainer {
+          display: flex;
+
+          div,
+          span {
+            @include flex(center, center);
+            width: 34px;
+            height: 34px;
+          }
+
+          div {
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+            font-size: 14px;
+          }
+
+          span {
+            border: 1px solid #ddd;
+            background: #f1f2f4;
+            cursor: pointer;
+          }
+        }
+
+        .right {
+          @include flex(null, center);
+          font-weight: bold;
+
+          .price {
+            margin-right: 10px;
+          }
+
+          .deleteButton {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .totalItem {
+      @include flex(space-between, center);
+      margin-top: 35px;
+      font-size: 13px;
+
+      .totalItemPrice {
+        font-weight: bold;
+      }
+
+      .right {
+        @include flex(null, center);
+
+        .totalItemCount {
+          padding-right: 6px;
+          border-right: 1px solid #ddd;
+          color: #aaa;
+        }
+
+        .orderPrice {
+          padding-left: 10px;
+          color: #6b90dc;
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .buttonContainer {
+      width: 100%;
+      margin-top: 20px;
+
+      .top,
+      .bottom {
+        @include flex(space-between, center);
+      }
+
+      .top {
+        margin-bottom: 2px;
+      }
+
+      button {
+        @include flex(center, center);
+        width: calc(50% - 1px);
+        height: 50px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+      }
+
+      .buyButton {
+        background: #3fc910;
+      }
+
+      .addBasketButton,
+      .myFavButton {
+        background: #565656;
+      }
+
+      .buyButton::after,
+      .askButton::after,
+      .addBasketButton::after,
+      .myFavButton::after {
+        content: '';
+        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
+      }
+
+      .buyButton::after {
+        width: 82px;
+        height: 24px;
+        background-position: -140px -24px;
+      }
+      .askButton::after {
+        width: 77px;
+        height: 19px;
+        background-position: -4px -127px;
+      }
+      .addBasketButton::after {
+        width: 53px;
+        height: 14px;
+        background-position: -235px -49px;
+      }
+      .myFavButton::after {
+        width: 40px;
+        height: 14px;
+        background-position: -4px -252px;
+      }
+    }
+
+    .safetyTipInfo {
+      margin-top: 10px;
+      font-size: 12px;
+
+      span {
+        color: #aaa;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          margin-right: 4px;
+          background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/png/spIcon_png.png');
+          background-position: -158px -67px;
+          transform: translateY(2px);
+        }
+      }
+
+      button {
+        color: #3fc910;
+        font-weight: bold;
+        font-size: 12px;
+        cursor: pointer;
+      }
+    }
+  }
+}

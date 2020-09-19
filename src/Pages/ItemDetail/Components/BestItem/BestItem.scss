@@ -1,0 +1,44 @@
+@import '../../../../Styles/common.scss';
+
+.itemDetail {
+  .bestItem {
+    margin-top: 40px;
+    padding-bottom: 40px;
+
+    h3 {
+      padding-bottom: 20px;
+    }
+
+    .productList {
+      display: flex;
+
+      li:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      li {
+        flex: 1;
+        cursor: pointer;
+      }
+
+      .productImage {
+        border: $lightGrayBorder;
+      }
+
+      .productName {
+        display: block;
+        padding: 10px 0;
+        font-weight: lighter;
+        font-size: 13px;
+        line-height: 18px;
+      }
+
+      .productPrice {
+        &::after {
+          content: '원';
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
