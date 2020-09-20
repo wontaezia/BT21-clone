@@ -8,7 +8,6 @@ class Filter extends Component {
     const {
       handlefiltering,
       handleview,
-      handleViewCount,
       currentidx,
       currentviewidx,
     } = this.props;
@@ -33,12 +32,6 @@ class Filter extends Component {
         </div>
       );
     });
-    // const countOptions = [
-    //   '20개씩 보기',
-    //   '40개씩 보기',
-    //   '60개씩 보기',
-    //   '80개씩 보기',
-    // ];
 
     const viewbutton = ['listView', 'imageView', 'bigImageView', 'galleryView'];
     const viewbuttonmap = viewbutton.map((buttonName, index) => {
@@ -66,13 +59,7 @@ class Filter extends Component {
           <div className="viewFreeDeliveryBox">
             <SwitchButton />
           </div>
-          <div className="controlViewCount">
-            {/* <Dropdown
-              options={countOptions}
-              onChange={(e) => handleViewCount(e)}
-              placeholder="40개씩 보기"
-            /> */}
-          </div>
+          <div className="controlViewCount"></div>
           <div className="controlImageView">{viewbuttonmap}</div>
         </div>
       </div>
