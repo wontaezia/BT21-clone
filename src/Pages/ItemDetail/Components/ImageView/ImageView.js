@@ -18,16 +18,15 @@ class ImageView extends Component {
   render() {
     const { currentImage } = this.state;
     const { productImage, thumbnail } = this.props.itemData;
-
     return (
       <div className="imageView">
         <div className="imageContainer">
-          {productImage && (
+          {
             <img
-              src={productImage[currentImage]}
+              src={productImage?.[currentImage]}
               alt={`추가이미지${currentImage}`}
             />
-          )}
+          }
         </div>
         <ul className="thumbnailContainer">
           {thumbnail?.map((image, index) => {

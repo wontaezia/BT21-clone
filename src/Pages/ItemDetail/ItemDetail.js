@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import BestItem from './Components/BestItem/BestItem';
+import DetailViewNav from './Components/DetailViewNav/DetailViewNav';
 import ImageView from './Components/ImageView/ImageView';
 import Info from './Components/Info/Info';
+import InformationTab from './Components/InformationTab/InformationTab';
 import PhotoReview from './Components/PhotoReview/PhotoReview';
 import './ItemDetail.scss';
 
@@ -11,13 +14,39 @@ class ItemDetail extends Component {
     this.state = {
       itemData: {},
       totalItemCount: 0,
+      isSelected: false,
+      optionSelected: false,
+      endPoint: false,
+      suggestionItems: [],
+      bestItems: [],
     };
+    this.reviewList = React.createRef();
   }
+
+  handleFixedNavDisplay = () => {
+    const { current } = this.reviewList;
+    const reviewOffsetTop = ReactDOM.findDOMNode(current).offsetTop;
+    const scrollTop = window.pageYOffset;
+    const isActive = scrollTop > reviewOffsetTop;
+
+    this.setState({
+      endPoint: isActive,
+    });
+  };
+
+  handleActive = () => {
+    const { isSelected } = this.state;
+    this.setState({
+      isSelected: !isSelected,
+    });
+  };
 
   increaseTotalItemCount = () => {
     const { totalItemCount } = this.state;
     this.setState({
       totalItemCount: totalItemCount + 1,
+      isSelected: false,
+      optionSelected: true,
     });
   };
 
@@ -32,25 +61,78 @@ class ItemDetail extends Component {
   deleteTotalItemCount = () => {
     this.setState({
       totalItemCount: 0,
+      optionSelected: false,
     });
   };
 
+  handleOptionDisplay = () => {
+    const { optionSelected } = this.state;
+    if (optionSelected) {
+      alert('이미 선택된 옵션입니다.');
+      return;
+    }
+    this.increaseTotalItemCount();
+  };
+
   getItemData = () => {
-    fetch('/data/itemData.json')
+    // const { productId } = this.props.match.params;
+    // fetch(`http://10.58.4.213:8000/product/detailview/${productId}`)
+    // .then((res) => res.json())
+    // .then((res) => {
+    //   this.setState({
+    //   itemData: res.data,
+    //   });
+    // });
+    fetch(`http://10.58.4.213:8000/product/detailview/181`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          itemData: res.itemData[0],
+          itemData: res.data,
         });
       });
   };
 
+  getSuggestionItems = () => {
+    fetch('/data/suggestionItems.json')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          suggestionItems: res.suggestionItems,
+        });
+      });
+  };
+
+  getBestItemData = () => {
+    fetch('/data/bestItems.json')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({
+          bestItems: res.bestItems,
+        });
+      });
+  };
+
+  handleScrollEvent = () => {
+    window.addEventListener('wheel', this.handleFixedNavDisplay);
+  };
+
   componentDidMount() {
     this.getItemData();
+    this.handleScrollEvent();
+    this.getBestItemData();
+    this.getSuggestionItems();
   }
 
   render() {
-    const { itemData, totalItemCount } = this.state;
+    const {
+      endPoint,
+      itemData,
+      bestItems,
+      suggestionItems,
+      totalItemCount,
+      isSelected,
+      optionSelected,
+    } = this.state;
     return (
       <main className="itemDetail">
         <nav>
@@ -71,13 +153,31 @@ class ItemDetail extends Component {
           <Info
             itemData={itemData}
             totalItemCount={totalItemCount}
+            isSelected={isSelected}
+            optionSelected={optionSelected}
             decreaseTotalItemCount={this.decreaseTotalItemCount}
             increaseTotalItemCount={this.increaseTotalItemCount}
             deleteTotalItemCount={this.deleteTotalItemCount}
+            handleActive={this.handleActive}
+            handleOptionDisplay={this.handleOptionDisplay}
           />
         </div>
-        <PhotoReview />
-        <BestItem />
+        <PhotoReview ref={this.reviewList} />
+        <BestItem title="베스트 상품" itemList={bestItems} />
+        <DetailViewNav
+          endPoint={endPoint}
+          itemData={itemData}
+          totalItemCount={totalItemCount}
+          isSelected={isSelected}
+          optionSelected={optionSelected}
+          decreaseTotalItemCount={this.decreaseTotalItemCount}
+          increaseTotalItemCount={this.increaseTotalItemCount}
+          deleteTotalItemCount={this.deleteTotalItemCount}
+          handleActive={this.handleActive}
+          handleOptionDisplay={this.handleOptionDisplay}
+        />
+        <InformationTab itemData={itemData} />
+        <BestItem title="추천 상품" itemList={suggestionItems} />
       </main>
     );
   }

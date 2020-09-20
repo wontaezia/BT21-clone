@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { GoChevronLeft } from 'react-icons/go';
-import { GoChevronRight } from 'react-icons/go';
+import { FiArrowLeftCircle } from 'react-icons/fi';
+import { FiArrowRightCircle } from 'react-icons/fi';
 import './PopUp.scss';
 
 class PopUp extends Component {
@@ -61,8 +61,8 @@ class PopUp extends Component {
               </div>
             </div>
             <p className="review">{review}</p>
-            <GoChevronLeft onClick={goToPrevPage} className="prevButton" />
-            <GoChevronRight onClick={goToNextPage} className="nextButton" />
+            <FiArrowLeftCircle onClick={goToPrevPage} className="prevButton" />
+            <FiArrowRightCircle onClick={goToNextPage} className="nextButton" />
           </div>
         </div>
       </div>

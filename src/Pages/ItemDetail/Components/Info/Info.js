@@ -5,58 +5,19 @@ import { HiOutlineX } from 'react-icons/hi';
 import './Info.scss';
 
 class Info extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isClicked: false,
-      optionSelected: false,
-    };
-  }
-
-  handleActive = () => {
-    const { isClicked } = this.state;
-    this.setState({
-      isClicked: !isClicked,
-    });
-  };
-
-  handleOptionDisplay = () => {
-    const { optionSelected } = this.state;
-    const { increaseTotalItemCount } = this.props;
-    if (optionSelected) {
-      alert('이미 선택된 옵션입니다.');
-      return;
-    }
-
-    this.setState(
-      {
-        optionSelected: true,
-        isClicked: false,
-      },
-      increaseTotalItemCount
-    );
-  };
-
-  deleteOption = () => {
-    const { deleteTotalItemCount } = this.props;
-    this.setState(
-      {
-        optionSelected: false,
-      },
-      deleteTotalItemCount
-    );
-  };
-
   render() {
     const {
       totalItemCount,
+      isSelected,
+      optionSelected,
       increaseTotalItemCount,
       decreaseTotalItemCount,
+      deleteTotalItemCount,
+      handleActive,
+      handleOptionDisplay,
     } = this.props;
-    let { itemName, itemPrice, shipCost, sizeOption } = this.props.itemData;
+    let { itemName, itemPrice } = this.props.itemData;
     itemPrice = Number(itemPrice);
-    shipCost = Number(shipCost);
-    const { isClicked, optionSelected } = this.state;
 
     return (
       <div className="info">
@@ -70,7 +31,7 @@ class Info extends Component {
           <div className="basicReward">
             <span>기본 적립 포인트</span>
             <b>
-              {itemPrice * 0.01}
+              {Math.floor(itemPrice * 0.001) * 10}
               <span>원</span>
             </b>
           </div>
@@ -78,25 +39,25 @@ class Info extends Component {
             <li className="tipReward">
               <span className="rewardOption">포인트 더 받는 방법</span>
               <b className="reward">
-                +최대 {(itemPrice * 0.08).toLocaleString()}원
+                +최대 {(Math.floor(itemPrice * 0.008) * 10).toLocaleString()}원
               </b>
             </li>
             <li className="plusMembReward">
               <div className="rewardOption">무료 가입하고 추가 4% 적립!</div>
               <div className="reward">
-                {(itemPrice * 0.04).toLocaleString()}원
+                {(Math.floor(itemPrice * 0.004) * 10).toLocaleString()}원
               </div>
             </li>
             <li className="chargeReward">
               <div className="rewardOption">충전포인트로 결제시</div>
               <div className="reward">
-                {(itemPrice * 0.02).toLocaleString()}원
+                {Math.floor(itemPrice * 0.002) * 10}원
               </div>
             </li>
             <li className="favReward">
               <div className="rewardOption">MY단골스토어에서 결제시</div>
               <div className="reward">
-                {(itemPrice * 0.02).toLocaleString()}원
+                {Math.floor(itemPrice * 0.002) * 10}원
               </div>
             </li>
           </ul>
@@ -112,23 +73,23 @@ class Info extends Component {
         <div className="ship">
           <div className="shipCost">
             <span className="method">택배배송</span>
-            <span className="cost">{shipCost.toLocaleString()}원</span>
+            <span className="cost">3,000원</span>
           </div>
           <div className="shipCostNum">30,000원 이상 구매 시 무료</div>
           <button className="shipDiscountItemList">배송비 절약상품 보기</button>
         </div>
         <div className="itemOption">
           <button
-            className={isClicked && optionSelected ? 'isClicked' : ''}
-            onClick={this.handleActive}
+            className={isSelected && optionSelected ? 'isClicked' : ''}
+            onClick={handleActive}
           >
             사이즈
           </button>
           <ul
-            className={isClicked ? 'isClicked' : ''}
-            onClick={this.handleOptionDisplay}
+            className={isSelected ? 'isClicked' : ''}
+            onClick={handleOptionDisplay}
           >
-            <li>{sizeOption}</li>
+            <li>단품</li>
           </ul>
         </div>
         <div
@@ -136,7 +97,7 @@ class Info extends Component {
             optionSelected ? 'itemOptionChoice selected' : 'itemOptionChoice'
           }
         >
-          <div className="name">{sizeOption}</div>
+          <div className="name">단품</div>
           <div className="option">
             <div className="countContainer">
               <span onClick={decreaseTotalItemCount} className="decrease">
@@ -152,7 +113,7 @@ class Info extends Component {
               <span className="price">
                 {(totalItemCount * itemPrice).toLocaleString()}원
               </span>
-              <span onClick={this.deleteOption} className="deleteButton">
+              <span onClick={deleteTotalItemCount} className="deleteButton">
                 <HiOutlineX />
               </span>
             </div>

@@ -82,8 +82,6 @@ class PhotoReview extends Component {
       });
   };
 
-  reviewList = React.createRef();
-
   componentDidMount() {
     this.getReviewData();
   }
@@ -114,11 +112,7 @@ class PhotoReview extends Component {
           </div>
         </div>
         <div className="reviewContainer">
-          <ul
-            className="reviewList"
-            style={moveReviewPage}
-            ref={this.reviewList}
-          >
+          <ul className="reviewList" style={moveReviewPage}>
             {reviews.map((reviewData, index) => {
               const {
                 id,

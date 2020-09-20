@@ -284,224 +284,226 @@
         }
       }
     }
+  }
 
-    .itemOption {
+  .itemOption {
+    position: relative;
+    width: 100%;
+
+    button {
       position: relative;
+      display: block;
       width: 100%;
+      padding: 8px 16px;
+      border: 1px solid #ddd;
+      background: #fff;
+      text-align: left;
+      cursor: pointer;
 
-      button {
-        display: block;
-        width: 100%;
-        padding: 8px 16px;
-        border: 1px solid #ddd;
-        text-align: left;
-        cursor: pointer;
-
-        &::after {
-          content: '';
-          position: absolute;
-          top: 50%;
-          right: 16px;
-          width: 14px;
-          height: 8px;
-          margin-top: -4px;
-          background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spIcon_svg.svg');
-          background-position: -365px -326px;
-        }
-
-        &.isClicked {
-          border: 1px solid #000;
-          &::after {
-            background-position: -387px -326px;
-          }
-        }
-      }
-      ul {
+      &::after {
+        content: '';
         position: absolute;
-        display: none;
-        width: 100%;
-        padding: 10px 16px;
-        border: 1px solid #ddd;
-        border-top: 0;
-        background: #fff;
-        font-size: 12px;
-        cursor: pointer;
+        top: 50%;
+        right: 16px;
+        width: 14px;
+        height: 8px;
+        margin-top: -4px;
+        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spIcon_svg.svg');
+        background-position: -365px -326px;
+      }
 
-        &.isClicked {
-          display: block;
+      &.isClicked {
+        border: 1px solid #000;
+        &::after {
+          background-position: -387px -326px;
         }
       }
     }
-
-    .itemOptionChoice {
+    ul {
+      position: relative;
       display: none;
-      padding: 16px 0;
-      margin-top: 16px;
-      border-top: 1px solid #aaa;
-      border-bottom: 1px solid #aaa;
+      width: 100%;
+      padding: 10px 16px;
+      border: 1px solid #ddd;
+      border-top: 0;
+      background: #fff;
+      font-size: 12px;
+      cursor: pointer;
 
-      &.selected {
+      &.isClicked {
         display: block;
       }
+    }
+  }
 
-      .name {
-        margin-bottom: 16px;
-        font-size: 14px;
-      }
-      .option {
-        @include flex(space-between, center);
+  .itemOptionChoice {
+    display: none;
+    padding: 16px 0;
+    margin-top: 16px;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
 
-        .countContainer {
-          display: flex;
-
-          div,
-          span {
-            @include flex(center, center);
-            width: 34px;
-            height: 34px;
-          }
-
-          div {
-            border-top: 1px solid #ddd;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-            font-size: 14px;
-          }
-
-          span {
-            border: 1px solid #ddd;
-            background: #f1f2f4;
-            cursor: pointer;
-          }
-        }
-
-        .right {
-          @include flex(null, center);
-          font-weight: bold;
-
-          .price {
-            margin-right: 10px;
-          }
-
-          .deleteButton {
-            cursor: pointer;
-          }
-        }
-      }
+    &.selected {
+      display: block;
     }
 
-    .totalItem {
+    .name {
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .option {
       @include flex(space-between, center);
-      margin-top: 35px;
-      font-size: 13px;
 
-      .totalItemPrice {
-        font-weight: bold;
+      .countContainer {
+        display: flex;
+
+        div,
+        span {
+          @include flex(center, center);
+          width: 34px;
+          height: 34px;
+        }
+
+        div {
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          font-weight: bold;
+          font-size: 14px;
+        }
+
+        span {
+          border: 1px solid #ddd;
+          background: #f1f2f4;
+          cursor: pointer;
+        }
       }
 
       .right {
         @include flex(null, center);
-
-        .totalItemCount {
-          padding-right: 6px;
-          border-right: 1px solid #ddd;
-          color: #aaa;
-        }
-
-        .orderPrice {
-          padding-left: 10px;
-          color: #6b90dc;
-          font-size: 24px;
-          font-weight: bold;
-        }
-      }
-    }
-
-    .buttonContainer {
-      width: 100%;
-      margin-top: 20px;
-
-      .top,
-      .bottom {
-        @include flex(space-between, center);
-      }
-
-      .top {
-        margin-bottom: 2px;
-      }
-
-      button {
-        @include flex(center, center);
-        width: calc(50% - 1px);
-        height: 50px;
-        border: 1px solid #ddd;
-        cursor: pointer;
-      }
-
-      .buyButton {
-        background: #3fc910;
-      }
-
-      .addBasketButton,
-      .myFavButton {
-        background: #565656;
-      }
-
-      .buyButton::after,
-      .askButton::after,
-      .addBasketButton::after,
-      .myFavButton::after {
-        content: '';
-        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
-      }
-
-      .buyButton::after {
-        width: 82px;
-        height: 24px;
-        background-position: -140px -24px;
-      }
-      .askButton::after {
-        width: 77px;
-        height: 19px;
-        background-position: -4px -127px;
-      }
-      .addBasketButton::after {
-        width: 53px;
-        height: 14px;
-        background-position: -235px -49px;
-      }
-      .myFavButton::after {
-        width: 40px;
-        height: 14px;
-        background-position: -4px -252px;
-      }
-    }
-
-    .safetyTipInfo {
-      margin-top: 10px;
-      font-size: 12px;
-
-      span {
-        color: #aaa;
-
-        &::before {
-          content: '';
-          display: inline-block;
-          width: 14px;
-          height: 14px;
-          margin-right: 4px;
-          background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/png/spIcon_png.png');
-          background-position: -158px -67px;
-          transform: translateY(2px);
-        }
-      }
-
-      button {
-        color: #3fc910;
         font-weight: bold;
-        font-size: 12px;
-        cursor: pointer;
+
+        .price {
+          margin-right: 10px;
+        }
+
+        .deleteButton {
+          cursor: pointer;
+        }
       }
     }
+  }
+
+  .totalItem {
+    @include flex(space-between, center);
+    margin-top: 35px;
+    font-size: 13px;
+
+    .totalItemPrice {
+      font-weight: bold;
+    }
+
+    .right {
+      @include flex(null, center);
+
+      .totalItemCount {
+        padding-right: 6px;
+        border-right: 1px solid #ddd;
+        color: #aaa;
+      }
+
+      .orderPrice {
+        padding-left: 10px;
+        color: #6b90dc;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .buttonContainer {
+    width: 100%;
+    margin-top: 20px;
+
+    .top,
+    .bottom {
+      @include flex(space-between, center);
+    }
+
+    .top {
+      margin-bottom: 2px;
+    }
+
+    button {
+      @include flex(center, center);
+      width: calc(50% - 1px);
+      height: 50px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+  }
+
+  .safetyTipInfo {
+    margin-top: 10px;
+    font-size: 12px;
+
+    span {
+      color: #aaa;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+        background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915110004/img/sprite/png/spIcon_png.png');
+        background-position: -158px -67px;
+        transform: translateY(2px);
+      }
+    }
+
+    button {
+      color: #3fc910;
+      font-weight: bold;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .buyButton {
+    background: #3fc910;
+  }
+
+  .addBasketButton,
+  .myFavButton {
+    background: #565656;
+  }
+
+  .buyButton::after,
+  .askButton::after,
+  .addBasketButton::after,
+  .myFavButton::after {
+    content: '';
+    background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200915052627/img/sprite/svg/spText_svg.svg');
+  }
+
+  .buyButton::after {
+    width: 82px;
+    height: 24px;
+    background-position: -140px -24px;
+  }
+  .askButton::after {
+    width: 77px;
+    height: 19px;
+    background-position: -4px -127px;
+  }
+  .addBasketButton::after {
+    width: 53px;
+    height: 14px;
+    background-position: -235px -49px;
+  }
+  .myFavButton::after {
+    width: 40px;
+    height: 14px;
+    background-position: -4px -252px;
   }
 }
