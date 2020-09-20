@@ -41,6 +41,7 @@
           @include flex(center, center, null);
 
           .imageInnerLike {
+            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
@@ -59,6 +60,7 @@
           @include flex(center, center, null);
 
           .likeChecked {
+            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
@@ -69,6 +71,7 @@
         }
 
         .viewButtonBox {
+          cursor: pointer;
           margin-left: 8px;
           width: 50px;
           height: 50px;
@@ -84,13 +87,13 @@
       margin-top: 14px;
 
       .name {
+        width: 206px;
         font-size: 13px;
         line-height: 16px;
         font-weight: bold;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding-right: 16px;
       }
 
       .like {
@@ -225,6 +228,7 @@
           @include flex(center, center, null);
 
           .imageInnerLike {
+            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
@@ -234,7 +238,7 @@
           }
         }
 
-        .likeChecked {
+        .likeCheckedButtonBox {
           cursor: pointer;
           width: 50px;
           height: 50px;
@@ -242,10 +246,11 @@
           background-color: #f54c4a;
           @include flex(center, center, null);
 
-          .imageInnerLike {
+          .likeChecked {
+            cursor: pointer;
             width: 21px;
             height: 19px;
-            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
@@ -253,6 +258,7 @@
         }
 
         .viewButtonBox {
+          cursor: pointer;
           margin-left: 8px;
           width: 50px;
           height: 50px;
@@ -274,7 +280,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding-right: 16px;
+        width: 256px;
       }
 
       .like {
@@ -407,6 +413,7 @@
           @include flex(center, center, null);
 
           .imageInnerLike {
+            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
@@ -416,7 +423,7 @@
           }
         }
 
-        .likeChecked {
+        .likeCheckedButtonBox {
           cursor: pointer;
           width: 50px;
           height: 50px;
@@ -424,10 +431,11 @@
           background-color: #f54c4a;
           @include flex(center, center, null);
 
-          .imageInnerLike {
+          .likeChecked {
+            cursor: pointer;
             width: 21px;
             height: 19px;
-            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
@@ -435,6 +443,7 @@
         }
 
         .viewButtonBox {
+          cursor: pointer;
           margin-left: 8px;
           width: 50px;
           height: 50px;

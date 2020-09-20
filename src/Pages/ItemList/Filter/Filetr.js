@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
 import SwitchButton from './SwitchButton/SwitchButton';
+
 import './Filter.scss';
 
 class Filter extends Component {
   render() {
+    const {
+      handlefiltering,
+      handleview,
+      handleViewCount,
+      currentidx,
+      currentviewidx,
+    } = this.props;
     const filterbutton = [
       ['filterPopular', 'popular', '인기도순'],
       ['filterAccumulate', 'accumulate', '누적판매순'],
@@ -12,7 +20,6 @@ class Filter extends Component {
       ['filterReviewVolume', 'reviewVolume', '리뷰많은순'],
       ['filterHighGrade', 'itemGrade', '평점높은순'],
     ];
-    const { handlefiltering, currentidx } = this.props;
     const filterbuttonmap = filterbutton.map((e, index) => {
       const [filterName, buttonName, buttonContent] = e;
       return (
@@ -26,6 +33,32 @@ class Filter extends Component {
         </div>
       );
     });
+    // const countOptions = [
+    //   '20개씩 보기',
+    //   '40개씩 보기',
+    //   '60개씩 보기',
+    //   '80개씩 보기',
+    // ];
+
+    const viewbutton = ['listView', 'imageView', 'bigImageView', 'galleryView'];
+    const viewbuttonmap = viewbutton.map((buttonName, index) => {
+      return (
+        <div
+          className={
+            currentviewidx === index ? 'imageViewBoxChecked' : 'imageViewBox'
+          }
+          id={buttonName}
+          onClick={handleview}
+          key={index}
+        >
+          <button
+            className={
+              currentviewidx === index ? `${buttonName}Checked` : buttonName
+            }
+          ></button>
+        </div>
+      );
+    });
     return (
       <div className="filterControlBar">
         <div className="buttonBox">{filterbuttonmap}</div>
@@ -33,21 +66,14 @@ class Filter extends Component {
           <div className="viewFreeDeliveryBox">
             <SwitchButton />
           </div>
-          <div className="controlViewCount"></div>
-          <div className="controlImageView">
-            <div className="imageViewBox">
-              <button className="listView"></button>
-            </div>
-            <div className="imageViewBox">
-              <button className="imageView"></button>
-            </div>
-            <div className="imageViewBox">
-              <button className="bigImageView"></button>
-            </div>
-            <div className="imageViewBox">
-              <button className="galleryView"></button>
-            </div>
+          <div className="controlViewCount">
+            {/* <Dropdown
+              options={countOptions}
+              onChange={(e) => handleViewCount(e)}
+              placeholder="40개씩 보기"
+            /> */}
           </div>
+          <div className="controlImageView">{viewbuttonmap}</div>
         </div>
       </div>
     );

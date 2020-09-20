@@ -11,6 +11,7 @@ class ItemList extends Component {
     this.state = {
       items: [],
       currentidx: 3,
+      currentviewidx: 1,
     };
   }
 
@@ -25,7 +26,7 @@ class ItemList extends Component {
   }
 
   handlefiltering = (e) => {
-    const { items, currentidx } = this.state;
+    const { items } = this.state;
     const { className } = e.target;
     const filter = {
       popular: [0, 'itemReview'], //인기도순 알길이 없어서 그냥 넣음
@@ -56,14 +57,26 @@ class ItemList extends Component {
     }
   };
 
+  handleview = (e) => {
+    const viewbutton = ['listView', 'imageView', 'bigImageView', 'galleryView'];
+    const { id, className } = e.target;
+    if (viewbutton.indexOf(id) !== -1) {
+      this.setState({ currentviewidx: viewbutton.indexOf(id) });
+    } else if (viewbutton.indexOf(className) !== -1) {
+      this.setState({ currentviewidx: viewbutton.indexOf(className) });
+    }
+  };
+
   handleLike = (e) => {
     const { items } = this.state;
     this.setState({
       items: [
-        ...items.map((iteminfo, index) => {
-          if (iteminfo.itemName === e.target.id) {
-            iteminfo.isLiked = !iteminfo.isLiked;
-          }
+        ...items.map((iteminfo) => {
+          if (iteminfo.itemName === e.target.id)
+            return {
+              ...iteminfo,
+              isLiked: !iteminfo.isLiked,
+            };
           return iteminfo;
         }),
       ],
@@ -71,16 +84,22 @@ class ItemList extends Component {
   };
 
   render() {
-    const { items, currentidx } = this.state;
+    const { items, currentidx, currentviewidx, selectedOption } = this.state;
     return (
       <div className="itemListContainer">
         <div className="itemListCategory"></div>
         <Filter
           handlefiltering={this.handlefiltering}
+          handleview={this.handleview}
           items={items}
           currentidx={currentidx}
+          currentviewidx={currentviewidx}
         />
-        <ListBox items={items} handleLike={this.handleLike} />
+        <ListBox
+          items={items}
+          handleLike={this.handleLike}
+          currentviewidx={currentviewidx}
+        />
         <Pagination />
       </div>
     );

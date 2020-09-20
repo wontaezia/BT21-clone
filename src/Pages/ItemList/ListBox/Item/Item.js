@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './Item.scss';
+import './listItemBox.scss';
 import { withRouter } from 'react-router-dom';
 
 class Item extends Component {
-  gotoItemDetail = () => {
-    this.props.history.push('/ItemDetail');
+  gotoItemDetail = (itemId) => {
+    this.props.history.push(`/ItemDetail/${itemId}`);
   };
-  // numberWithCommas = (x) => {
-  //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  // };
 
   render() {
     const {
@@ -19,18 +17,23 @@ class Item extends Component {
       itemGrade,
       isLiked,
       handleLike,
+      currentviewidx,
     } = this.props;
+    const viewOption = [
+      'listItemBox',
+      'itemBox',
+      'bigItemBox',
+      'galleryItemBox',
+    ];
+    const selectedViewOption = viewOption[currentviewidx];
     return (
-      <li className="itemBox">
+      <li className={selectedViewOption}>
         <div className="clickBox">
           <div className="image">
-            <img
-              alt="itemimage"
-              src={itemImage}
-              onClick={this.gotoItemDetail}
-            />
+            <img alt="itemimage" src={itemImage} />
             <div className="imageButtonBox">
-              <div
+              <label
+                htmlFor={itemName}
                 className={isLiked ? 'likeCheckedButtonBox' : 'likeButtonBox'}
               >
                 <button
@@ -38,7 +41,7 @@ class Item extends Component {
                   className={isLiked ? 'likeChecked' : 'imageInnerLike'}
                   onClick={(e) => handleLike(e)}
                 ></button>
-              </div>
+              </label>
               <div className="viewButtonBox">
                 <button className="detailView"></button>
               </div>
@@ -46,10 +49,11 @@ class Item extends Component {
           </div>
           <div className="itemName">
             <p className="name">{itemName}</p>
-            <button
+            <label
+              htmlFor={itemName}
               className={isLiked ? 'smallLikeChecked' : 'like'}
               onClick={(e) => handleLike(e)}
-            ></button>
+            ></label>
           </div>
           <div className="itemPrice">
             <p className="price">{Number(itemPrice).toLocaleString()}원</p>
@@ -63,9 +67,6 @@ class Item extends Component {
           <span className="slash">/</span>
           <span className="value">5</span>
         </div>
-        {/* <div className="soldout">
-          <div>SOLDOUT</div>
-    </div>*/}
       </li>
     );
   }

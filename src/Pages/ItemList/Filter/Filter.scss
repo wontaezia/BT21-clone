@@ -17,6 +17,7 @@
   .filterReviewVolume,
   .filterHighGrade {
     padding: 0;
+
     margin: 0 12px;
     position: relative;
 
@@ -74,6 +75,7 @@
 
   .viewBox {
     @include flex(flex-end, null, row);
+    cursor: pointer;
   }
 
   .controlImageView {
@@ -83,9 +85,29 @@
   .imageViewBox {
     width: 27px;
     height: 27px;
-    border: 1px solid #e0e0e0;
-    margin-left: -1px;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 0px;
     @include flex(center, center, null);
+    &:last-child {
+      border-right: 1px solid #e0e0e0;
+    }
+  }
+
+  .imageViewBoxChecked {
+    width: 27px;
+    height: 27px;
+    background-color: #2f2f2f;
+    border: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+    border-left: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    border-right: 0px;
+    @include flex(center, center, null);
+    &:last-child {
+      border-right: 1px solid #e0e0e0;
+    }
   }
 
   .listView {
@@ -95,6 +117,16 @@
     background-position: -187px -213px;
     width: 11px;
     height: 11px;
+    cursor: pointer;
+  }
+  .listViewChecked {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -206px -213px;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
   }
 
   .imageView {
@@ -104,12 +136,18 @@
     background-position: -149px -213px;
     width: 11px;
     height: 11px;
+    cursor: pointer;
   }
-  //background-position: -206px -213px;
-  //background-position: -168px -213px;
-  //background-position: -285px -188px;
-  //background-position: -130px -213px;
-  //##2f2f2f
+
+  .imageViewChecked {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -168px -213px;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
+  }
 
   .bigImageView {
     align-self: center;
@@ -118,6 +156,17 @@
     background-position: -266px -188px;
     width: 11px;
     height: 11px;
+    cursor: pointer;
+  }
+
+  .bigImageViewChecked {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -285px -188px;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
   }
 
   .galleryView {
@@ -127,5 +176,16 @@
     background-position: -111px -213px;
     width: 11px;
     height: 11px;
+    cursor: pointer;
+  }
+
+  .galleryViewChecked {
+    align-self: center;
+    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+    background-size: 311px 276px;
+    background-position: -130px -213px;
+    width: 11px;
+    height: 11px;
+    cursor: pointer;
   }
 }

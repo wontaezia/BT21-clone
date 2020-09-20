@@ -4,12 +4,13 @@ import Item from './Item/Item';
 
 class ListBox extends Component {
   render() {
-    const { items, handleLike } = this.props;
+    const { items, handleLike, currentviewidx } = this.props;
     return (
       <ul className="listBox">
         {items?.map((iteminfo, index) => (
           <Item
             key={index}
+            itemid={iteminfo.itemId}
             itemName={iteminfo.itemName}
             itemPrice={iteminfo.itemPrice}
             itemImage={iteminfo.itemImage}
@@ -17,6 +18,7 @@ class ListBox extends Component {
             itemGrade={iteminfo.itemGrade}
             isLiked={iteminfo.isLiked}
             handleLike={handleLike}
+            currentviewidx={currentviewidx}
           />
         ))}
       </ul>
