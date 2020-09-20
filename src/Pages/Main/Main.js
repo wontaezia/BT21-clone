@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import './Main.scss';
 import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
 import MainLookAround from './MainLookAround/MainLookAround';
+import './Main.scss';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class Main extends Component {
   render() {

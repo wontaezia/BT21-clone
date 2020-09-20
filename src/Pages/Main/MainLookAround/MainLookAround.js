@@ -2,17 +2,59 @@ import React, { Component } from 'react';
 import './MainLookAround.scss';
 
 class MainLookAround extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isHovered: false,
+      current: -1,
+    };
+  }
+
+  mouseEnter = (index) => {
+    this.setState({
+      isHovered: true,
+      current: index,
+    });
+  };
+
+  mouseout = () => {
+    this.setState({
+      isHovered: false,
+      current: -1,
+    });
+  };
+
   render() {
     return (
-      <div className="wrapMainLookAround">
+      <div className="MainLookAround">
         <div className="wrapMainLookAroundTitle">
           <strong className="MainLookAroundTitle">마음껏 둘러보세요</strong>
         </div>
         <div className="wrapLookAroundItem">
           <div className="LookAroundItem">
-            {LookAroundItems.map((item, id) => (
+            {LookAroundItems.map((item, index) => (
               <div key={item.id}>
-                <img src={item.img} />
+                <div className="wrapLookAroundImg"></div>
+                <img
+                  src={item.img}
+                  onMouseEnter={() => this.mouseEnter(index)}
+                  onMouseOut={this.mouseout}
+                ></img>
+                <div
+                  className={
+                    this.state.current === index
+                      ? 'LookAroundItemImageButtonContainer isActive'
+                      : 'LookAroundItemImageButtonContainer'
+                  }
+                  onMouseEnter={() => this.mouseEnter(index)}
+                >
+                  <div className="wrapLookAroundItemImageWishButton">
+                    <button className="LookAroundItemImageWishButton"></button>
+                  </div>
+                  <div className="wrapLookAroundItemImageDetailButton">
+                    <button className="LookAroundItemImageDetailButton"></button>
+                  </div>
+                </div>
                 <div className="LookAroundItemTextContainer">
                   <div>
                     <span className="price">{item.price}</span>
