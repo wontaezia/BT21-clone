@@ -253,215 +253,216 @@ class SignUp extends Component {
     } = this.state;
     return (
       <>
-        <header>
-          <div className="signUpLogoBorder">
-            <img className="signUpLogo"></img>
-          </div>
-        </header>
         <main>
-          <div className="signUpId">
-            <a className="signUpIdText">아이디</a>
-            <input
-              className="signUpIdInput"
-              type="text"
-              onChange={this.idInput}
-              onBlur={this.idCheck}
-            ></input>
-            <span
-              className={
-                isIdValid === null || isIdValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              필수 정보입니다.
-            </span>
-          </div>
-          <div className="signUpPwd">
-            <a className="signUpPwdText">비밀번호</a>
-            <input
-              className="signUpPwdInput"
-              type="password"
-              onChange={this.pwdInput}
-              onBlur={this.pwdInputCheck}
-            ></input>
-            <span
-              className={
-                isPwdInputValid === null || isPwdInputValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              8-20자리 비밀번호가 필요합니다.
-            </span>
-          </div>
-          <div className="signUpPwdRepeat">
-            <a className="signUpPwdTextRepeat">비밀번호 재확인</a>
-            <input
-              className="signUpPwdCheck"
-              type="password"
-              onChange={this.pwdCheckInput}
-              onBlur={this.handleEqualPwd}
-            ></input>
-            <span
-              className={
-                isPwdValid === null || isPwdValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              비밀번호가 일치하지 않습니다.
-            </span>
-          </div>
-          <div className="signUpName">
-            <div className="signUpNameText">이름</div>
-            <input
-              className="signUpNameInput"
-              type="text"
-              onChange={this.nameInput}
-              onBlur={this.nameCheck}
-            ></input>
-            <span
-              className={
-                isNameValid === null || isNameValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              필수정보입니다.
-            </span>
-          </div>
-          <div className="signUpBday">
-            <div classname="signUpBdayText">생년월일</div>
-            <input
-              className="bDayYr"
-              type="text"
-              placeholder="  년 (4자)"
-              onChange={this.yrInput}
-              onBlur={this.yrCheck}
-            ></input>
-            <span
-              className={
-                isYrValid === null || isYrValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              태어난 년도 4자리를 정확하게 입력하세요.
-            </span>
-            <select
-              className="month"
-              onChange={this.monthInput}
-              onBlur={this.monthCheck}
-            >
-              <option value="" disabled selected>
-                월
-              </option>
-              <option value="01">1</option>
-              <option value="02">2</option>
-              <option value="03">3</option>
-              <option value="04">4</option>
-              <option value="05">5</option>
-              <option value="06">6</option>
-              <option value="07">7</option>
-              <option value="08">8</option>
-              <option value="09">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-            </select>
-            <span
-              className={
-                isMonthValid === null || isMonthValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              태어난 월을 선택하세요.
-            </span>
-            <input
-              className="bDayDay"
-              type="text"
-              placeholder="일"
-              onChange={this.dayInput}
-              onBlur={this.dayCheck}
-            ></input>
-            <span
-              className={
-                isDayValid === null || isDayValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              태어난 일(날짜) 2자리를 정확하게 입력하세요.
-            </span>
-          </div>
-          <div className="signUpSex">
-            <a className="signUpSexText">성별</a>
-            <select
-              name="sexSelectBox"
-              onChange={this.genderInput}
-              onBlur={this.genderCheck}
-            >
-              <option value="" disabled selected>
-                성별
-              </option>
-              <option value="male">남성</option>
-              <option value="female">여성</option>
-              <option value="notApplicable">선택안함</option>
-            </select>
-            <span
-              className={
-                isGenderValid === null || isGenderValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              성별을 선택해주세요.
-            </span>
-          </div>
-          <div className="signUpEmail">
-            <div className="signUpemailText">
-              <a className="signUpEmailText">본인 확인 이메일</a>
-              <a className="signUpEmailTextOption">(선택)</a>
+          <header>
+            <div className="signUpLogoBorder">
+              <img className="signUpLogo"></img>
             </div>
-            <input
-              className="signUpEmailInput"
-              placeholder="선택입력"
-              onChange={this.emailInput}
-            ></input>
-          </div>
-          <div className="phoneNumber">
-            <a className="phoneNumberText">휴대전화</a>
-            <input
-              className="phoneNumberInput"
-              placeholder="전화번호 입력 ( - 없이)"
-              onChange={this.numInput}
-              onBlur={this.numCheck}
-            ></input>
-            <span
-              className={
-                isNumValid === null || isNumValid
-                  ? 'hideErrorMsg'
-                  : 'showErrorMsg'
-              }
-            >
-              필수 정보입니다.
-            </span>
-          </div>
-          <div className="signInBtnDiv">
-            <button
-              className="signInBtn"
-              onClick={() => {
-                this.subscribeBtn();
-                this.handleClick();
-              }}
-            >
-              가입하기
-            </button>
-          </div>
+          </header>
+          <body>
+            <div className="signUpId">
+              <a className="signUpIdText">아이디</a>
+              <input
+                className="signUpIdInput"
+                type="text"
+                onChange={this.idInput}
+                onBlur={this.idCheck}
+              ></input>
+              <span
+                className={
+                  isIdValid === null || isIdValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                필수 정보입니다.
+              </span>
+            </div>
+            <div className="signUpPwd">
+              <a className="signUpPwdText">비밀번호</a>
+              <input
+                className="signUpPwdInput"
+                type="password"
+                onChange={this.pwdInput}
+                onBlur={this.pwdInputCheck}
+              ></input>
+              <span
+                className={
+                  isPwdInputValid === null || isPwdInputValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                8-20자리 비밀번호가 필요합니다.
+              </span>
+            </div>
+            <div className="signUpPwdRepeat">
+              <a className="signUpPwdTextRepeat">비밀번호 재확인</a>
+              <input
+                className="signUpPwdCheck"
+                type="password"
+                onChange={this.pwdCheckInput}
+                onBlur={this.handleEqualPwd}
+              ></input>
+              <span
+                className={
+                  isPwdValid === null || isPwdValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                비밀번호가 일치하지 않습니다.
+              </span>
+            </div>
+            <div className="signUpName">
+              <div className="signUpNameText">이름</div>
+              <input
+                className="signUpNameInput"
+                type="text"
+                onChange={this.nameInput}
+                onBlur={this.nameCheck}
+              ></input>
+              <span
+                className={
+                  isNameValid === null || isNameValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                필수정보입니다.
+              </span>
+            </div>
+            <div className="signUpBday">
+              <div classname="signUpBdayText">생년월일</div>
+              <input
+                className="bDayYr"
+                type="text"
+                placeholder="  년 (4자)"
+                onChange={this.yrInput}
+                onBlur={this.yrCheck}
+              ></input>
+              <span
+                className={
+                  isYrValid === null || isYrValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                태어난 년도 4자리를 정확하게 입력하세요.
+              </span>
+              <select
+                className="month"
+                onChange={this.monthInput}
+                onBlur={this.monthCheck}
+              >
+                <option value="" disabled selected>
+                  월
+                </option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+              <span
+                className={
+                  isMonthValid === null || isMonthValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                태어난 월을 선택하세요.
+              </span>
+              <input
+                className="bDayDay"
+                type="text"
+                placeholder="일"
+                onChange={this.dayInput}
+                onBlur={this.dayCheck}
+              ></input>
+              <span
+                className={
+                  isDayValid === null || isDayValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                태어난 일(날짜) 2자리를 정확하게 입력하세요.
+              </span>
+            </div>
+            <div className="signUpSex">
+              <a className="signUpSexText">성별</a>
+              <select
+                name="sexSelectBox"
+                onChange={this.genderInput}
+                onBlur={this.genderCheck}
+              >
+                <option value="" disabled selected>
+                  성별
+                </option>
+                <option value="male">남성</option>
+                <option value="female">여성</option>
+                <option value="notApplicable">선택안함</option>
+              </select>
+              <span
+                className={
+                  isGenderValid === null || isGenderValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                성별을 선택해주세요.
+              </span>
+            </div>
+            <div className="signUpEmail">
+              <div className="signUpemailText">
+                <a className="signUpEmailText">본인 확인 이메일</a>
+                <a className="signUpEmailTextOption">(선택)</a>
+              </div>
+              <input
+                className="signUpEmailInput"
+                placeholder="선택입력"
+                onChange={this.emailInput}
+              ></input>
+            </div>
+            <div className="phoneNumber">
+              <a className="phoneNumberText">휴대전화</a>
+              <input
+                className="phoneNumberInput"
+                placeholder="전화번호 입력 ( - 없이)"
+                onChange={this.numInput}
+                onBlur={this.numCheck}
+              ></input>
+              <span
+                className={
+                  isNumValid === null || isNumValid
+                    ? 'hideErrorMsg'
+                    : 'showErrorMsg'
+                }
+              >
+                필수 정보입니다.
+              </span>
+            </div>
+            <div className="signInBtnDiv">
+              <button
+                className="signInBtn"
+                onClick={() => {
+                  this.subscribeBtn();
+                  this.handleClick();
+                }}
+              >
+                가입하기
+              </button>
+            </div>
+          </body>
         </main>
-        <footer></footer>
       </>
     );
   }

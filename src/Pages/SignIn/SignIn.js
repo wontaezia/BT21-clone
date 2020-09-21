@@ -61,70 +61,81 @@ class SignIn extends Component {
   render() {
     return (
       <main>
-        <nav>
-          <Dropdown
-            className="selectLanguage"
-            placeholder="한국어"
-            options={['한국어', 'English', '中文']}
-            value="one"
-            onChange={(value) => console.log('change!', value)}
-            onSelect={(value) => console.log('selected!', value)}
-            onClose={(closedBySelection) =>
-              console.log('closedBySelection?:', closedBySelection)
-            }
-            onOpen={() => console.log('open!')}
-          />
-        </nav>
-        <content>
-          <div className="signInLogoBorder">
-            <img className="signInLogo"></img>
-          </div>
-          <div className="signInInput">
-            <input
-              className={
-                this.state.idValue ? 'signInIdInput isActive' : 'signInIdInput'
+        <div className="mainContainer">
+          <nav>
+            <Dropdown
+              className="selectLanguage"
+              placeholder="한국어"
+              options={['한국어', 'English', '中文']}
+              value="one"
+              onChange={(value) => console.log('change!', value)}
+              onSelect={(value) => console.log('selected!', value)}
+              onClose={(closedBySelection) =>
+                console.log('closedBySelection?:', closedBySelection)
               }
-              type="text"
-              placeholder="   아이디"
-              onKeyUp={this.colorIdChange}
+              onOpen={() => console.log('open!')}
             />
-            <input
-              className={
-                this.state.passwordValue
-                  ? 'signInPwdInput isActive'
-                  : 'signInPwdInput'
-              }
-              type="password"
-              placeholder="   비밀번호"
-              onKeyUp={this.colorPasswordChange}
-            />
-          </div>
-          <button className="signInBtn">로그인</button>
-          <div className="signInOption">
-            <div className="signInStayBtn">
-              <div
-                className={
-                  this.state.staySignIn
-                    ? 'signInStayCheck isSignIn'
-                    : 'signInStayCheck'
-                }
-                onClick={this.staySignIn}
-              ></div>
-              <p class="signInStayText">로그인 상태 유지</p>
+          </nav>
+          <content>
+            <div className="signInLogoBorder">
+              <img className="signInLogo"></img>
             </div>
-            <div className="ipSecurity">
-              <p className="ipSecurityText">IP 보안</p>
-              <div
+            <div className="signInInput">
+              <input
                 className={
-                  this.state.ipSecurity
-                    ? 'securityOnOff check'
-                    : 'securityOnOff'
+                  this.state.idValue
+                    ? 'signInIdInput isActive'
+                    : 'signInIdInput'
                 }
-                onClick={this.ipSecurity}
-              ></div>
+                type="text"
+                placeholder="   아이디"
+                onKeyUp={this.colorIdChange}
+              />
+              <input
+                className={
+                  this.state.passwordValue
+                    ? 'signInPwdInput isActive'
+                    : 'signInPwdInput'
+                }
+                type="password"
+                placeholder="   비밀번호"
+                onKeyUp={this.colorPasswordChange}
+              />
             </div>
-          </div>
-        </content>
+            <button
+              className="signInBtn"
+              onClick={() => {
+                this.handleClick();
+              }}
+            >
+              로그인
+            </button>
+            <div className="signInOption">
+              <div className="signInStayBtn">
+                <div
+                  className={
+                    this.state.staySignIn
+                      ? 'signInStayCheck isSignIn'
+                      : 'signInStayCheck'
+                  }
+                  onClick={this.staySignIn}
+                ></div>
+                <p class="signInStayText">로그인 상태 유지</p>
+              </div>
+              <div className="ipSecurity">
+                <p className="ipSecurityText">IP 보안</p>
+                <div
+                  className={
+                    this.state.ipSecurity
+                      ? 'securityOnOff check'
+                      : 'securityOnOff'
+                  }
+                  onClick={this.ipSecurity}
+                ></div>
+              </div>
+            </div>
+          </content>
+        </div>
       </main>
     );
   }

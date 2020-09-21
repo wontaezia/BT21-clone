@@ -76,7 +76,7 @@ const KIDS_OPTIONS = {
 class Nav extends Component {
   render() {
     return (
-      <>
+      <div className="Nav">
         <div className="Logobar">
           <div className="logoDiv">
             <img
@@ -108,7 +108,7 @@ class Nav extends Component {
           <NavbarCategory text="키즈" options={KIDS_OPTIONS} />
           <NavbarCategory text="더보기" />
         </div>
-      </>
+      </div>
     );
   }
 }

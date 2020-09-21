@@ -1,7 +1,4 @@
 @import '../../Styles/common.scss';
-* {
-  background-color: #f5f6f7;
-}
 
 header {
   .signUpLogoBorder {
@@ -19,7 +16,7 @@ header {
   }
 }
 
-main {
+body {
   text-align: center;
 
   .signUpId {

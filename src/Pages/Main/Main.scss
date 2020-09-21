@@ -1,1 +1,41 @@
 @import '../../Styles/common.scss';
+@import '../../Styles/reset.scss';
+
+// .mainSlideshowContainer {
+//   background-color: aquamarine;
+// }
+
+.mainContainer {
+  position: relative;
+  width: 100vw;
+
+  .Nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
+}
+
+.Main {
+  font-family: $notoSans;
+
+  img {
+    width: 100%;
+    height: 744px;
+  }
+
+  .slide {
+    .slick-prev {
+      left: 3%;
+      z-index: 1;
+    }
+    .slick-next {
+      right: 3%;
+      z-index: 1;
+    }
+    .slick-dots {
+      margin-bottom: 50px;
+    }
+  }
+}
