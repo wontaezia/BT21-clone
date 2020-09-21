@@ -3,6 +3,7 @@ import Slider from 'react-slick';
 import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
 import MainLookAround from './MainLookAround/MainLookAround';
 import MainAdvertisingBanner from './MainAdvertisingBanner/MainAdvertisingBanner';
+import MainCeramicAdvertisingBanner from './MainCeramicAdvertisingBanner/MainCeramicAdvertisingBanner';
 import './Main.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -78,6 +79,7 @@ class Main extends Component {
         </div>
         <MainGoToCategory />
         <MainAdvertisingBanner />
+        <MainCeramicAdvertisingBanner />
         <MainLookAround />
         <MainBottomBanner />
       </div>

@@ -9,8 +9,8 @@ class MainGoToCategory extends Component {
         <strong className="MainGoToCategoryTitle">카테고리 바로가기</strong>
         <div className="wrapGoToCategoryItems">
           {GoToCategoryItems.map((item) => (
-            <Link to={item.endPoint}>
-              <div key={item.id}>
+            <Link to={item.endPoint} key={item.id}>
+              <div>
                 <ul>
                   <li>
                     <img src={item.img}></img>
