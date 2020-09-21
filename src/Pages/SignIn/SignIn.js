@@ -34,6 +34,30 @@ class SignIn extends Component {
     this.setState((secure) => ({ ipSecurity: !secure.ipSecurity }));
   };
 
+  handleClick = () => {
+    fetch('http://10.58.4.217:8000/user/signin', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.idValue,
+        password: this.state.passwordValue,
+      }),
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        if (result.Authorization) {
+          localStorage.setItem('token', result.Authorization);
+          alert('로그인 성공');
+          this.props.history.push('/Main');
+        } else if (result.message === 'UNAUTHORIZED') {
+          alert('비밀번호 확인');
+        }
+      });
+  };
+
+  checkToken = () => {
+    const token = localStorage.getItem('token');
+  };
+
   render() {
     return (
       <main>

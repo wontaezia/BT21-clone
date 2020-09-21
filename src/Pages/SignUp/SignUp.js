@@ -107,7 +107,7 @@ class SignUp extends Component {
   };
 
   monthCheck = (event) => {
-    const monthValid = this.state.signUpMonthValue.length === 3;
+    const monthValid = this.state.signUpMonthValue.length === 2;
     console.log(monthValid);
 
     this.setState({
@@ -195,7 +195,7 @@ class SignUp extends Component {
   subscribeBtn = () => {
     console.log(this.isEveryInputValid());
     if (this.isEveryInputValid()) {
-      alert('로그인 성공');
+      alert('가입 성공');
     } else {
       this.numCheck();
       this.genderCheck();
@@ -357,18 +357,18 @@ class SignUp extends Component {
               <option value="" disabled selected>
                 월
               </option>
-              <option value="Jan">1</option>
-              <option value="Feb">2</option>
-              <option value="Mar">3</option>
-              <option value="Apr">4</option>
-              <option value="May">5</option>
-              <option value="Jun">6</option>
-              <option value="Jul">7</option>
-              <option value="Aug">8</option>
-              <option value="Sep">9</option>
-              <option value="Oct">10</option>
-              <option value="Nov">11</option>
-              <option value="Dec">12</option>
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
             </select>
             <span
               className={
