@@ -1,214 +1,192 @@
 @import '../../Styles/common.scss';
 
-header {
-  .signUpLogoBorder {
-    text-align: center;
-    margin: 60px 0 40px 0;
+.signUp {
+  background-color: #f5f6f7;
+  padding: 30px 50px;
 
-    .signUpLogo {
-      width: 250px;
-      height: 60px;
-      background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
-      background-position: -150px -90px;
+  header {
+    .signUpLogoBorder {
       text-align: center;
-      padding: 30px 0 30px 0px;
-    }
-  }
-}
+      margin: 0 0 40px 0;
 
-body {
-  text-align: center;
-
-  .signUpId {
-    .signUpIdText {
-      display: block;
-      text-align: left;
-      margin: 0 0 0 60px;
-      font: 14px bold;
-    }
-
-    .signUpIdInput {
-      width: 460px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
+      .signUpLogo {
+        width: 250px;
+        height: 60px;
+        background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+        background-position: -150px -90px;
+        text-align: center;
+        padding: 30px 0 30px 0px;
+      }
     }
   }
 
-  .signUpPwd {
-    .signUpPwdText {
+  .signUpForm {
+    text-align: center;
+    width: 460px;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    .signUpId {
+      .signUpIdText {
+        display: block;
+      }
+
+      .signUpIdInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpPwd {
+      .signUpPwdText {
+        display: block;
+      }
+
+      .signUpPwdInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpPwdRepeat {
+      .signUpPwdTextRepeat {
+        display: block;
+      }
+
+      .signUpPwdCheck {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpName {
+      .signUpNameText {
+        display: block;
+      }
+
+      .signUpNameInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpBday {
       display: block;
-      text-align: left;
-      margin: 0 0 0 60px;
-      font: 14px bold;
+      .signUpBdayText {
+      }
+
+      .bDayYr {
+        display: inline;
+        width: 146px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+
+      select {
+        display: inline;
+        width: 146px;
+        height: 51px;
+        margin: 15px 0 15px 10px;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+
+      .bDayDay {
+        display: inline;
+        width: 146px;
+        height: 51px;
+        margin: 15px 0 15px 10px;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
     }
 
-    .signUpPwdInput {
-      width: 460px;
-      height: 51px;
+    .signUpSex {
+      .signUpSexText {
+        display: block;
+      }
+
+      select {
+        display: inline;
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpEmail {
       margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-  }
 
-  .signUpPwdRepeat {
-    .signUpPwdTextRepeat {
-      display: block;
-      text-align: left;
-      margin: 0 0 0 60px;
-      font: 14px bold;
+      .signUpemailText {
+        .signUpEmailText1 {
+          display: inline;
+        }
+
+        .signUpEmailText2 {
+          display: inline;
+          color: #fafafa;
+        }
+      }
+
+      .signUpEmailInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
     }
 
-    .signUpPwdCheck {
+    .phoneNumber {
+      .phoneNumberText {
+        display: block;
+      }
+
+      .phoneNumberInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signInBtn {
       width: 460px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
+      height: 54px;
+      margin: 30px 0 0 0px;
+      padding: 15px 0px;
+      background-color: #03c75a;
+      color: white;
+      font-size: 18px;
     }
-
-    .equal {
+    .hideErrorMsg {
       display: none;
     }
 
-    .isEqual {
+    .showErrorMsg {
       display: block;
-    }
-  }
-
-  .signUpName {
-    .signUpNameText {
-      display: block;
+      color: red;
+      font-size: 13px;
       text-align: left;
-      margin: 0 0 0 60px;
-      font: 14px bold;
-    }
-
-    .signUpNameInput {
-      width: 460px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
+      margin-bottom: 20px;
     }
   }
-
-  .signUpBday {
-    display: block;
-    text-align: left;
-    margin: 0 0 0 60px;
-    .signUpBdayText {
-    }
-
-    .bDayYr {
-      display: inline;
-      width: 146px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-
-    select {
-      display: inline;
-      width: 146px;
-      height: 51px;
-      margin: 15px 0 15px 13px;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-
-    .bDayDay {
-      display: inline;
-      width: 146px;
-      height: 51px;
-      margin: 15px 0 15px 14px;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-  }
-
-  .signUpSex {
-    .signUpSexText {
-      display: block;
-      text-align: left;
-      margin: 0 0 0 60px;
-      font: 14px bold;
-    }
-
-    select {
-      display: inline;
-      width: 460px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-  }
-
-  .signUpEmail {
-    text-align: left;
-    margin: 0 0 0 60px;
-
-    .signUpemailText {
-      .signUpEmailText1 {
-        display: inline;
-      }
-
-      .signUpEmailText2 {
-        display: inline;
-        color: #fafafa;
-      }
-    }
-
-    .signUpEmailInput {
-      width: 460px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-  }
-
-  .phoneNumber {
-    .phoneNumberText {
-      display: block;
-      text-align: left;
-      margin: 0 0 0 60px;
-      font: 14px bold;
-    }
-
-    .phoneNumberInput {
-      width: 460px;
-      height: 51px;
-      margin: 15px 0 15px 0;
-      border: 1px solid #dadada;
-      background-color: white;
-    }
-  }
-
-  .signInBtn {
-    width: 460px;
-    height: 54px;
-    margin: 30px 0 0 0px;
-    padding: 15px 0px;
-    background-color: #03c75a;
-    color: white;
-    font-size: 18px;
-  }
-}
-
-.hideErrorMsg {
-  display: none;
-}
-
-.showErrorMsg {
-  display: block;
-  color: red;
-  font-size: 13px;
-  text-align: left;
-  margin-left: 60px;
-  margin-bottom: 20px;
 }

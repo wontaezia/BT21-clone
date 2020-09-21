@@ -35,7 +35,6 @@ class SignUp extends Component {
 
   idCheck = () => {
     const isIdValidList = this.state.signUpIdValue.length > 0;
-    console.log(isIdValidList);
     this.setState({
       isIdValid: isIdValidList,
     });
@@ -57,7 +56,6 @@ class SignUp extends Component {
     const pwdInputValid =
       this.state.signUpPwdValue.length > 8 &&
       this.state.signUpPwdValue.length < 20;
-    console.log(pwdInputValid);
     this.setState({
       isPwdInputValid: pwdInputValid,
     });
@@ -65,7 +63,6 @@ class SignUp extends Component {
 
   handleEqualPwd = () => {
     const pwdEqual = this.state.signUpPwdValue === this.state.signUpPwdCheck;
-    console.log(pwdEqual);
     this.setState({
       isPwdValid: pwdEqual,
     });
@@ -79,7 +76,6 @@ class SignUp extends Component {
 
   nameCheck = () => {
     const nameValid = this.state.signUpNameValue.length > 0;
-    console.log(nameValid);
     this.setState({
       isNameValid: nameValid,
     });
@@ -93,7 +89,6 @@ class SignUp extends Component {
 
   yrCheck = (event) => {
     const yrValid = this.state.signUpYrValue.length === 4;
-    console.log(yrValid);
 
     this.setState({
       isYrValid: yrValid,
@@ -108,7 +103,6 @@ class SignUp extends Component {
 
   monthCheck = (event) => {
     const monthValid = this.state.signUpMonthValue.length === 2;
-    console.log(monthValid);
 
     this.setState({
       isMonthValid: monthValid,
@@ -123,7 +117,7 @@ class SignUp extends Component {
 
   dayCheck = () => {
     const dayValid = this.state.signUpDayValue.length === 2;
-    console.log(dayValid);
+
     this.setState({
       isDayValid: dayValid,
     });
@@ -141,7 +135,6 @@ class SignUp extends Component {
       signUpGenderValue === 'male' ||
       signUpGenderValue === 'female' ||
       signUpGenderValue === 'notApplicable';
-    console.log(genderValid);
     this.setState({
       isGenderValid: genderValid,
     });
@@ -161,7 +154,6 @@ class SignUp extends Component {
 
   numCheck = (event) => {
     const numValid = this.state.signUpNumValue.length !== 11;
-    console.log(numValid);
     this.setState({
       isNumValid: !numValid,
     });
@@ -193,7 +185,6 @@ class SignUp extends Component {
   };
 
   subscribeBtn = () => {
-    console.log(this.isEveryInputValid());
     if (this.isEveryInputValid()) {
       alert('가입 성공');
     } else {
@@ -251,88 +242,98 @@ class SignUp extends Component {
       isGenderValid,
       isNumValid,
     } = this.state;
+
+    let dateErrorMsg;
+    if (!isYrValid) {
+      dateErrorMsg = '태어난 년도 4자리를 정확하게 입력하세요.';
+    } else if (!isMonthValid) {
+      dateErrorMsg = '태어난 월을 선택하세요.';
+    } else if (!isDayValid) {
+      dateErrorMsg = '태어난 일(날짜) 2자리를 정확하게 입력하세요.';
+    }
+
     return (
-      <>
-        <main>
-          <header>
-            <div className="signUpLogoBorder">
-              <img className="signUpLogo"></img>
-            </div>
-          </header>
-          <body>
-            <div className="signUpId">
-              <a className="signUpIdText">아이디</a>
-              <input
-                className="signUpIdInput"
-                type="text"
-                onChange={this.idInput}
-                onBlur={this.idCheck}
-              ></input>
-              <span
-                className={
-                  isIdValid === null || isIdValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                필수 정보입니다.
-              </span>
-            </div>
-            <div className="signUpPwd">
-              <a className="signUpPwdText">비밀번호</a>
-              <input
-                className="signUpPwdInput"
-                type="password"
-                onChange={this.pwdInput}
-                onBlur={this.pwdInputCheck}
-              ></input>
-              <span
-                className={
-                  isPwdInputValid === null || isPwdInputValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                8-20자리 비밀번호가 필요합니다.
-              </span>
-            </div>
-            <div className="signUpPwdRepeat">
-              <a className="signUpPwdTextRepeat">비밀번호 재확인</a>
-              <input
-                className="signUpPwdCheck"
-                type="password"
-                onChange={this.pwdCheckInput}
-                onBlur={this.handleEqualPwd}
-              ></input>
-              <span
-                className={
-                  isPwdValid === null || isPwdValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                비밀번호가 일치하지 않습니다.
-              </span>
-            </div>
-            <div className="signUpName">
-              <div className="signUpNameText">이름</div>
-              <input
-                className="signUpNameInput"
-                type="text"
-                onChange={this.nameInput}
-                onBlur={this.nameCheck}
-              ></input>
-              <span
-                className={
-                  isNameValid === null || isNameValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                필수정보입니다.
-              </span>
-            </div>
-            <div className="signUpBday">
+      <div className="signUp">
+        <header>
+          <div className="signUpLogoBorder">
+            <img className="signUpLogo"></img>
+          </div>
+        </header>
+        <div className="signUpForm">
+          <div className="signUpId">
+            <a className="signUpIdText">아이디</a>
+            <input
+              className="signUpIdInput"
+              type="text"
+              onChange={this.idInput}
+              onBlur={this.idCheck}
+            ></input>
+            <span
+              className={
+                isIdValid === null || isIdValid
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              필수 정보입니다.
+            </span>
+          </div>
+          <div className="signUpPwd">
+            <a className="signUpPwdText">비밀번호</a>
+            <input
+              className="signUpPwdInput"
+              type="password"
+              onChange={this.pwdInput}
+              onBlur={this.pwdInputCheck}
+            ></input>
+            <span
+              className={
+                isPwdInputValid === null || isPwdInputValid
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              8-20자리 비밀번호가 필요합니다.
+            </span>
+          </div>
+          <div className="signUpPwdRepeat">
+            <a className="signUpPwdTextRepeat">비밀번호 재확인</a>
+            <input
+              className="signUpPwdCheck"
+              type="password"
+              onChange={this.pwdCheckInput}
+              onBlur={this.handleEqualPwd}
+            ></input>
+            <span
+              className={
+                isPwdValid === null || isPwdValid
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              비밀번호가 일치하지 않습니다.
+            </span>
+          </div>
+          <div className="signUpName">
+            <div className="signUpNameText">이름</div>
+            <input
+              className="signUpNameInput"
+              type="text"
+              onChange={this.nameInput}
+              onBlur={this.nameCheck}
+            ></input>
+            <span
+              className={
+                isNameValid === null || isNameValid
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              필수정보입니다.
+            </span>
+          </div>
+          <div className="signUpBday">
+            <div className="signUpInputBox">
               <div classname="signUpBdayText">생년월일</div>
               <input
                 className="bDayYr"
@@ -341,15 +342,6 @@ class SignUp extends Component {
                 onChange={this.yrInput}
                 onBlur={this.yrCheck}
               ></input>
-              <span
-                className={
-                  isYrValid === null || isYrValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                태어난 년도 4자리를 정확하게 입력하세요.
-              </span>
               <select
                 className="month"
                 onChange={this.monthInput}
@@ -371,132 +363,96 @@ class SignUp extends Component {
                 <option value="11">11</option>
                 <option value="12">12</option>
               </select>
-              <span
-                className={
-                  isMonthValid === null || isMonthValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                태어난 월을 선택하세요.
-              </span>
               <input
                 className="bDayDay"
                 type="text"
-                placeholder="일"
+                placeholder="  일"
                 onChange={this.dayInput}
                 onBlur={this.dayCheck}
               ></input>
-              <span
-                className={
-                  isDayValid === null || isDayValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                태어난 일(날짜) 2자리를 정확하게 입력하세요.
-              </span>
             </div>
-            <div className="signUpSex">
-              <a className="signUpSexText">성별</a>
-              <select
-                name="sexSelectBox"
-                onChange={this.genderInput}
-                onBlur={this.genderCheck}
-              >
-                <option value="" disabled selected>
-                  성별
-                </option>
-                <option value="male">남성</option>
-                <option value="female">여성</option>
-                <option value="notApplicable">선택안함</option>
-              </select>
-              <span
-                className={
-                  isGenderValid === null || isGenderValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                성별을 선택해주세요.
-              </span>
+          </div>
+          <div className="signUpWarningBox">
+            <span
+              className={
+                isYrValid !== false &&
+                isMonthValid !== false &&
+                isDayValid !== false
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              {dateErrorMsg}
+            </span>
+          </div>
+          <div className="signUpSex">
+            <a className="signUpSexText">성별</a>
+            <select
+              name="sexSelectBox"
+              onChange={this.genderInput}
+              onBlur={this.genderCheck}
+            >
+              <option value="" disabled selected>
+                성별
+              </option>
+              <option value="male">남성</option>
+              <option value="female">여성</option>
+              <option value="notApplicable">선택안함</option>
+            </select>
+            <span
+              className={
+                isGenderValid === null || isGenderValid
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              성별을 선택해주세요.
+            </span>
+          </div>
+          <div className="signUpEmail">
+            <div className="signUpemailText">
+              <a className="signUpEmailText">본인 확인 이메일</a>
+              <a className="signUpEmailTextOption">(선택)</a>
             </div>
-            <div className="signUpEmail">
-              <div className="signUpemailText">
-                <a className="signUpEmailText">본인 확인 이메일</a>
-                <a className="signUpEmailTextOption">(선택)</a>
-              </div>
-              <input
-                className="signUpEmailInput"
-                placeholder="선택입력"
-                onChange={this.emailInput}
-              ></input>
-            </div>
-            <div className="phoneNumber">
-              <a className="phoneNumberText">휴대전화</a>
-              <input
-                className="phoneNumberInput"
-                placeholder="전화번호 입력 ( - 없이)"
-                onChange={this.numInput}
-                onBlur={this.numCheck}
-              ></input>
-              <span
-                className={
-                  isNumValid === null || isNumValid
-                    ? 'hideErrorMsg'
-                    : 'showErrorMsg'
-                }
-              >
-                필수 정보입니다.
-              </span>
-            </div>
-            <div className="signInBtnDiv">
-              <button
-                className="signInBtn"
-                onClick={() => {
-                  this.subscribeBtn();
-                  this.handleClick();
-                }}
-              >
-                가입하기
-              </button>
-            </div>
-          </body>
-        </main>
-      </>
+            <input
+              className="signUpEmailInput"
+              placeholder="  선택입력"
+              onChange={this.emailInput}
+            ></input>
+          </div>
+          <div className="phoneNumber">
+            <a className="phoneNumberText">휴대전화</a>
+            <input
+              className="phoneNumberInput"
+              placeholder="  전화번호 입력 ( - 없이)"
+              onChange={this.numInput}
+              onBlur={this.numCheck}
+            ></input>
+            <span
+              className={
+                isNumValid === null || isNumValid
+                  ? 'hideErrorMsg'
+                  : 'showErrorMsg'
+              }
+            >
+              필수 정보입니다.
+            </span>
+          </div>
+          <div className="signInBtnDiv">
+            <button
+              className="signInBtn"
+              onClick={() => {
+                this.subscribeBtn();
+                this.handleClick();
+              }}
+            >
+              가입하기
+            </button>
+          </div>
+        </div>
+      </div>
     );
   }
 }
 
 export default SignUp;
-
-// idWarning = (event) => {
-//   this.setState({
-//     signUpIdValue: event.target.value,
-//   });
-// };
-
-// handleInput = (event) => {
-//   const {name, value} = event.target
-//   this.setState({
-//     [name]: value,
-//   });
-// };
-
-// bDayValid = () => {
-//   const { signUpYrValue, signUpDayValue } = this.state;
-//   const signUpYrValid = signUpYrValue.length !== 4;
-//   const signUpDayValid = signUpDayValue.length !== 2;
-//   const validation = {
-//     [signUpYrValid]: '4자리',
-//     // [signUpDayValid]: '2자리',
-//   };
-
-//   this.setState({
-//     errorSign: validation[signUpYrValid],
-//   });
-// };
-
-{
-  /* <p className="signUpIdError1">{this.state.signUpIdValue}</p> */
-}
