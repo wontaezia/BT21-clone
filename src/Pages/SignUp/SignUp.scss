@@ -203,22 +203,10 @@ main {
   }
 }
 
-.good,
-.nameShort,
-.yrShort,
-.dayShort,
-.numShort,
-.monthShort,
-.genderShort {
+.hideErrorMsg {
   display: none;
 }
 
-.notGood,
-.nameLong,
-.yrLong,
-.dayLong,
-.numLong,
-.monthLong,
-.genderLong {
+.showErrorMsg {
   display: block;
 }

@@ -1,1 +1,44 @@
 @import '../../Styles/common.scss';
+
+.Logobar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+}
+
+.linefriendsLogo {
+  width: 250px;
+}
+
+.searchDiv {
+  position: absolute;
+  right: 60px;
+
+  .searchbox {
+    height: 36px;
+    border-radius: 20px;
+    background-image: url('https://www.iconfinder.com/data/icons/ios-7-icons/50/search-512.png')
+      20px no-repeat;
+    background-color: #00000008;
+    padding: 2px 40px 0px 20px;
+  }
+  > .magnifyImg {
+    background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200918175251/img/sprite/svg/spIcon_svg.svg');
+    background-size: 678px 673px;
+    background-position: -517px -582px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.Navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

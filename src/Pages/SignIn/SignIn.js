@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SignIn.scss';
 import Dropdown, { Selection } from 'react-dropdown-now';
+import 'react-dropdown/style.css';
 
 class SignIn extends Component {
   constructor() {

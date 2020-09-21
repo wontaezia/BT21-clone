@@ -1,0 +1,108 @@
+@import '../../../../../Styles/common.scss';
+
+.itemDetail {
+  .popUp {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+
+    &.isActive {
+      display: block;
+    }
+
+    .inner {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 600px;
+      padding: 50px 120px;
+      transform: translate(-50%, -50%);
+      background: #eeeeee;
+
+      .content {
+        position: relative;
+      }
+
+      h3 {
+        color: #444;
+        font-size: 18px;
+
+        span {
+          color: #aaa;
+        }
+      }
+
+      .userInfo {
+        @include flex(null, center);
+        padding: 16px 16px 10px;
+        margin-top: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .userPhoto {
+        width: 40px;
+        height: 40px;
+        margin-right: 16px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .reviewImage {
+        margin-top: 10px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .review {
+        position: relative;
+        width: 100%;
+        padding: 16px;
+        margin-top: 10px;
+        border-radius: 10px;
+        background: #fff;
+        color: #444;
+        font-size: 13px;
+        font-weight: lighter;
+        letter-spacing: 1px;
+        line-height: 18px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -7.5px;
+          left: 28px;
+          display: block;
+          width: 15px;
+          height: 15px;
+          background: #fff;
+          transform: rotate(-45deg);
+        }
+      }
+
+      .prevButton,
+      .nextButton {
+        position: absolute;
+        top: 50%;
+        font-size: 50px;
+        transform: translateY(-50%);
+        cursor: pointer;
+      }
+
+      .prevButton {
+        left: -80px;
+      }
+
+      .nextButton {
+        right: -80px;
+      }
+    }
+  }
+}
