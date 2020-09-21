@@ -13,7 +13,7 @@ class InformationTab extends Component {
       dateOfManufacture,
     } = this.props.itemData;
     return (
-      <div className="informationTab">
+      <div className="InformationTab">
         <h2 className="tab">상세정보</h2>
         <div className="shippingDays">
           <h3>배송기간</h3>
@@ -30,21 +30,25 @@ class InformationTab extends Component {
             <ul className="chart">
               {SHIP_DATA.map((data, index) => {
                 const { id, option, count } = data;
-                let ratio = parseInt((count / total()) * 100);
+                let ratio = parseInt((count / getTotalCount()) * 100);
                 return (
                   <li key={id}>
                     <span className="option">{option}</span>
                     <div className="line">
                       <div
                         className={
-                          max() === index ? 'activeLine top' : 'activeLine'
+                          getMaxInCount() === index
+                            ? 'activeLine max'
+                            : 'activeLine'
                         }
                         style={{ width: `${ratio}%` }}
                       />
                       <div className="backgroundLine"></div>
                     </div>
                     <span
-                      className={max() === index ? 'count top' : 'count'}
+                      className={
+                        getMaxInCount() === index ? 'count max' : 'count'
+                      }
                     >{`${count}건 (${count ? ratio : 0}%)`}</span>
                   </li>
                 );
@@ -158,17 +162,17 @@ const SHIP_DATA = [
   },
 ];
 
-const total = () => {
-  let total = 0;
+function getTotalCount() {
+  let counts = [];
 
   for (let data of SHIP_DATA) {
-    total = total + data.count;
+    counts.push(data.count);
   }
 
-  return total;
-};
+  return counts.reduce((accumulator, count) => accumulator + count, 0);
+}
 
-const max = () => {
+function getMaxInCount() {
   let max = 0;
   const counts = [];
 
@@ -178,4 +182,4 @@ const max = () => {
 
   max = Math.max(...counts);
   return counts.indexOf(max);
-};
+}

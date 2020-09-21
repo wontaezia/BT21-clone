@@ -20,7 +20,7 @@ class Info extends Component {
     itemPrice = Number(itemPrice);
 
     return (
-      <div className="info">
+      <div className="Info">
         <h2 className="itemName">{itemName}</h2>
         <span className="itemPrice">{itemPrice.toLocaleString()}</span>
         <div className="NHBanner">

@@ -5,7 +5,7 @@ class BestItem extends Component {
   render() {
     const { itemList, title } = this.props;
     return (
-      <div className="bestItem">
+      <div className="BestItem">
         <h3>{title}</h3>
         <ul className="productList">
           {itemList?.map((item) => {

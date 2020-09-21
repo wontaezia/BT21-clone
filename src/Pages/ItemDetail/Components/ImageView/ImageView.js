@@ -19,7 +19,7 @@ class ImageView extends Component {
     const { currentImage } = this.state;
     const { productImage, thumbnail } = this.props.itemData;
     return (
-      <div className="imageView">
+      <div className="ImageView">
         <div className="imageContainer">
           {
             <img

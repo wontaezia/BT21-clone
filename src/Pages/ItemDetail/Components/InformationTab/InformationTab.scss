@@ -1,7 +1,7 @@
 @import '../../../../Styles/common.scss';
 
-.itemDetail {
-  .informationTab {
+.ItemDetail {
+  .InformationTab {
     .tab {
       width: 100%;
       padding: 16px 0;
@@ -115,7 +115,7 @@
             .activeLine {
               z-index: 100;
 
-              &.top {
+              &.max {
                 background: #6b90dc;
               }
             }
@@ -131,7 +131,7 @@
           .count {
             color: #aaa;
 
-            &.top {
+            &.max {
               color: #6b90dc;
             }
           }

@@ -1,0 +1,52 @@
+@import '../../../Styles/common.scss';
+
+.Footer {
+  .Corporation {
+    max-width: 450px;
+    margin-right: 60px;
+    font-size: 12px;
+    line-height: 22px;
+
+    h4 {
+      padding: 6px 0;
+      font-weight: bold;
+    }
+
+    span {
+      color: #666;
+    }
+  }
+
+  .aboutOurCompany {
+    span {
+      display: inline-block;
+      margin-right: 10px;
+
+      &:nth-child(odd)::before {
+        content: '';
+        display: inline-block;
+        width: 1px;
+        height: 8px;
+        margin-right: 10px;
+        border-left: 1px solid #ddd;
+      }
+    }
+  }
+
+  .customerServiceCenter,
+  .disputeHandling {
+    span {
+      display: block;
+
+      &:last-child {
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+          color: #000;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

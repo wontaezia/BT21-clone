@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Footer from '../../Components/Footer/Footer';
 import BestItem from './Components/BestItem/BestItem';
 import DetailViewNav from './Components/DetailViewNav/DetailViewNav';
 import ImageView from './Components/ImageView/ImageView';
@@ -20,14 +21,14 @@ class ItemDetail extends Component {
       suggestionItems: [],
       bestItems: [],
     };
-    this.reviewList = React.createRef();
+    this.bestItemsList = React.createRef();
   }
 
   handleFixedNavDisplay = () => {
-    const { current } = this.reviewList;
-    const reviewOffsetTop = ReactDOM.findDOMNode(current).offsetTop;
+    const { current } = this.bestItemsList;
+    const bestItemsListOffsetTop = ReactDOM.findDOMNode(current).offsetTop;
     const scrollTop = window.pageYOffset;
-    const isActive = scrollTop > reviewOffsetTop;
+    const isActive = scrollTop > bestItemsListOffsetTop;
 
     this.setState({
       endPoint: isActive,
@@ -83,7 +84,7 @@ class ItemDetail extends Component {
     //   itemData: res.data,
     //   });
     // });
-    fetch(`http://10.58.4.213:8000/product/detailview/181`)
+    fetch(`http://10.58.6.82:8000/product/detailview/8`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -134,23 +135,45 @@ class ItemDetail extends Component {
       optionSelected,
     } = this.state;
     return (
-      <main className="itemDetail">
-        <nav>
-          <ul className="share">
-            {SHARE_ICON.map((icon) => {
-              const { name, backgroundPosition } = icon;
-              return (
-                <li className={name} key={name}>
-                  <button style={{ backgroundPosition }}></button>
-                </li>
-              );
-            })}
-          </ul>
-          <div className="category"></div>
-        </nav>
-        <div className="detailMain">
-          <ImageView itemData={itemData} />
-          <Info
+      <>
+        <main className="ItemDetail">
+          <nav>
+            <ul className="share">
+              {SHARE_ICON.map((icon) => {
+                const { name, backgroundPosition } = icon;
+                return (
+                  <li className={name} key={name}>
+                    <button style={{ backgroundPosition }}></button>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="category"></div>
+          </nav>
+          <div className="detailMain">
+            <ImageView itemData={itemData} />
+            <Info
+              itemData={itemData}
+              totalItemCount={totalItemCount}
+              isSelected={isSelected}
+              optionSelected={optionSelected}
+              decreaseTotalItemCount={this.decreaseTotalItemCount}
+              increaseTotalItemCount={this.increaseTotalItemCount}
+              deleteTotalItemCount={this.deleteTotalItemCount}
+              handleActive={this.handleActive}
+              handleOptionDisplay={this.handleOptionDisplay}
+            />
+          </div>
+          {itemData.photoReview && (
+            <PhotoReview reviews={itemData.photoReview} />
+          )}
+          <BestItem
+            ref={this.bestItemsList}
+            title="베스트 상품"
+            itemList={bestItems}
+          />
+          <DetailViewNav
+            endPoint={endPoint}
             itemData={itemData}
             totalItemCount={totalItemCount}
             isSelected={isSelected}
@@ -161,24 +184,11 @@ class ItemDetail extends Component {
             handleActive={this.handleActive}
             handleOptionDisplay={this.handleOptionDisplay}
           />
-        </div>
-        <PhotoReview ref={this.reviewList} />
-        <BestItem title="베스트 상품" itemList={bestItems} />
-        <DetailViewNav
-          endPoint={endPoint}
-          itemData={itemData}
-          totalItemCount={totalItemCount}
-          isSelected={isSelected}
-          optionSelected={optionSelected}
-          decreaseTotalItemCount={this.decreaseTotalItemCount}
-          increaseTotalItemCount={this.increaseTotalItemCount}
-          deleteTotalItemCount={this.deleteTotalItemCount}
-          handleActive={this.handleActive}
-          handleOptionDisplay={this.handleOptionDisplay}
-        />
-        <InformationTab itemData={itemData} />
-        <BestItem title="추천 상품" itemList={suggestionItems} />
-      </main>
+          <InformationTab itemData={itemData} />
+          <BestItem title="추천 상품" itemList={suggestionItems} />
+        </main>
+        <Footer />
+      </>
     );
   }
 }

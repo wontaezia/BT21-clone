@@ -33,18 +33,10 @@ class DetailViewNav extends Component {
       handleActive,
       handleOptionDisplay,
     } = this.props;
-    let {
-      itemName,
-      itemPrice,
-      shipCost,
-      sizeOption,
-      thumbnail,
-    } = this.props.itemData;
-    itemPrice = Number(itemPrice);
-    shipCost = Number(shipCost);
+    const { itemName, itemPrice, thumbnail } = this.props.itemData;
 
     return (
-      <nav className={endPoint ? 'detailViewNav isActive' : 'detailViewNav'}>
+      <nav className={endPoint ? 'DetailViewNav isActive' : 'DetailViewNav'}>
         <div className="menuTop">
           <div className="inner">
             <div className="product">
@@ -54,7 +46,7 @@ class DetailViewNav extends Component {
               <div className="productInfo">
                 <span className="productName">{itemName}</span>
                 <span className="productPrice">
-                  {itemPrice.toLocaleString()}원
+                  {itemPrice?.toLocaleString()}원
                 </span>
               </div>
             </div>
@@ -68,7 +60,7 @@ class DetailViewNav extends Component {
               <div className="inner">
                 <div className="shipCost">
                   <span className="method">택배배송</span>
-                  <span className="cost">{shipCost.toLocaleString()}원</span>
+                  <span className="cost">3,000원</span>
                 </div>
                 <span className="shipCostNumb">30,000원 이상 구매 시 무료</span>
                 <span className="shipDiscountItemList">
@@ -88,7 +80,7 @@ class DetailViewNav extends Component {
                   className={isSelected ? 'isClicked' : ''}
                   onClick={handleOptionDisplay}
                 >
-                  <li>{sizeOption}</li>
+                  <li>단품</li>
                 </ul>
               </div>
             </div>
@@ -101,7 +93,7 @@ class DetailViewNav extends Component {
                       : 'itemOptionChoice'
                   }
                 >
-                  <div className="name">{sizeOption}</div>
+                  <div className="name">단품</div>
                   <div className="option">
                     <div className="countContainer">
                       <span
