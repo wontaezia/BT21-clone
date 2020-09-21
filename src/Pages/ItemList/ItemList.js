@@ -17,6 +17,7 @@ class ItemList extends Component {
 
   componentDidMount() {
     fetch('http://localhost:3000/data/itemListTestData.json')
+      // http://10.58.6.82:8000/product/listview
       .then((res) => res.json())
       .then((res) =>
         this.setState({

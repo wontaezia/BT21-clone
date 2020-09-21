@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SwitchButton from './SwitchButton/SwitchButton';
+import ViewCountButton from './ViewCountButton/ViewCountButton';
 
 import './Filter.scss';
 
@@ -59,7 +60,9 @@ class Filter extends Component {
           <div className="viewFreeDeliveryBox">
             <SwitchButton />
           </div>
-          <div className="controlViewCount"></div>
+          <div className="controlViewCount">
+            <ViewCountButton />
+          </div>
           <div className="controlImageView">{viewbuttonmap}</div>
         </div>
       </div>

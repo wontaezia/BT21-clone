@@ -4,6 +4,7 @@
 .itemListContainer {
   .filterControlBar {
     @include flex(space-between, center, row);
+    margin-bottom: 0;
     width: 1280px;
   }
 
@@ -17,7 +18,6 @@
   .filterReviewVolume,
   .filterHighGrade {
     padding: 0;
-
     margin: 0 12px;
     position: relative;
 
@@ -79,7 +79,7 @@
   }
 
   .controlImageView {
-    @include flex(null, null, row);
+    @include flex(null, flex-end, row);
   }
 
   .imageViewBox {

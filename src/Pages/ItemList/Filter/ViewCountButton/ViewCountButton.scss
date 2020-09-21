@@ -1,0 +1,77 @@
+@import '../../../../Styles/common.scss';
+
+.itemListContainer {
+  .selectContainer {
+    margin: 0 43px 0 5px;
+    position: relative;
+    @include flex(center, flex-end, row);
+
+    .selectedView {
+      @include flex(space-between, flex-end, row);
+
+      .defaultDown {
+        top: 3px;
+        cursor: pointer;
+        text-align: end;
+        font-size: 12px;
+        line-height: 27px;
+        position: relative;
+        &::after {
+          cursor: pointer;
+          position: absolute;
+          top: 12px;
+          left: 79px;
+          display: block;
+          border: 5px solid transparent;
+          border-bottom: none;
+          border-top-color: #000;
+          content: '';
+        }
+      }
+      .defaultUp {
+        top: 3px;
+        cursor: pointer;
+        text-align: end;
+        font-size: 12px;
+        line-height: 27px;
+        position: relative;
+        &::after {
+          cursor: pointer;
+          position: absolute;
+          top: 12px;
+          left: 79px;
+          display: block;
+          border: 5px solid transparent;
+          border-top: none;
+          border-bottom-color: #000;
+          content: '';
+        }
+      }
+    }
+    .selectOption {
+      width: 100px;
+      background-color: white;
+      border: 1px solid #e2e2e2;
+      font-size: 13px;
+      line-height: 29px;
+      position: absolute;
+      padding: 5px 0;
+      z-index: 1;
+      top: 30px;
+      left: -8px;
+
+      .select {
+        padding: 0 15px;
+        width: 100%;
+        color: #00c73c;
+        font-weight: bold;
+        background-color: #e8f7ff;
+      }
+
+      .normal {
+        padding: 0 15px;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 @import '../../../../Styles/common.scss';
 .itemListContainer {
   .toggleButton {
-    padding-top: 3px;
+    padding-top: 8px;
     margin-right: 20px;
     position: relative;
     @include flex(null, center, row);
@@ -50,7 +50,7 @@
     height: 24px;
     width: 24px;
     border-radius: 50%;
-    top: 1.5px;
+    top: 6px;
     left: 55.5px;
     transition: transform 0.2s linear;
     background-color: #ffffff;
