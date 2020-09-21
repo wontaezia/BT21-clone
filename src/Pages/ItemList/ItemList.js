@@ -14,6 +14,9 @@ class ItemList extends Component {
       currentViewIdx: 1,
       currentPageIdx: 1,
       pageArray: [],
+      num: 40,
+      selectNum: 0,
+      popup: false,
     };
   }
 
@@ -23,7 +26,6 @@ class ItemList extends Component {
       .then((res) => res.json())
       .then((res) => {
         const totalPage = res.itemListTestData.length;
-        console.log(totalPage);
         const newPageArray = [];
         for (var i = 0; i < totalPage; i++) {
           newPageArray.push(i + 1);
@@ -102,13 +104,36 @@ class ItemList extends Component {
     });
   };
 
+  handlePopup = () => {
+    const { popup } = this.state;
+    this.setState({
+      popup: !popup,
+    });
+  };
+
+  selectViewCount = (e) => {
+    const { id } = e.target;
+    this.setState({
+      num: id,
+    });
+    this.handlePopup();
+  };
+
+  changeSelect = (e) => {
+    const { id } = e.target;
+    this.setState({ selectNum: id });
+  };
+
   render() {
     const {
       items,
       currentIdx,
       currentViewIdx,
       currentPageIdx,
-      newPageArray,
+      PageArray,
+      num,
+      selectNum,
+      popup,
     } = this.state;
     return (
       <div className="itemListContainer">
@@ -119,13 +144,19 @@ class ItemList extends Component {
           items={items}
           currentIdx={currentIdx}
           currentViewIdx={currentViewIdx}
+          num={num}
+          popup={popup}
+          selectNum={selectNum}
+          handlePopup={this.handlePopup}
+          selectViewCount={this.selectViewCount}
+          changeSelect={this.changeSelect}
         />
         <ListBox
           items={items}
           handleLike={this.handleLike}
           currentViewIdx={currentViewIdx}
         />
-        {newPageArray?.map((pageNumber, index) => (
+        {PageArray?.map((pageNumber, index) => (
           <Pagination
             currentPageIdx={currentPageIdx}
             id={index}

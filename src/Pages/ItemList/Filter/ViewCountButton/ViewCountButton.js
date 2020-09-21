@@ -2,44 +2,33 @@ import React, { Component } from 'react';
 import './ViewCountButton.scss';
 
 class ViewCountButton extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      popup: false,
-      num: 40,
-      selectNum: 0,
-    };
-  }
-  handlePopup = () => {
-    const { popup } = this.state;
-    this.setState({
-      popup: !popup,
-    });
-  };
-
-  selectViewCount = (e) => {
-    const { id } = e.target;
-    this.setState({
-      num: id,
-    });
-    this.handlePopup();
-  };
-
-  changeSelect = (e) => {
-    const { id } = e.target;
-    this.setState({ selectNum: id });
-  };
-
   render() {
-    const { num, popup, selectNum } = this.state;
+    const {
+      num,
+      popup,
+      selectNum,
+      handlePopup,
+      selectViewCount,
+      changeSelect,
+    } = this.props;
+    const countOption = [20, 40, 60, 80];
+    const countOptionLists = countOption.map((number, index) => (
+      <li
+        key={index}
+        id={number}
+        className={number == selectNum ? 'select' : 'normal'}
+        onMouseEnter={(e) => changeSelect(e)}
+      >
+        {number}개씩 보기
+      </li>
+    ));
     return (
       <div className="selectContainer">
-        <div className="selectedView" onClick={this.handlePopup}>
+        <div className="selectedView" onClick={() => handlePopup()}>
           <button
             className={popup ? 'defaultUp' : 'defaultDown'}
             value={num}
-            onClick={this.handlePopup}
+            onClick={() => handlePopup()}
           >
             {num}개씩 보기
           </button>
@@ -47,36 +36,9 @@ class ViewCountButton extends Component {
         <ul
           className="selectOption"
           style={{ display: popup ? 'block' : 'none' }}
-          onClick={(e) => this.selectViewCount(e)}
+          onClick={(e) => selectViewCount(e)}
         >
-          <li
-            id="20"
-            className={20 == selectNum ? 'select' : 'normal'}
-            onMouseEnter={this.changeSelect}
-          >
-            20개씩 보기
-          </li>
-          <li
-            id="40"
-            className={40 == selectNum ? 'select' : 'normal'}
-            onMouseEnter={this.changeSelect}
-          >
-            40개씩 보기
-          </li>
-          <li
-            id="60"
-            className={60 == selectNum ? 'select' : 'normal'}
-            onMouseEnter={this.changeSelect}
-          >
-            60개씩 보기
-          </li>
-          <li
-            id="80"
-            className={80 == selectNum ? 'select' : 'normal'}
-            onMouseEnter={this.changeSelect}
-          >
-            80개씩 보기
-          </li>
+          {countOptionLists}
         </ul>
       </div>
     );

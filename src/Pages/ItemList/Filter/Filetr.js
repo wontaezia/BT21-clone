@@ -11,6 +11,12 @@ class Filter extends Component {
       handleview,
       currentIdx,
       currentViewIdx,
+      num,
+      popup,
+      selectNum,
+      handlePopup,
+      selectViewCount,
+      changeSelect,
     } = this.props;
     const filterbutton = [
       ['filterPopular', 'popular', '인기도순'],
@@ -61,7 +67,14 @@ class Filter extends Component {
             <SwitchButton />
           </div>
           <div className="controlViewCount">
-            <ViewCountButton />
+            <ViewCountButton
+              num={num}
+              popup={popup}
+              selectNum={selectNum}
+              handlePopup={handlePopup}
+              selectViewCount={selectViewCount}
+              changeSelect={changeSelect}
+            />
           </div>
           <div className="controlImageView">{viewbuttonmap}</div>
         </div>
