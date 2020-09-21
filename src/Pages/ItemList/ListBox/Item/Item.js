@@ -17,7 +17,7 @@ class Item extends Component {
       itemGrade,
       isLiked,
       handleLike,
-      currentviewidx,
+      currentViewIdx,
     } = this.props;
     const viewOption = [
       'listItemBox',
@@ -25,7 +25,7 @@ class Item extends Component {
       'bigItemBox',
       'galleryItemBox',
     ];
-    const selectedViewOption = viewOption[currentviewidx];
+    const selectedViewOption = viewOption[currentViewIdx];
     return (
       <li className={selectedViewOption}>
         <div className="clickBox">

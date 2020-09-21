@@ -10,8 +10,8 @@ class ItemList extends Component {
 
     this.state = {
       items: [],
-      currentidx: 3,
-      currentviewidx: 1,
+      currentIdx: 3,
+      currentViewIdx: 1,
     };
   }
 
@@ -53,39 +53,48 @@ class ItemList extends Component {
           }
           return 0;
         }),
-        currentidx: index,
+        currentIdx: index,
       });
     }
   };
 
   handleview = (e) => {
-    const viewbutton = ['listView', 'imageView', 'bigImageView', 'galleryView'];
+    const viewButtons = [
+      'listView',
+      'imageView',
+      'bigImageView',
+      'galleryView',
+    ];
     const { id, className } = e.target;
-    if (viewbutton.indexOf(id) !== -1) {
-      this.setState({ currentviewidx: viewbutton.indexOf(id) });
-    } else if (viewbutton.indexOf(className) !== -1) {
-      this.setState({ currentviewidx: viewbutton.indexOf(className) });
-    }
+    const { currentViewIdx } = this.state;
+    const idIndex = viewButtons.indexOf(id);
+    const classNAmeIndex = viewButtons.indexOf(className);
+    this.setState({
+      currentViewIdx:
+        idIndex > -1
+          ? idIndex
+          : classNAmeIndex > -1
+          ? classNAmeIndex
+          : currentViewIdx,
+    });
   };
 
   handleLike = (e) => {
     const { items } = this.state;
     this.setState({
-      items: [
-        ...items.map((iteminfo) => {
-          if (iteminfo.itemName === e.target.id)
-            return {
-              ...iteminfo,
-              isLiked: !iteminfo.isLiked,
-            };
-          return iteminfo;
-        }),
-      ],
+      items: items.map((iteminfo) => {
+        if (iteminfo.itemName === e.target.id)
+          return {
+            ...iteminfo,
+            isLiked: !iteminfo.isLiked,
+          };
+        return iteminfo;
+      }),
     });
   };
 
   render() {
-    const { items, currentidx, currentviewidx, selectedOption } = this.state;
+    const { items, currentIdx, currentViewIdx, selectedOption } = this.state;
     return (
       <div className="itemListContainer">
         <div className="itemListCategory"></div>
@@ -93,13 +102,13 @@ class ItemList extends Component {
           handlefiltering={this.handlefiltering}
           handleview={this.handleview}
           items={items}
-          currentidx={currentidx}
-          currentviewidx={currentviewidx}
+          currentIdx={currentIdx}
+          currentViewIdx={currentViewIdx}
         />
         <ListBox
           items={items}
           handleLike={this.handleLike}
-          currentviewidx={currentviewidx}
+          currentViewIdx={currentViewIdx}
         />
         <Pagination />
       </div>

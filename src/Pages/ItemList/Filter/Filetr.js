@@ -9,8 +9,8 @@ class Filter extends Component {
     const {
       handlefiltering,
       handleview,
-      currentidx,
-      currentviewidx,
+      currentIdx,
+      currentViewIdx,
     } = this.props;
     const filterbutton = [
       ['filterPopular', 'popular', '인기도순'],
@@ -25,7 +25,7 @@ class Filter extends Component {
       return (
         <div className={filterName} key={index}>
           <button
-            className={currentidx === index ? 'checked' : buttonName}
+            className={currentIdx === index ? 'checked' : buttonName}
             onClick={handlefiltering}
           >
             {buttonContent}
@@ -39,7 +39,7 @@ class Filter extends Component {
       return (
         <div
           className={
-            currentviewidx === index ? 'imageViewBoxChecked' : 'imageViewBox'
+            currentViewIdx === index ? 'imageViewBoxChecked' : 'imageViewBox'
           }
           id={buttonName}
           onClick={handleview}
@@ -47,7 +47,7 @@ class Filter extends Component {
         >
           <button
             className={
-              currentviewidx === index ? `${buttonName}Checked` : buttonName
+              currentViewIdx === index ? `${buttonName}Checked` : buttonName
             }
           ></button>
         </div>
