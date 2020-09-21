@@ -12,6 +12,8 @@ class ItemList extends Component {
       items: [],
       currentIdx: 3,
       currentViewIdx: 1,
+      currentPageIdx: 1,
+      pageArray: [],
     };
   }
 
@@ -19,11 +21,18 @@ class ItemList extends Component {
     fetch('http://localhost:3000/data/itemListTestData.json')
       // http://10.58.6.82:8000/product/listview
       .then((res) => res.json())
-      .then((res) =>
+      .then((res) => {
+        const totalPage = res.itemListTestData.length;
+        console.log(totalPage);
+        const newPageArray = [];
+        for (var i = 0; i < totalPage; i++) {
+          newPageArray.push(i + 1);
+        }
         this.setState({
           items: res.itemListTestData,
-        })
-      );
+          pageArray: newPageArray,
+        });
+      });
   }
 
   handlefiltering = (e) => {
@@ -94,7 +103,13 @@ class ItemList extends Component {
   };
 
   render() {
-    const { items, currentIdx, currentViewIdx, selectedOption } = this.state;
+    const {
+      items,
+      currentIdx,
+      currentViewIdx,
+      currentPageIdx,
+      newPageArray,
+    } = this.state;
     return (
       <div className="itemListContainer">
         <div className="itemListCategory"></div>
@@ -110,7 +125,13 @@ class ItemList extends Component {
           handleLike={this.handleLike}
           currentViewIdx={currentViewIdx}
         />
-        <Pagination />
+        {newPageArray?.map((pageNumber, index) => (
+          <Pagination
+            currentPageIdx={currentPageIdx}
+            id={index}
+            pageNumber={pageNumber}
+          />
+        ))}
       </div>
     );
   }
