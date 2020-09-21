@@ -6,6 +6,7 @@ import MainAdvertisingBanner from './MainAdvertisingBanner/MainAdvertisingBanner
 import './Main.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import MainGoToCategory from './MainGoToCategory/MainGoToCategory';
 
 class Main extends Component {
   render() {
@@ -75,6 +76,7 @@ class Main extends Component {
             </div>
           </Slider>
         </div>
+        <MainGoToCategory />
         <MainAdvertisingBanner />
         <MainLookAround />
         <MainBottomBanner />
