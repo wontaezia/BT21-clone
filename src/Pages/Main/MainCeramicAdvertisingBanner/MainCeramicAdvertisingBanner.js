@@ -34,16 +34,12 @@ class MainCeramicAdvertisingBanner extends Component {
               <div key={item.id}>
                 <ul>
                   <div
-                    className={`${buttonOnImage}${item.id}`}
-                    onClick={() => this.viewInfo(index)}
-                    style={
+                    className={
                       borderNumber - 1 === index
-                        ? { backgroundColor: 'white', transform: 'scale(0.5)' }
-                        : {
-                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                            transform: 'scale(1)',
-                          }
+                        ? `buttonOnImage ${item.productName} active`
+                        : `buttonOnImage ${item.productName}`
                     }
+                    onClick={() => this.viewInfo(index)}
                   ></div>
                   <div
                     className={`wrapPricePannel${item.id}`}
@@ -96,30 +92,35 @@ export default MainCeramicAdvertisingBanner;
 const CeramicAdvertisingItems = [
   {
     id: 1,
+    productName: 'cup',
     img:
       'https://shop-phinf.pstatic.net/20200617_217/1592384289145atmoX_JPEG/17245418_46746721.jpg?type=f120_120',
     price: '29,000',
   },
   {
     id: 2,
+    productName: 'ChopstickRest',
     img:
       'https://shop-phinf.pstatic.net/20200617_284/1592384305944raPdS_JPEG/17246411_46746849.jpg?type=f120_120',
     price: '20,000',
   },
   {
     id: 3,
+    productName: 'bowlSet',
     img:
       'https://shop-phinf.pstatic.net/20200617_244/1592384301301a733A_JPEG/17246448_46746842.jpg?type=f120_120',
     price: '61,000',
   },
   {
     id: 4,
+    productName: 'tray',
     img:
       'https://shop-phinf.pstatic.net/20200617_135/15923842931736e4ec_JPEG/17245619_46746728.jpg?type=f120_120',
     price: '39,000',
   },
   {
     id: 5,
+    productName: 'plate',
     img:
       'https://shop-phinf.pstatic.net/20200617_221/1592384285082hrT7a_JPEG/17245100_46746714.jpg?type=f120_120',
     price: '29,000',

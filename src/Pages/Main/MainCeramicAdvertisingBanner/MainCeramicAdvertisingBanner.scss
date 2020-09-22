@@ -38,65 +38,46 @@
         cursor: pointer;
       }
 
-      .buttonOnImage1 {
+      .buttonOnImage {
         height: 14px;
         width: 14px;
         border: 3px solid white;
         border-radius: 50%;
         position: absolute;
-        top: 51%;
-        left: 80%;
         background-color: rgba(0, 0, 0, 0.3);
+        transition: all 0.3s;
         transform: scale(1);
         cursor: pointer;
       }
 
-      .buttonOnImage2 {
-        height: 14px;
-        width: 14px;
-        border: 3px solid white;
-        border-radius: 50%;
-        position: absolute;
+      .cup {
+        top: 51%;
+        left: 80%;
+      }
+
+      .ChopstickRest {
         top: 30%;
         left: 45%;
-        background-color: rgba(0, 0, 0, 0.3);
-        cursor: pointer;
       }
 
-      .buttonOnImage3 {
-        height: 14px;
-        width: 14px;
-        border: 3px solid white;
-        border-radius: 50%;
-        position: absolute;
+      .bowlSet {
         top: 80%;
         left: 84%;
-        background-color: rgba(0, 0, 0, 0.3);
-        cursor: pointer;
       }
 
-      .buttonOnImage4 {
-        height: 14px;
-        width: 14px;
-        border: 3px solid white;
-        border-radius: 50%;
-        position: absolute;
+      .tray {
         top: 72%;
         left: 53%;
-        background-color: rgba(0, 0, 0, 0.3);
-        cursor: pointer;
       }
 
-      .buttonOnImage5 {
-        height: 14px;
-        width: 14px;
-        border: 3px solid white;
-        border-radius: 50%;
-        position: absolute;
+      .plate {
         top: 55%;
         left: 38%;
-        background-color: rgba(0, 0, 0, 0.3);
-        cursor: pointer;
+      }
+
+      .active {
+        background-color: white;
+        transform: scale(0.5);
       }
 
       .wrapPricePannel1 {
