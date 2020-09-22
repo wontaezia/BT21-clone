@@ -36,6 +36,14 @@ class MainCeramicAdvertisingBanner extends Component {
                   <div
                     className={`${buttonOnImage}${item.id}`}
                     onClick={() => this.viewInfo(index)}
+                    style={
+                      borderNumber - 1 === index
+                        ? { backgroundColor: 'white', transform: 'scale(0.5)' }
+                        : {
+                            backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                            transform: 'scale(1)',
+                          }
+                    }
                   ></div>
                   <div
                     className={`wrapPricePannel${item.id}`}

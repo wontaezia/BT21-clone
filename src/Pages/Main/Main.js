@@ -4,10 +4,10 @@ import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
 import MainLookAround from './MainLookAround/MainLookAround';
 import MainAdvertisingBanner from './MainAdvertisingBanner/MainAdvertisingBanner';
 import MainCeramicAdvertisingBanner from './MainCeramicAdvertisingBanner/MainCeramicAdvertisingBanner';
+import MainGoToCategory from './MainGoToCategory/MainGoToCategory';
 import './Main.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import MainGoToCategory from './MainGoToCategory/MainGoToCategory';
 
 class Main extends Component {
   render() {
@@ -31,7 +31,6 @@ class Main extends Component {
                 alt="mainSlideBanner1"
                 src="https://shop-phinf.pstatic.net/20200902_265/1599009589348S9Lw1_JPEG/main_bn_pc_G.jpg"
               />
-              {/* <p className="aa">BT21 유니버스 인형</p> */}
             </div>
             <div>
               <img
