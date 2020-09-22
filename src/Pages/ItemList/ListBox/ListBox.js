@@ -10,7 +10,7 @@ class ListBox extends Component {
         {items?.map((iteminfo, index) => (
           <Item
             key={index}
-            itemid={iteminfo.itemId}
+            itemId={iteminfo.itemId}
             itemName={iteminfo.itemName}
             itemPrice={iteminfo.itemPrice}
             itemImage={iteminfo.itemImage}

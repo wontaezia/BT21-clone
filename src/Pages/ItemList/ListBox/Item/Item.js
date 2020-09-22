@@ -4,12 +4,15 @@ import './listItemBox.scss';
 import { withRouter } from 'react-router-dom';
 
 class Item extends Component {
-  gotoItemDetail = (itemId) => {
-    this.props.history.push(`/ItemDetail/${itemId}`);
+  gotoItemDetail = (e) => {
+    console.log(e.target.className);
+    const { className } = e.target;
+    this.props.history.push(`/ItemDetail/${className}`);
   };
 
   render() {
     const {
+      itemId,
       itemImage,
       itemName,
       itemPrice,
@@ -30,7 +33,12 @@ class Item extends Component {
       <li className={selectedViewOption}>
         <div className="clickBox">
           <div className="image">
-            <img alt="itemimage" src={itemImage} />
+            <img
+              className={itemId}
+              alt="itemimage"
+              src={itemImage}
+              onClick={(e) => this.gotoItemDetail(e)}
+            />
             <div className="imageButtonBox">
               <label
                 htmlFor={itemName}
@@ -48,7 +56,13 @@ class Item extends Component {
             </div>
           </div>
           <div className="itemName">
-            <p className="name">{itemName}</p>
+            <p
+              id="name"
+              className={itemId}
+              onClick={(e) => this.gotoItemDetail(e)}
+            >
+              {itemName}
+            </p>
             <label
               htmlFor={itemName}
               className={isLiked ? 'smallLikeChecked' : 'like'}
@@ -56,7 +70,13 @@ class Item extends Component {
             ></label>
           </div>
           <div className="itemPrice">
-            <p className="price">{Number(itemPrice).toLocaleString()}원</p>
+            <p
+              id="price"
+              className={itemId}
+              onClick={(e) => this.gotoItemDetail(e)}
+            >
+              {Number(itemPrice).toLocaleString()}원
+            </p>
           </div>
         </div>
         <div className="reviewGrade">

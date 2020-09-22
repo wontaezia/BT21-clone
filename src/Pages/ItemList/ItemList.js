@@ -11,10 +11,11 @@ class ItemList extends Component {
     this.state = {
       items: [],
       currentIdx: 3,
+      sort: 'recent', //서버요청항목
       currentViewIdx: 1,
       currentPageIdx: 1,
       pageArray: [],
-      num: 40,
+      num: 40, //서버요청항목
       selectNum: 0,
       popup: false,
     };
@@ -137,7 +138,9 @@ class ItemList extends Component {
     } = this.state;
     return (
       <div className="itemListContainer">
-        <div className="itemListCategory"></div>
+        <div className="itemListCategory">
+          <div>BT21</div>
+        </div>
         <Filter
           handlefiltering={this.handlefiltering}
           handleview={this.handleview}

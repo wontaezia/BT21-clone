@@ -86,7 +86,7 @@
       @include flex(space-between, center, null);
       margin-top: 14px;
 
-      .name {
+      #name {
         width: 206px;
         font-size: 13px;
         line-height: 16px;
@@ -117,7 +117,7 @@
     .itemPrice {
       margin-top: 3px;
 
-      .price {
+      #price {
         font-size: 13px;
         line-height: 17px;
         font-weight: bold;
@@ -273,7 +273,7 @@
       @include flex(space-between, center, null);
       margin-top: 14px;
 
-      .name {
+      #name {
         font-size: 13px;
         line-height: 16px;
         font-weight: bold;
@@ -304,7 +304,7 @@
     .itemPrice {
       margin-top: 3px;
 
-      .price {
+      #price {
         font-size: 13px;
         line-height: 17px;
         font-weight: bold;
@@ -458,7 +458,7 @@
       @include flex(space-between, center, null);
       margin-top: 14px;
 
-      .name {
+      #name {
         font-size: 20px; //
         line-height: 28px; //
         font-weight: bold;
@@ -489,7 +489,7 @@
     .itemPrice {
       margin-top: 3px;
 
-      .price {
+      #price {
         font-size: 20px; //
         line-height: 28px; //
         font-weight: bold;
