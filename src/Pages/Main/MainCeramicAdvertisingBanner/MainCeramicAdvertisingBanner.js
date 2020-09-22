@@ -42,11 +42,10 @@ class MainCeramicAdvertisingBanner extends Component {
                     onClick={() => this.viewInfo(index)}
                   ></div>
                   <div
-                    className={`wrapPricePannel${item.id}`}
-                    style={
+                    className={
                       borderNumber - 1 === index
-                        ? { display: 'block' }
-                        : { display: 'none' }
+                        ? `wrapPricePannel ${item.productName}Pannel`
+                        : `wrapPricePannel ${item.productName}Pannel pannelNotActive`
                     }
                   >
                     <div className="pricePannelLeft"></div>

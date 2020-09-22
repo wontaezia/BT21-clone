@@ -80,189 +80,50 @@
         transform: scale(0.5);
       }
 
-      .wrapPricePannel1 {
+      .wrapPricePannel {
         display: block;
-        .pricePannelLeft {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 50%;
-          left: 83%;
-        }
-        .pricePannel {
-          width: 50px;
-          height: 20px;
-          background-color: white;
+        position: absolute;
+        width: 68px;
+        height: 27px;
+        border-radius: 50px;
+        background-color: white;
+        span {
           position: absolute;
           top: 50%;
-          left: 84%;
-          z-index: 2;
-
-          span {
-            padding-left: 6px;
-            font-size: 12px;
-          }
-        }
-
-        .pricePannelRight {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 50%;
-          left: 89%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 13px;
+          font-weight: bolder;
         }
       }
 
-      .wrapPricePannel2 {
+      .pannelNotActive {
         display: none;
-        .pricePannelLeft {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 30%;
-          left: 48%;
-        }
-        .pricePannel {
-          width: 50px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          top: 30%;
-          left: 49%;
-          z-index: 2;
-
-          span {
-            padding-left: 6px;
-            font-size: 12px;
-          }
-        }
-
-        .pricePannelRight {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 30%;
-          left: 54%;
-        }
       }
 
-      .wrapPricePannel3 {
-        display: none;
-        .pricePannelLeft {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 80%;
-          left: 74%;
-        }
-        .pricePannel {
-          width: 50px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          top: 80%;
-          left: 75%;
-          z-index: 2;
-
-          span {
-            padding-left: 6px;
-            font-size: 12px;
-          }
-        }
-
-        .pricePannelRight {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 80%;
-          left: 80%;
-        }
+      .cupPannel {
+        top: 50%;
+        left: 83%;
       }
 
-      .wrapPricePannel4 {
-        display: none;
-        .pricePannelLeft {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 72%;
-          left: 56%;
-        }
-        .pricePannel {
-          width: 50px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          top: 72%;
-          left: 57%;
-          z-index: 2;
-
-          span {
-            padding-left: 6px;
-            font-size: 12px;
-          }
-        }
-
-        .pricePannelRight {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 72%;
-          left: 62%;
-        }
+      .ChopstickRestPannel {
+        top: 29%;
+        left: 48%;
       }
 
-      .wrapPricePannel5 {
-        display: none;
-        .pricePannelLeft {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 55%;
-          left: 42%;
-        }
-        .pricePannel {
-          width: 50px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          top: 55%;
-          left: 43%;
-          z-index: 2;
+      .bowlSetPannel {
+        top: 79%;
+        left: 74%;
+      }
 
-          span {
-            padding-left: 6px;
-            font-size: 12px;
-          }
-        }
+      .trayPannel {
+        top: 71%;
+        left: 56%;
+      }
 
-        .pricePannelRight {
-          width: 20px;
-          height: 20px;
-          background-color: white;
-          position: absolute;
-          border-radius: 50%;
-          top: 55%;
-          left: 48%;
-        }
+      .platePannel {
+        top: 54%;
+        left: 42%;
       }
     }
 
