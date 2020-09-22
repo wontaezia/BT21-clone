@@ -2,33 +2,31 @@
 @import '../../../../Styles/reset.scss';
 
 .itemListContainer {
-  .listItemBox {
-    width: 1280px;
-    border-bottom: 1px solid #e0e0e0;
-    @include flex(start, center, row);
-    //리스트뷰 보기로 했을때 보여줄 디자인
+  .bigItemBox {
+    //큰이미지로 보기했을때 보여줄 디자인
+    @include flex(center, null, column);
+    width: 327px; //
+    padding: 0 18px; //
+    margin: 20px 0;
+
     .clickBox {
-      align-self: center;
       cursor: pointer;
-      @include flex(start, center, row);
-      position: relative;
-      width: 1305px;
-      padding: 20px 0;
     }
 
     .image {
-      width: 140px;
-      height: 140px;
-      margin-right: 20px;
+      width: 293px; //
+      height: 380px; //
       position: relative;
+      overflow: hidden; //
 
       img {
-        width: 100%;
+        object-fit: cover;
+        height: 380px;
       }
 
       .imageButtonBox {
         position: absolute;
-        bottom: 15px; //
+        top: 311px; //체크
         padding: 0;
         margin-left: -54px;
         left: 50%;
@@ -43,7 +41,7 @@
           height: 50px;
           border-radius: 50%;
           background-color: white;
-          @include flex(center, center, row);
+          @include flex(center, center, null);
 
           .imageInnerLike {
             cursor: pointer;
@@ -93,58 +91,84 @@
     }
 
     .itemName {
-      @include flex(space-between, center);
+      @include flex(space-between, center, null);
       margin-top: 14px;
-      width: 950px;
-      position: absolute;
-      top: 60px;
-      left: 160px;
 
       #name {
-        font-size: 16px; //
-        line-height: 21px; //
+        font-size: 13px;
+        line-height: 16px;
         font-weight: bold;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding-right: 16px;
+        width: 256px;
       }
 
       .like {
         cursor: pointer;
-        width: 24px;
-        height: 20px;
+        width: 17px;
+        height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
           no-repeat;
-        background-size: 100%;
         background-position: auto;
       }
       .smallLikeChecked {
         cursor: pointer;
-        width: 24px;
-        height: 20px;
+        width: 17px;
+        height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
           no-repeat;
-        background-size: 100%;
         background-position: auto;
       }
     }
 
     .itemPrice {
       margin-top: 3px;
-      position: absolute;
-      top: 101px;
-      left: 160px;
 
-      .price {
-        font-size: 16px; //
-        line-height: 21px; //
+      #price {
+        font-size: 13px;
+        line-height: 17px;
         font-weight: bold;
       }
     }
 
     .reviewGrade {
-      display: none;
+      margin-top: 20px;
+      font-size: 12px;
+      line-height: 13px;
+
+      .review {
+        color: #8f8f8f;
+        margin-right: 4px;
+      }
+
+      .grade {
+        position: relative;
+        color: #8f8f8f;
+        margin-left: 14px;
+        margin-right: 4px;
+
+        &::after {
+          //before이 아니라 after로 했을때 생기는지 의문..
+          position: absolute;
+          top: 50%;
+          left: -8px;
+          width: 2px;
+          height: 2px;
+          margin-top: -1px;
+          background-color: #d8d8d8;
+          content: '';
+        }
+      }
+
+      .value {
+        color: #6b90dc;
+      }
+
+      .slash {
+        color: #8f8f8f;
+        margin: auto 1px;
+      }
     }
 
     .soldout {

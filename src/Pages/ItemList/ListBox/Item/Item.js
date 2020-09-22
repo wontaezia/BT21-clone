@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Item.scss';
 import './listItemBox.scss';
+import './bigItemBox.scss';
+import './galleryItemBox.scss';
 import { withRouter } from 'react-router-dom';
 
 class Item extends Component {
@@ -51,7 +53,7 @@ class Item extends Component {
                 ></button>
               </label>
               <div className="viewButtonBox">
-                <button className="detailView"></button>
+                <button className="detailView">+</button>
               </div>
             </div>
           </div>

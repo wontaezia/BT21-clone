@@ -5,4 +5,37 @@
   width: 1325px;
   margin: 256px auto;
   @include flex(center, center, column);
+
+  .itemListCategory {
+    width: 100%;
+    text-align: start;
+    position: relative;
+  }
+
+  .categoryName {
+    padding: 25px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 24px;
+    text-align: start;
+  }
+
+  .categoryLink {
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 45px;
+    font-size: 12px;
+    color: #8f8f8f;
+    &:after {
+      display: inline-block;
+      color: #dddddd;
+      vertical-align: top;
+      content: '>';
+    }
+  }
+
+  .paginationContainer {
+    @include flex(center, center, row);
+  }
 }

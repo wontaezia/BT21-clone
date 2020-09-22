@@ -1,7 +1,26 @@
 @import '../../../Styles/common.scss';
 
-.pagenationContainer{
-    .numberButton{
-        .normal
-    }
+.numberButton {
+  .otherPage {
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+    color: black;
+    background-color: white;
+    margin: 4px;
+  }
+
+  #mouseon {
+    cursor: pointer;
+    background-color: #adadad;
+  }
+
+  .currentPage {
+    cursor: pointer;
+    width: 33px;
+    height: 33px;
+    color: #e2e2e2;
+    background-color: black;
+    margin: 4px;
+  }
 }

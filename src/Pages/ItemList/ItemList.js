@@ -26,9 +26,13 @@ class ItemList extends Component {
       // http://10.58.6.82:8000/product/listview
       .then((res) => res.json())
       .then((res) => {
-        const totalPage = res.itemListTestData.length;
+        const { num } = this.state;
+        const totalPage =
+          res.itemListTestData.length % num === 0
+            ? res.itemListTestData.length / num
+            : res.itemListTestData.length / num + 1;
         const newPageArray = [];
-        for (var i = 0; i < totalPage; i++) {
+        for (var i = 0; i < totalPage - 1; i++) {
           newPageArray.push(i + 1);
         }
         this.setState({
@@ -125,13 +129,17 @@ class ItemList extends Component {
     this.setState({ selectNum: id });
   };
 
+  gotoMain = () => {
+    this.props.history.push('/Main');
+  };
+
   render() {
     const {
       items,
       currentIdx,
       currentViewIdx,
       currentPageIdx,
-      PageArray,
+      pageArray,
       num,
       selectNum,
       popup,
@@ -139,7 +147,11 @@ class ItemList extends Component {
     return (
       <div className="itemListContainer">
         <div className="itemListCategory">
-          <div>BT21</div>
+          <div className="categoryName">BT21</div>
+          <div className="categoryLink">
+            <p onClick={() => this.gotoMain()}>홈</p>
+            <p></p>
+          </div>
         </div>
         <Filter
           handlefiltering={this.handlefiltering}
@@ -159,13 +171,15 @@ class ItemList extends Component {
           handleLike={this.handleLike}
           currentViewIdx={currentViewIdx}
         />
-        {PageArray?.map((pageNumber, index) => (
-          <Pagination
-            currentPageIdx={currentPageIdx}
-            id={index}
-            pageNumber={pageNumber}
-          />
-        ))}
+        <div className="paginationContainer">
+          {pageArray?.map((pageNumber, index) => (
+            <Pagination
+              currentPageIdx={currentPageIdx}
+              key={index}
+              pageNumber={pageNumber}
+            />
+          ))}
+        </div>
       </div>
     );
   }
