@@ -18,19 +18,21 @@ class Filter extends Component {
       selectViewCount,
       changeSelect,
     } = this.props;
+
     const filterbutton = [
-      ['filterPopular', 'popular', '인기도순'],
-      ['filterAccumulate', 'accumulate', '누적판매순'],
-      ['filterLowPrice', 'lowPrice', '낮은가격순'],
-      ['filterRecent', 'recent', '최신등록순'],
-      ['filterReviewVolume', 'reviewVolume', '리뷰많은순'],
-      ['filterHighGrade', 'itemGrade', '평점높은순'],
+      ['filterPopular', 'popular', '인기도순', 'recent'],
+      ['filterAccumulate', 'accumulate', '누적판매순', 'review'],
+      ['filterLowPrice', 'lowPrice', '낮은가격순', 'price'],
+      ['filterRecent', 'recent', '최신등록순', 'recent'],
+      ['filterReviewVolume', 'reviewVolume', '리뷰많은순', 'review'],
+      ['filterHighGrade', 'itemGrade', '평점높은순', 'grade'],
     ];
     const filterbuttonmap = filterbutton.map((e, index) => {
-      const [filterName, buttonName, buttonContent] = e;
+      const [filterName, buttonName, buttonContent, sort] = e;
       return (
         <div className={filterName} key={index}>
           <button
+            name={sort}
             className={currentIdx === index ? 'checked' : buttonName}
             onClick={handlefiltering}
           >
