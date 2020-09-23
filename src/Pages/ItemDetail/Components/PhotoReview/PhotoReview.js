@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
-import { HiOutlineChevronLeft } from 'react-icons/hi';
-import { HiOutlineChevronRight } from 'react-icons/hi';
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import PopUp from './PopUp/PopUp';
 import './PhotoReview.scss';
 
 class PhotoReview extends Component {
-  constructor() {
-    super();
-    this.state = {
-      reviewPage: 0,
-      currentReview: 0,
-      isActive: false,
-    };
-  }
+  state = {
+    reviewPage: 0,
+    currentReview: 0,
+    isActive: false,
+  };
 
   handleActiveModal = () => {
     const { isActive } = this.state;
@@ -79,7 +75,7 @@ class PhotoReview extends Component {
     const { reviews } = this.props;
     const { reviewPage, isActive, currentReview } = this.state;
 
-    const moveReviewPage = {
+    const setStyleReviewPage = {
       width: `${Math.ceil(reviews?.length / 2) * 50}%`,
       transform: `translateX(-${reviewPage * 1018}px)`,
     };
@@ -102,52 +98,49 @@ class PhotoReview extends Component {
           </div>
         </div>
         <div className="reviewContainer">
-          <ul className="reviewList" style={moveReviewPage}>
-            {reviews?.map((data, index) => {
-              const {
-                reviewId,
-                reviewer,
-                grade,
-                detail,
-                registerDate,
-                photo,
-              } = data;
-              return (
-                <li key={reviewId}>
-                  <div
-                    className="inner"
-                    onClick={() => {
-                      this.setState(
-                        { currentReview: index },
-                        this.handleActiveModal
-                      );
-                    }}
-                  >
-                    <div className="left">
-                      <div className="rating">
-                        <span
-                          className="ratingIcon"
-                          style={{
-                            transform: `translateX(-${(5 - grade) * 15}px)`,
-                          }}
-                        />
-                        <span className="ratingIconBackground" />
-                        <span>{grade}</span>
+          <ul className="reviewList" style={setStyleReviewPage}>
+            {reviews?.map(
+              (
+                { reviewId, reviewer, grade, detail, registerDate, photo },
+                index
+              ) => {
+                return (
+                  <li key={reviewId}>
+                    <div
+                      className="inner"
+                      onClick={() => {
+                        this.setState(
+                          { currentReview: index },
+                          this.handleActiveModal
+                        );
+                      }}
+                    >
+                      <div className="left">
+                        <div className="rating">
+                          <span
+                            className="ratingIcon"
+                            style={{
+                              transform: `translateX(-${(5 - grade) * 15}px)`,
+                            }}
+                          />
+                          <span className="ratingIconBackground" />
+                          <span>{grade}</span>
+                        </div>
+                        <div className="reviewer">
+                          <span className="userName">{reviewer}</span>
+                          <span className="date">{registerDate}</span>
+                          <span className="option">사이즈: 단품</span>
+                        </div>
+                        <div className="review">{detail}</div>
                       </div>
-                      <div className="reviewer">
-                        <span className="userName">{reviewer}</span>
-                        <span className="date">{registerDate}</span>
-                        <span className="option">사이즈: 단품</span>
+                      <div className="photo">
+                        <img src={photo} alt="리뷰 이미지" />
                       </div>
-                      <div className="review">{detail}</div>
                     </div>
-                    <div className="photo">
-                      <img src={photo} alt="리뷰 이미지" />
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+                  </li>
+                );
+              }
+            )}
           </ul>
           <PopUp
             isActive={isActive}

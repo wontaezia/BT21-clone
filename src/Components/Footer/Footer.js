@@ -3,12 +3,9 @@ import Corporation from './Corporation/Corporation';
 import './Footer.scss';
 
 class Footer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isActive: false,
-    };
-  }
+  state = {
+    isActive: false,
+  };
 
   handleActive = () => {
     const { isActive } = this.state;

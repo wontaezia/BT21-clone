@@ -8,8 +8,7 @@ class BestItem extends Component {
       <div className="BestItem">
         <h3>{title}</h3>
         <ul className="productList">
-          {itemList?.map((item) => {
-            const { id, name, price, image } = item;
+          {itemList?.map(({ id, name, price, image }) => {
             return (
               <li key={id}>
                 <div className="productImage">

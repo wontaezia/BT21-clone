@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { FiArrowLeftCircle } from 'react-icons/fi';
-import { FiArrowRightCircle } from 'react-icons/fi';
+import { FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 import './PopUp.scss';
 
 class PopUp extends Component {

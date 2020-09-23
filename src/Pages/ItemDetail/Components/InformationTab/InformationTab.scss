@@ -213,6 +213,7 @@
 
     .imageContainer {
       @include flex(null, center, column);
+      margin-bottom: 40px;
     }
   }
 }

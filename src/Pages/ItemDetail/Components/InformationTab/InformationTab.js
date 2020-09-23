@@ -2,6 +2,23 @@ import React, { Component } from 'react';
 import './InformationTab.scss';
 
 class InformationTab extends Component {
+  infoTab = React.createRef();
+  imagesTab = React.createRef();
+  reviewsTab = React.createRef();
+  information = React.createRef();
+
+  componentDidMount() {
+    const { imagesTab, infoTab, reviewsTab, information } = this;
+    const { getSectionsOffsetTop, getInformationOffsetTop } = this.props;
+
+    setTimeout(() => {
+      getSectionsOffsetTop(infoTab);
+      getSectionsOffsetTop(imagesTab);
+      getSectionsOffsetTop(reviewsTab);
+      getInformationOffsetTop(information);
+    }, 1000);
+  }
+
   render() {
     const {
       productStatus,
@@ -13,8 +30,10 @@ class InformationTab extends Component {
       dateOfManufacture,
     } = this.props.itemData;
     return (
-      <div className="InformationTab">
-        <h2 className="tab">상세정보</h2>
+      <div className="InformationTab" ref={this.information}>
+        <h2 className="tab" data-name="infoTab" ref={this.infoTab}>
+          상세정보
+        </h2>
         <div className="shippingDays">
           <h3>배송기간</h3>
           <div className="content">
@@ -117,21 +136,17 @@ class InformationTab extends Component {
             </tbody>
           </table>
         </div>
-        <h2 className="tab">상세이미지</h2>
+        <h2 className="tab" data-name="imagesTab" ref={this.imagesTab}>
+          상세이미지
+        </h2>
         <div className="imageContainer">
-          <img
-            src="https://proxy.smartstore.naver.com/img/bGluZWZyaWVuZHMxLmNhZmUyNC5jb20vX3dpemZhc3RhL2J0MjFfcy9kb2xsLzg4MDk3MDg2NTIzNzNfMjg1OTkzNS5qcGc/dj0yMDIwMDgzMTA1MjUxNg==?token=35ff2ba2b5835ded1865fb6d7fbcf4eb"
-            alt="상세 이미지"
-          />
-          <img
-            src="https://proxy.smartstore.naver.com/img/bGluZWZyaWVuZHMxLmNhZmUyNC5jb20vX3dpemZhc3RhL2J0MjFfcy9kb2xsLzg4MDk3MDg2NTIzNzNfOTkuanBnP3Y9MjAyMDA4MzEwNTI1MTY=?token=4bc3ad297cbbf33bd50ccc141ffef074"
-            alt="상품 정보"
-          />
-          <img
-            src="https://proxy.smartstore.naver.com/img/bGluZWZyaWVuZHMxLmNhZmUyNC5jb20vaW5mb18yX2J0MjEuanBn?token=dc057062f4c4bdb65991a47148f02755"
-            alt="스토어 규정"
-          />
+          <img src="/Images/8809708652373_0.jpg" alt="상세 이미지" />
+          <img src="/Images/8809708652373_1.jpg" alt="상품 정보" />
+          <img src="/Images/8809708652373_2.jpg" alt="스토어 규정" />
         </div>
+        <h2 className="tab" data-name="reviewsTab" ref={this.reviewsTab}>
+          리뷰
+        </h2>
       </div>
     );
   }

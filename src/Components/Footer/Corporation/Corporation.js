@@ -7,8 +7,8 @@ class Corporation extends Component {
     return (
       <li className={`Corporation ${id}`}>
         <h4>{title}</h4>
-        {values.map((value) => {
-          return <span>{value}</span>;
+        {values.map((value, index) => {
+          return <span key={index}>{value}</span>;
         })}
       </li>
     );

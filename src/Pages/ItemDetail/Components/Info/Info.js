@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { AiOutlineMinus } from 'react-icons/ai';
-import { HiOutlinePlus } from 'react-icons/hi';
-import { HiOutlineX } from 'react-icons/hi';
+import { HiOutlinePlus, HiOutlineX } from 'react-icons/hi';
 import './Info.scss';
 
 class Info extends Component {
@@ -16,13 +15,12 @@ class Info extends Component {
       handleActive,
       handleOptionDisplay,
     } = this.props;
-    let { itemName, itemPrice } = this.props.itemData;
-    itemPrice = Number(itemPrice);
+    const { itemName, itemPrice } = this.props.itemData;
 
     return (
       <div className="Info">
         <h2 className="itemName">{itemName}</h2>
-        <span className="itemPrice">{itemPrice.toLocaleString()}</span>
+        <span className="itemPrice">{itemPrice?.toLocaleString()}</span>
         <div className="NHBanner">
           <span>NH농협카드 간편결제 시 5% 청구할인</span>
         </div>

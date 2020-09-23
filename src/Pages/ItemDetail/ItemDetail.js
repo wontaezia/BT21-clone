@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Footer from '../../Components/Footer/Footer';
 import BestItem from './Components/BestItem/BestItem';
 import DetailViewNav from './Components/DetailViewNav/DetailViewNav';
@@ -8,27 +7,33 @@ import Info from './Components/Info/Info';
 import InformationTab from './Components/InformationTab/InformationTab';
 import PhotoReview from './Components/PhotoReview/PhotoReview';
 import './ItemDetail.scss';
+import { API } from '../../config';
 
 class ItemDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      itemData: {},
-      totalItemCount: 0,
-      isSelected: false,
-      optionSelected: false,
-      endPoint: false,
-      suggestionItems: [],
-      bestItems: [],
-    };
-    this.bestItemsList = React.createRef();
-  }
+  state = {
+    itemData: {},
+    totalItemCount: 0,
+    isSelected: false,
+    optionSelected: false,
+    endPoint: false,
+    suggestionItems: [],
+    bestItems: [],
+    infoTab: null,
+    imagesTab: null,
+    reviewsTab: null,
+    InformationOffsetTop: 0,
+    infoTabOffsetTop: 0,
+    imagesTabOffsetTop: 0,
+    reviewsTabOffsetTop: 0,
+    infoTabStatus: false,
+    imagesTabStatus: false,
+    reviewsTabStatus: false,
+  };
 
   handleFixedNavDisplay = () => {
-    const { current } = this.bestItemsList;
-    const bestItemsListOffsetTop = ReactDOM.findDOMNode(current).offsetTop;
-    const scrollTop = window.pageYOffset;
-    const isActive = scrollTop > bestItemsListOffsetTop;
+    const { InformationOffsetTop } = this.state;
+    const scrollTop = window.scrollY;
+    const isActive = scrollTop > InformationOffsetTop - 300;
 
     this.setState({
       endPoint: isActive,
@@ -76,15 +81,7 @@ class ItemDetail extends Component {
   };
 
   getItemData = () => {
-    // const { productId } = this.props.match.params;
-    // fetch(`http://10.58.4.213:8000/product/detailview/${productId}`)
-    // .then((res) => res.json())
-    // .then((res) => {
-    //   this.setState({
-    //   itemData: res.data,
-    //   });
-    // });
-    fetch(`http://10.58.6.82:8000/product/detailview/8`)
+    fetch(`${API}/products/8`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -103,7 +100,7 @@ class ItemDetail extends Component {
       });
   };
 
-  getBestItemData = () => {
+  getBestItemsData = () => {
     fetch('/data/bestItems.json')
       .then((res) => res.json())
       .then((res) => {
@@ -113,19 +110,69 @@ class ItemDetail extends Component {
       });
   };
 
+  getInformationOffsetTop = (ref) => {
+    const { offsetTop } = ref.current;
+    this.setState({
+      InformationOffsetTop: offsetTop,
+    });
+  };
+
+  getSectionsOffsetTop = (ref) => {
+    const { current } = ref;
+    const offsetTop = current.offsetTop;
+    const offsetKey = current.dataset.name + 'OffsetTop';
+    this.setState({
+      [current.dataset.name]: current,
+      [offsetKey]: offsetTop,
+    });
+  };
+
+  handleTabBackground = () => {
+    const { imagesTabOffsetTop, reviewsTabOffsetTop } = this.state;
+    const scroll = window.scrollY + 200;
+    const isFocusOnInfoTab = scroll > 0 && scroll < imagesTabOffsetTop;
+    const isFocusOnImagesTab =
+      scroll > imagesTabOffsetTop && scroll < reviewsTabOffsetTop;
+    const isFocusOnReviewsTab = scroll > reviewsTabOffsetTop;
+
+    this.setState({
+      infoTabStatus: isFocusOnInfoTab,
+      imagesTabStatus: isFocusOnImagesTab,
+      reviewsTabStatus: isFocusOnReviewsTab,
+    });
+  };
+
+  handleScrollIntoView = (element) => {
+    const offset = element.offsetTop - 70;
+    window.scrollTo({ top: offset, behavior: 'smooth' });
+  };
+
   handleScrollEvent = () => {
-    window.addEventListener('wheel', this.handleFixedNavDisplay);
+    window.addEventListener('wheel', () => {
+      this.handleFixedNavDisplay();
+      this.handleTabBackground();
+    });
   };
 
   componentDidMount() {
     this.getItemData();
     this.handleScrollEvent();
-    this.getBestItemData();
+    this.getBestItemsData();
     this.getSuggestionItems();
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('wheel', null);
   }
 
   render() {
     const {
+      infoTab,
+      imagesTab,
+      reviewsTab,
+      infoTabStatus,
+      imagesTabStatus,
+      reviewsTabStatus,
       endPoint,
       itemData,
       bestItems,
@@ -168,24 +215,43 @@ class ItemDetail extends Component {
             <PhotoReview reviews={itemData.photoReview} />
           )}
           <BestItem
-            ref={this.bestItemsList}
             title="베스트 상품"
             itemList={bestItems}
+            getBestItemsOffsetTop={this.getBestItemsOffsetTop}
           />
           <DetailViewNav
+            infoTab={infoTab}
+            imagesTab={imagesTab}
+            reviewsTab={reviewsTab}
+            infoTabStatus={infoTabStatus}
+            imagesTabStatus={imagesTabStatus}
+            reviewsTabStatus={reviewsTabStatus}
             endPoint={endPoint}
             itemData={itemData}
             totalItemCount={totalItemCount}
             isSelected={isSelected}
             optionSelected={optionSelected}
+            handleScrollIntoView={this.handleScrollIntoView}
             decreaseTotalItemCount={this.decreaseTotalItemCount}
             increaseTotalItemCount={this.increaseTotalItemCount}
             deleteTotalItemCount={this.deleteTotalItemCount}
             handleActive={this.handleActive}
             handleOptionDisplay={this.handleOptionDisplay}
+            handleTabBackground={this.handleTabBackground}
           />
-          <InformationTab itemData={itemData} />
-          <BestItem title="추천 상품" itemList={suggestionItems} />
+          <InformationTab
+            itemData={itemData}
+            infoTab={infoTab}
+            imagesTab={imagesTab}
+            reviewsTab={reviewsTab}
+            getInformationOffsetTop={this.getInformationOffsetTop}
+            getSectionsOffsetTop={this.getSectionsOffsetTop}
+          />
+          <BestItem
+            title="추천 상품"
+            itemList={suggestionItems}
+            getBestItemsOffsetTop={this.getBestItemsOffsetTop}
+          />
         </main>
         <Footer />
       </>

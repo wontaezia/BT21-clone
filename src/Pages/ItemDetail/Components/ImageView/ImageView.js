@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 import './ImageView.scss';
 
 class ImageView extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currentImage: 0,
-    };
-  }
+  state = {
+    currentImage: 0,
+  };
 
   handleCurrentImage = (index) => {
     this.setState({
