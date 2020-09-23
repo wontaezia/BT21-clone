@@ -1,11 +1,11 @@
 @import '../../../Styles/common.scss';
 .itemListContainer {
   .listBox {
-    list-style: none;
-    width: 1380px;
-    padding: 0 10px 50px;
     @include flex(center, null, row);
     flex-wrap: wrap;
+    padding: 0 10px 50px;
+    list-style: none;
+    width: 1380px;
 
     .noResult {
       align-self: center;

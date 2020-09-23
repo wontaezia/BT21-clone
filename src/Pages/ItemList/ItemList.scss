@@ -2,14 +2,14 @@
 @import '../../Styles/reset.scss';
 
 .itemListContainer {
+  @include flex(center, center, column);
   width: 1325px;
   margin: 256px auto;
-  @include flex(center, center, column);
 
   .itemListCategory {
+    position: relative;
     width: 100%;
     text-align: start;
-    position: relative;
   }
 
   .categoryName {
@@ -21,17 +21,43 @@
   }
 
   .categoryLink {
-    cursor: pointer;
     position: absolute;
-    right: 25px;
     top: 45px;
-    font-size: 12px;
+    right: 25px;
     color: #8f8f8f;
-    &:after {
-      display: inline-block;
-      color: #dddddd;
-      vertical-align: top;
-      content: '>';
+    font-size: 12px;
+    cursor: pointer;
+
+    .home {
+      margin-right: 25px;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        display: inline-block;
+        color: #dddddd;
+        vertical-align: top;
+        content: '>';
+      }
+    }
+
+    .character {
+      margin-right: 25px;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 78px;
+        display: inline-block;
+        color: #dddddd;
+        vertical-align: top;
+        content: '>';
+      }
+    }
+
+    .BT21 {
+      color: #545454;
     }
   }
 

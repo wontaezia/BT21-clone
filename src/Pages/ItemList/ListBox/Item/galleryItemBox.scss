@@ -3,7 +3,6 @@
 
 .itemListContainer {
   .galleryItemBox {
-    //갤러리뷰로 보기했을때 보여줄 디자인
     @include flex(center, center, column);
     width: 677px;
     padding: 0 15px;
@@ -14,9 +13,9 @@
     }
 
     .image {
+      position: relative;
       width: 602px;
       height: 602px;
-      position: relative;
 
       img {
         width: 100%;
@@ -24,61 +23,61 @@
 
       .imageButtonBox {
         position: absolute;
-        top: 502px; //
+        top: 502px;
+        left: 50%;
+        @include flex(space-between, center, null);
         padding: 0;
         margin-left: -54px;
-        left: 50%;
         z-index: 1;
         opacity: 0%;
         transition: opacity 0.8s;
-        @include flex(space-between, center, null);
 
         .likeButtonBox {
-          cursor: pointer;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
           border-radius: 50%;
           background-color: white;
-          @include flex(center, center, null);
+          cursor: pointer;
 
           .imageInnerLike {
-            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
+            cursor: pointer;
           }
         }
 
         .likeCheckedButtonBox {
-          cursor: pointer;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
-          border-radius: 50%;
           background-color: #f54c4a;
-          @include flex(center, center, null);
+          border-radius: 50%;
+          cursor: pointer;
 
           .likeChecked {
-            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
+            cursor: pointer;
           }
         }
 
         .viewButtonBox {
-          cursor: pointer;
-          margin-left: 8px;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
-          border-radius: 50%;
+          margin-left: 8px;
           background-color: white;
-          @include flex(center, center, null);
+          border-radius: 50%;
+          cursor: pointer;
 
           .detailView {
             color: #8f8f8f;
@@ -93,30 +92,30 @@
       margin-top: 14px;
 
       #name {
-        font-size: 20px; //
-        line-height: 28px; //
+        padding-right: 16px;
+        font-size: 20px;
         font-weight: bold;
+        line-height: 28px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding-right: 16px;
       }
 
       .like {
-        cursor: pointer;
         width: 17px;
         height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
           no-repeat;
         background-position: auto;
+        cursor: pointer;
       }
       .smallLikeChecked {
-        cursor: pointer;
         width: 17px;
         height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
           no-repeat;
         background-position: auto;
+        cursor: pointer;
       }
     }
 
@@ -124,31 +123,30 @@
       margin-top: 3px;
 
       #price {
-        font-size: 20px; //
-        line-height: 28px; //
+        font-size: 20px;
         font-weight: bold;
+        line-height: 28px;
       }
     }
 
     .reviewGrade {
       margin-top: 20px;
+      margin-left: -500px;
       font-size: 12px;
       line-height: 13px;
-      margin-left: -500px; //
 
       .review {
-        color: #8f8f8f;
         margin-right: 4px;
+        color: #8f8f8f;
       }
 
       .grade {
         position: relative;
-        color: #8f8f8f;
         margin-left: 14px;
         margin-right: 4px;
+        color: #8f8f8f;
 
         &::after {
-          //before이 아니라 after로 했을때 생기는지 의문..
           position: absolute;
           top: 50%;
           left: -8px;

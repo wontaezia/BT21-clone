@@ -1,26 +1,26 @@
 @import '../../../Styles/common.scss';
 
 .numberButton {
+  .currentPage,
   .otherPage {
-    cursor: pointer;
     width: 33px;
     height: 33px;
-    color: black;
-    background-color: white;
     margin: 4px;
+    cursor: pointer;
   }
 
-  #mouseon {
-    cursor: pointer;
-    background-color: #adadad;
+  .otherPage {
+    color: black;
+    background-color: white;
   }
 
   .currentPage {
-    cursor: pointer;
-    width: 33px;
-    height: 33px;
     color: #e2e2e2;
     background-color: black;
-    margin: 4px;
+  }
+
+  #mouseon {
+    background-color: #adadad;
+    cursor: pointer;
   }
 }

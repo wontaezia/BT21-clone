@@ -1,59 +1,66 @@
 @import '../../../../Styles/common.scss';
 .itemListContainer {
-  .toggleButton {
-    padding-top: 8px;
-    margin-right: 20px;
+  .switchButtonContainer {
     position: relative;
     @include flex(null, center, row);
-  }
+    padding-top: 8px;
+    margin-right: 20px;
+    cursor: pointer;
 
-  #viewFreeDelivery {
-    display: none;
-  }
+    .text {
+      margin-right: 10px;
+      font-size: 13px;
+      cursor: pointer;
+    }
 
-  .text {
-    margin-right: 10px;
-    font-size: 13px;
-  }
+    #viewFreeDelivery {
+      display: none;
+    }
 
-  .toggleBackground {
-    display: block;
-    position: relative;
-    width: 44px;
-    height: 20px;
-    border-radius: 10px;
-    background-color: #c8ccd0;
-    color: white;
-  }
+    .toggleBackground {
+      position: relative;
+      display: block;
+      width: 44px;
+      height: 20px;
+      color: white;
+      background-color: #c8ccd0;
+      border-radius: 10px;
+      cursor: pointer;
 
-  .toggleBackground:checked {
-    background-color: #00c021;
-  }
+      .off {
+        position: absolute;
+        top: 6px;
+        right: 4px;
+        font-size: 9px;
+      }
 
-  .off {
-    position: absolute;
-    right: 4px;
-    top: 6px;
-    font-size: 9px;
-  }
+      .on {
+        position: absolute;
+        top: 6px;
+        left: 5px;
+        font-size: 9px;
+      }
+    }
 
-  .on {
-    position: absolute;
-    left: 4px;
-    top: 6px;
-    font-size: 9px;
-  }
+    input:checked + .toggleBackground {
+      background-color: #00c021;
+    }
 
-  .ball {
-    // 1. 스위치 볼
-    position: absolute;
-    height: 24px;
-    width: 24px;
-    border-radius: 50%;
-    top: 6px;
-    left: 55.5px;
-    transition: transform 0.2s linear;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+    .ball {
+      position: absolute;
+      top: 6px;
+      left: 55.5px;
+      height: 24px;
+      width: 24px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    input:checked ~ .ball {
+      left: 79px;
+    }
   }
 }

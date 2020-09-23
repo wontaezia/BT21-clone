@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import SwitchButton from './SwitchButton/SwitchButton';
 import ViewCountButton from './ViewCountButton/ViewCountButton';
-
 import './Filter.scss';
 
 class Filter extends Component {
   render() {
     const {
-      handlefiltering,
-      handleview,
+      handleFiltering,
+      handleView,
       currentIdx,
       currentViewIdx,
       num,
@@ -19,51 +18,40 @@ class Filter extends Component {
       changeSelect,
     } = this.props;
 
-    const filterbutton = [
-      ['filterPopular', 'popular', '인기도순', 'recent'],
-      ['filterAccumulate', 'accumulate', '누적판매순', 'review'],
-      ['filterLowPrice', 'lowPrice', '낮은가격순', 'price'],
-      ['filterRecent', 'recent', '최신등록순', 'recent'],
-      ['filterReviewVolume', 'reviewVolume', '리뷰많은순', 'review'],
-      ['filterHighGrade', 'itemGrade', '평점높은순', 'grade'],
+    const FILTER_BUTTONS = [
+      ['popular', '인기도순', 'recent'],
+      ['accumulate', '누적판매순', 'review'],
+      ['lowPrice', '낮은가격순', 'price'],
+      ['recent', '최신등록순', 'recent'],
+      ['reviewVolume', '리뷰많은순', 'review'],
+      ['itemGrade', '평점높은순', 'grade'],
     ];
-    const filterbuttonmap = filterbutton.map((e, index) => {
-      const [filterName, buttonName, buttonContent, sort] = e;
-      return (
-        <div className={filterName} key={index}>
-          <button
-            name={sort}
-            className={currentIdx === index ? 'checked' : buttonName}
-            onClick={handlefiltering}
-          >
-            {buttonContent}
-          </button>
-        </div>
-      );
-    });
 
-    const viewbutton = ['listView', 'imageView', 'bigImageView', 'galleryView'];
-    const viewbuttonmap = viewbutton.map((buttonName, index) => {
-      return (
-        <div
-          className={
-            currentViewIdx === index ? 'imageViewBoxChecked' : 'imageViewBox'
-          }
-          id={buttonName}
-          onClick={handleview}
-          key={index}
-        >
-          <button
-            className={
-              currentViewIdx === index ? `${buttonName}Checked` : buttonName
-            }
-          ></button>
-        </div>
-      );
-    });
+    const VIEW_BUTTONS = [
+      'listView',
+      'imageView',
+      'bigImageView',
+      'galleryView',
+    ];
+
     return (
-      <div className="filterControlBar">
-        <div className="buttonBox">{filterbuttonmap}</div>
+      <div className="filterContainer">
+        <div className="buttonBox">
+          {FILTER_BUTTONS.map((e, index) => {
+            const [buttonName, buttonContent, sort] = e;
+            return (
+              <div className="filter" key={index}>
+                <button
+                  name={sort}
+                  className={currentIdx === index ? 'checked' : buttonName}
+                  onClick={handleFiltering}
+                >
+                  {buttonContent}
+                </button>
+              </div>
+            );
+          })}
+        </div>
         <div className="viewBox">
           <div className="viewFreeDeliveryBox">
             <SwitchButton />
@@ -78,7 +66,30 @@ class Filter extends Component {
               changeSelect={changeSelect}
             />
           </div>
-          <div className="controlImageView">{viewbuttonmap}</div>
+          <div className="controlImageView">
+            {VIEW_BUTTONS.map((buttonName, index) => {
+              return (
+                <div
+                  className={
+                    currentViewIdx === index
+                      ? 'imageViewBoxChecked'
+                      : 'imageViewBox'
+                  }
+                  id={buttonName}
+                  onClick={handleView}
+                  key={index}
+                >
+                  <button
+                    className={
+                      currentViewIdx === index
+                        ? `${buttonName}Checked`
+                        : buttonName
+                    }
+                  ></button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     );

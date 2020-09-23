@@ -3,6 +3,7 @@ import Filter from './Filter/Filetr';
 import ListBox from './ListBox/ListBox';
 import Pagination from './Pagination/Pagination';
 import './ItemList.scss';
+// import { API } from '../../../src/config.js';
 
 class ItemList extends Component {
   constructor() {
@@ -26,10 +27,9 @@ class ItemList extends Component {
     this.handleFetchUntilPage();
   }
 
-  handlefiltering = (e) => {
+  handleFiltering = (e) => {
     const { name, className } = e.target;
-
-    const filter = {
+    const FILTER = {
       popular: 0,
       accumulate: 1,
       lowPrice: 2,
@@ -37,7 +37,7 @@ class ItemList extends Component {
       reviewVolume: 4,
       itemGrade: 5,
     };
-    const index = className === 'checked' ? 6 : filter[className];
+    const index = className === 'checked' ? 6 : FILTER[className];
     this.setState(
       {
         sort: name,
@@ -50,7 +50,7 @@ class ItemList extends Component {
   handleFetcth = () => {
     const { num, sort, offset } = this.state;
     fetch(
-      `http://10.58.4.141:8000/products?num=${num}&page_no=${offset}&sort=${sort}`
+      `http://10.58.6.45:8000/products?num=${num}&page_no=${offset}&sort=${sort}`
     )
       .then((res) => res.json())
       .then((res) => {
@@ -63,10 +63,8 @@ class ItemList extends Component {
   handleFetchUntilPage = () => {
     const { num, sort, offset } = this.state;
     fetch(
-      `http://10.58.4.141:8000/products?num=${num}&page_no=${offset}&sort=${sort}`
+      `http://10.58.6.45:8000/products?num=${num}&page_no=${offset}&sort=${sort}`
     )
-      // http://10.58.6.82:8000/product/listview
-      //'http://localhost:3000/data/itemListTestData.json'
       .then((res) => res.json())
       .then((res) => {
         const newPageArray = [];
@@ -80,8 +78,8 @@ class ItemList extends Component {
       });
   };
 
-  handleview = (e) => {
-    const viewButtons = [
+  handleView = (e) => {
+    const VIEW_BUTTONS = [
       'listView',
       'imageView',
       'bigImageView',
@@ -89,8 +87,8 @@ class ItemList extends Component {
     ];
     const { id, className } = e.target;
     const { currentViewIdx } = this.state;
-    const idIndex = viewButtons.indexOf(id);
-    const classNAmeIndex = viewButtons.indexOf(className);
+    const idIndex = VIEW_BUTTONS.indexOf(id);
+    const classNAmeIndex = VIEW_BUTTONS.indexOf(className);
     this.setState({
       currentViewIdx:
         idIndex > -1
@@ -160,13 +158,16 @@ class ItemList extends Component {
         <div className="itemListCategory">
           <div className="categoryName">BT21</div>
           <div className="categoryLink">
-            <p onClick={() => this.gotoMain()}>홈</p>
-            <p></p>
+            <span onClick={() => this.gotoMain()} className="home">
+              홈
+            </span>
+            <span className="character">캐릭터</span>
+            <span className="BT21">BT21</span>
           </div>
         </div>
         <Filter
-          handlefiltering={this.handlefiltering}
-          handleview={this.handleview}
+          handleFiltering={this.handleFiltering}
+          handleView={this.handleView}
           items={items}
           currentIdx={currentIdx}
           currentViewIdx={currentViewIdx}

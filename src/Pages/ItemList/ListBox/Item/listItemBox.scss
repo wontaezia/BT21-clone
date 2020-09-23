@@ -3,24 +3,24 @@
 
 .itemListContainer {
   .listItemBox {
-    width: 1280px;
-    border-bottom: 1px solid #e0e0e0;
     @include flex(start, center, row);
-    //리스트뷰 보기로 했을때 보여줄 디자인
+    width: 1280px; //
+    border-bottom: 1px solid #e0e0e0; //
+
     .clickBox {
-      align-self: center;
-      cursor: pointer;
-      @include flex(start, center, row);
       position: relative;
-      width: 1305px;
-      padding: 20px 0;
+      @include flex(start, center, row); //
+      align-self: center; //
+      padding: 20px 0; //
+      width: 1305px; //
+      cursor: pointer;
     }
 
     .image {
-      width: 140px;
-      height: 140px;
-      margin-right: 20px;
       position: relative;
+      width: 140px; //
+      height: 140px; //
+      margin-right: 20px;
 
       img {
         width: 100%;
@@ -28,61 +28,61 @@
 
       .imageButtonBox {
         position: absolute;
+        @include flex(space-between, center, null);
         bottom: 15px; //
+        left: 50%;
         padding: 0;
         margin-left: -54px;
-        left: 50%;
         z-index: 1;
         opacity: 0%;
         transition: opacity 0.8s;
-        @include flex(space-between, center, null);
 
         .likeButtonBox {
-          cursor: pointer;
+          @include flex(center, center, row);
           width: 50px;
           height: 50px;
           border-radius: 50%;
           background-color: white;
-          @include flex(center, center, row);
+          cursor: pointer;
 
           .imageInnerLike {
-            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
+            cursor: pointer;
           }
         }
 
         .likeCheckedButtonBox {
-          cursor: pointer;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
           border-radius: 50%;
           background-color: #f54c4a;
-          @include flex(center, center, null);
+          cursor: pointer;
 
           .likeChecked {
-            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
+            cursor: pointer;
           }
         }
 
         .viewButtonBox {
-          cursor: pointer;
-          margin-left: 8px;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
+          margin-left: 8px;
           border-radius: 50%;
           background-color: white;
-          @include flex(center, center, null);
+          cursor: pointer;
 
           .detailView {
             color: #8f8f8f;
@@ -93,53 +93,53 @@
     }
 
     .itemName {
-      @include flex(space-between, center);
-      margin-top: 14px;
-      width: 950px;
       position: absolute;
       top: 60px;
       left: 160px;
+      @include flex(space-between, center);
+      width: 950px;
+      margin-top: 14px;
 
       #name {
+        padding-right: 16px;
         font-size: 16px; //
-        line-height: 21px; //
         font-weight: bold;
+        line-height: 21px; //
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding-right: 16px;
       }
 
       .like {
-        cursor: pointer;
         width: 24px;
         height: 20px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
           no-repeat;
         background-size: 100%;
         background-position: auto;
+        cursor: pointer;
       }
       .smallLikeChecked {
-        cursor: pointer;
         width: 24px;
         height: 20px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
           no-repeat;
         background-size: 100%;
         background-position: auto;
+        cursor: pointer;
       }
     }
 
     .itemPrice {
-      margin-top: 3px;
       position: absolute;
       top: 101px;
       left: 160px;
+      margin-top: 3px;
 
       .price {
-        font-size: 16px; //
-        line-height: 21px; //
+        font-size: 16px;
         font-weight: bold;
+        line-height: 21px;
       }
     }
 
@@ -148,12 +148,12 @@
     }
 
     .soldout {
+      width: 64px;
+      height: 21px;
       margin-top: 16px;
       font-size: 12px;
       line-height: 18px;
       font-weight: bold;
-      height: 21px;
-      width: 64px;
 
       div {
         margin: auto auto;

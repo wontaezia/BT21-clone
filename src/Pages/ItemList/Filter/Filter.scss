@@ -2,190 +2,145 @@
 @import '../../../Styles/reset.scss';
 
 .itemListContainer {
-  .filterControlBar {
+  .filterContainer {
     @include flex(space-between, center, row);
     margin-bottom: 0;
     width: 1280px;
-  }
 
-  .buttonBox {
-    @include flex(null, center, row);
-  }
+    .buttonBox {
+      @include flex(null, center, row);
 
-  .filterAccumulate,
-  .filterLowPrice,
-  .filterRecent,
-  .filterReviewVolume,
-  .filterHighGrade {
-    padding: 0;
-    margin: 0 12px;
-    position: relative;
+      .filter {
+        padding: 0;
+        margin: 0 12px;
+        position: relative;
 
-    &::before {
-      position: absolute;
-      top: 50%;
-      left: -12px;
-      width: 1px;
-      height: 12px;
-      margin-top: -6px;
-      background-color: #e1e1e1;
-      content: '';
+        &::before {
+          position: absolute;
+          top: 50%;
+          left: -12px;
+          width: 1px;
+          height: 12px;
+          margin-top: -6px;
+          background-color: #e1e1e1;
+          content: '';
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:first-child::before {
+          background-color: transparent;
+        }
+      }
+
+      .popular,
+      .accumulate,
+      .lowPrice,
+      .recent,
+      .reviewVolume,
+      .itemGrade {
+        padding: 0;
+        color: #888888;
+        font-size: 13px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .checked {
+        padding: 0;
+        color: black;
+        font-weight: bold;
+        font-size: 13px;
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+          background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200916132238/img/sprite/svg/spSs_icon_svg.svg);
+          background-size: 311px 276px;
+          background-position: -196px -119px;
+          width: 14px;
+          height: 10px;
+          display: inline-block;
+          margin: 6px 5px 0 0;
+          vertical-align: top;
+          content: '';
+        }
+      }
     }
-  }
 
-  .filterPopular {
-    padding: 0;
-    margin: 0 12px 0 0;
-    position: relative;
-  }
+    .viewBox {
+      @include flex(flex-end, null, row);
+      cursor: pointer;
 
-  .popular,
-  .accumulate,
-  .lowPrice,
-  .recent,
-  .reviewVolume,
-  .itemGrade {
-    padding: 0;
-    color: #888888;
-    font-size: 13px;
-    position: relative;
-    cursor: pointer;
-  }
+      .controlImageView {
+        @include flex(null, flex-end, row);
+      }
 
-  .checked {
-    padding: 0;
-    color: black;
-    font-weight: bold;
-    font-size: 13px;
-    position: relative;
-    cursor: pointer;
+      .imageViewBox,
+      .imageViewBoxChecked {
+        width: 27px;
+        height: 27px;
+        border: 1px solid #e0e0e0;
+        border-right: 0px;
+        @include flex(center, center, null);
+        &:last-child {
+          border-right: 1px solid #e0e0e0;
+        }
+      }
 
-    &::before {
-      background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200916132238/img/sprite/svg/spSs_icon_svg.svg);
-      background-size: 311px 276px;
-      background-position: -196px -119px;
-      width: 14px;
-      height: 10px;
-      display: inline-block;
-      margin: 6px 5px 0 0;
-      vertical-align: top;
-      content: '';
+      .imageViewBoxChecked {
+        background-color: #2f2f2f;
+      }
+
+      .listView,
+      .listViewChecked,
+      .imageView,
+      .imageViewChecked,
+      .bigImageView,
+      .bigImageViewChecked,
+      .galleryView,
+      .galleryViewChecked {
+        align-self: center;
+        background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
+        background-size: 311px 276px;
+        width: 11px;
+        height: 11px;
+        cursor: pointer;
+      }
+
+      .listView {
+        background-position: -187px -213px;
+      }
+
+      .listViewChecked {
+        background-position: -206px -213px;
+      }
+
+      .imageView {
+        background-position: -149px -213px;
+      }
+
+      .imageViewChecked {
+        background-position: -168px -213px;
+      }
+
+      .bigImageView {
+        background-position: -266px -188px;
+      }
+
+      .bigImageViewChecked {
+        background-position: -285px -188px;
+      }
+
+      .galleryView {
+        background-position: -111px -213px;
+      }
+
+      .galleryViewChecked {
+        background-position: -130px -213px;
+      }
     }
-  }
-
-  .viewBox {
-    @include flex(flex-end, null, row);
-    cursor: pointer;
-  }
-
-  .controlImageView {
-    @include flex(null, flex-end, row);
-  }
-
-  .imageViewBox {
-    width: 27px;
-    height: 27px;
-    border-top: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    border-right: 0px;
-    @include flex(center, center, null);
-    &:last-child {
-      border-right: 1px solid #e0e0e0;
-    }
-  }
-
-  .imageViewBoxChecked {
-    width: 27px;
-    height: 27px;
-    background-color: #2f2f2f;
-    border: 1px solid #e0e0e0;
-    border-top: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    border-right: 0px;
-    @include flex(center, center, null);
-    &:last-child {
-      border-right: 1px solid #e0e0e0;
-    }
-  }
-
-  .listView {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -187px -213px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-  .listViewChecked {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -206px -213px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-
-  .imageView {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -149px -213px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-
-  .imageViewChecked {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -168px -213px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-
-  .bigImageView {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -266px -188px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-
-  .bigImageViewChecked {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -285px -188px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-
-  .galleryView {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -111px -213px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
-  }
-
-  .galleryViewChecked {
-    align-self: center;
-    background-image: url(https://img-shop.pstatic.net/smartstore/p/static/20200915183536/img/sprite/svg/spSs_icon_svg.svg);
-    background-size: 311px 276px;
-    background-position: -130px -213px;
-    width: 11px;
-    height: 11px;
-    cursor: pointer;
   }
 }

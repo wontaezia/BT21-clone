@@ -11,32 +11,31 @@ class ViewCountButton extends Component {
       selectViewCount,
       changeSelect,
     } = this.props;
-    const countOption = [20, 40, 60, 80];
-    const countOptionLists = countOption.map((number, index) => (
+    const COUNT_OPTION = [20, 40, 60, 80];
+    const countOptionLists = COUNT_OPTION.map((number, index) => (
       <li
         key={index}
         id={number}
         className={number == selectNum ? 'select' : 'normal'}
-        onMouseEnter={(e) => changeSelect(e)}
+        onMouseEnter={changeSelect}
       >
         {number}개씩 보기
       </li>
     ));
     return (
-      <div className="selectContainer">
-        <div className="selectedView" onClick={() => handlePopup()}>
+      <div className="viewCountButtonContainer">
+        <div className="selectedView" onClick={handlePopup}>
           <button
             className={popup ? 'defaultUp' : 'defaultDown'}
             value={num}
-            onClick={() => handlePopup()}
+            onClick={handlePopup}
           >
             {num}개씩 보기
           </button>
         </div>
         <ul
-          className="selectOption"
-          style={{ display: popup ? 'block' : 'none' }}
-          onClick={(e) => selectViewCount(e)}
+          className={popup ? 'selectOption' : 'invisibleSelectOption'}
+          onClick={selectViewCount}
         >
           {countOptionLists}
         </ul>

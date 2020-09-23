@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import './SwitchButton.scss';
 
 class SwitchButton extends Component {
-  viewDelivery = () => {};
   render() {
     return (
-      <div className="toggleButton" onClick={this.viewDelivery}>
+      <div className="switchButtonContainer">
         <label className="text" htmlFor="viewFreeDelivery">
           무료배송
         </label>
-        <input type="checkbox" id="viewFreeDelivery"></input>
+        <input type="checkbox" id="viewFreeDelivery" />
         <label className="toggleBackground" htmlFor="viewFreeDelivery">
           <span className="on">ON</span>
           <span className="off">OFF</span>
         </label>
-        <div className="ball"></div>
+        <label className="ball" htmlFor="viewFreeDelivery" />
       </div>
     );
   }

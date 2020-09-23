@@ -13,9 +13,9 @@
     }
 
     .image {
+      position: relative;
       width: 232px; //
       height: 232px; //
-      position: relative;
 
       img {
         height: 100%;
@@ -23,61 +23,62 @@
 
       .imageButtonBox {
         position: absolute;
+        @include flex(space-between, center, null);
         top: 162px; //
+        left: 50%;
         padding: 0;
         margin-left: -54px;
-        left: 50%;
         z-index: 1;
         opacity: 0%;
         transition: opacity 0.8s;
-        @include flex(space-between, center, null);
 
         .likeButtonBox {
-          cursor: pointer;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
           border-radius: 50%;
           background-color: white;
-          @include flex(center, center, null);
+          cursor: pointer;
 
           .imageInnerLike {
-            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
+            cursor: pointer;
           }
         }
 
         .likeCheckedButtonBox {
-          cursor: pointer;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
           border-radius: 50%;
           background-color: #f54c4a;
-          @include flex(center, center, null);
+          cursor: pointer;
 
           .likeChecked {
-            cursor: pointer;
             width: 21px;
             height: 19px;
             background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
               no-repeat;
             background-size: 100% auto;
             content: '';
+            cursor: pointer;
           }
         }
 
         .viewButtonBox {
-          cursor: pointer;
-          margin-left: 8px;
+          @include flex(center, center, null);
           width: 50px;
           height: 50px;
+          margin-left: 8px;
           border-radius: 50%;
           background-color: white;
-          @include flex(center, center, null);
+          cursor: pointer;
+
           .detailView {
             color: #8f8f8f;
             font-size: 20px;
@@ -101,20 +102,20 @@
       }
 
       .like {
-        cursor: pointer;
         width: 17px;
         height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
           no-repeat;
         background-position: auto;
+        cursor: pointer;
       }
       .smallLikeChecked {
-        cursor: pointer;
         width: 17px;
         height: 14px;
         background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
           no-repeat;
         background-position: auto;
+        cursor: pointer;
       }
     }
 
@@ -134,18 +135,17 @@
       line-height: 13px;
 
       .review {
-        color: #8f8f8f;
         margin-right: 4px;
+        color: #8f8f8f;
       }
 
       .grade {
         position: relative;
-        color: #8f8f8f;
         margin-left: 14px;
         margin-right: 4px;
+        color: #8f8f8f;
 
         &::after {
-          //before이 아니라 after로 했을때 생기는지 의문..
           position: absolute;
           top: 50%;
           left: -8px;
@@ -162,8 +162,8 @@
       }
 
       .slash {
-        color: #8f8f8f;
         margin: auto 1px;
+        color: #8f8f8f;
       }
     }
 
