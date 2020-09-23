@@ -35,9 +35,12 @@ class ItemDetail extends Component {
     const scrollTop = window.scrollY;
     const isActive = scrollTop > InformationOffsetTop - 300;
 
-    this.setState({
-      endPoint: isActive,
-    });
+    this.setState(
+      {
+        endPoint: isActive,
+      },
+      this.handleTabBackground
+    );
   };
 
   handleActive = () => {
@@ -148,10 +151,7 @@ class ItemDetail extends Component {
   };
 
   handleScrollEvent = () => {
-    window.addEventListener('wheel', () => {
-      this.handleFixedNavDisplay();
-      this.handleTabBackground();
-    });
+    window.addEventListener('wheel', this.handleFixedNavDisplay);
   };
 
   componentDidMount() {
@@ -162,7 +162,7 @@ class ItemDetail extends Component {
   }
 
   componentWillUnmount() {
-    window.addEventListener('wheel', null);
+    window.removeEventListener('wheel', this.handleFixedNavDisplay);
   }
 
   render() {
