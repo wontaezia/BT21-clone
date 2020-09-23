@@ -64,7 +64,6 @@ class MainCeramicAdvertisingBanner extends Component {
             <div className="wrapContentPictures">
               {CeramicAdvertisingItems.map((item, index) => (
                 <div key={item.id}>
-                  {/* <ul> */}
                   <li>
                     <img
                       className={
@@ -75,7 +74,6 @@ class MainCeramicAdvertisingBanner extends Component {
                       src={item.img}
                     />
                   </li>
-                  {/* </ul> */}
                 </div>
               ))}
             </div>
