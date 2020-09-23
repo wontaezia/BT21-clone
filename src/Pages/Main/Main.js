@@ -5,11 +5,19 @@ import MainLookAround from './MainLookAround/MainLookAround';
 import MainAdvertisingBanner from './MainAdvertisingBanner/MainAdvertisingBanner';
 import MainCeramicAdvertisingBanner from './MainCeramicAdvertisingBanner/MainCeramicAdvertisingBanner';
 import MainGoToCategory from './MainGoToCategory/MainGoToCategory';
+import MainRealReview from './MainRealReview/MainRealReview';
 import './Main.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 class Main extends Component {
+  componentDidMount() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }
+
   render() {
     const settings = {
       dots: true,
@@ -77,6 +85,7 @@ class Main extends Component {
           </Slider>
         </div>
         <MainGoToCategory />
+        <MainRealReview />
         <MainAdvertisingBanner />
         <MainCeramicAdvertisingBanner />
         <MainLookAround />
