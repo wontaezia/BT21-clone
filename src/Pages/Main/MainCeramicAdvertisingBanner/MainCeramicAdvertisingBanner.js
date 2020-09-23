@@ -29,7 +29,7 @@ class MainCeramicAdvertisingBanner extends Component {
             <img
               className="mainPicture"
               src="https://shop-phinf.pstatic.net/20200623_43/1592886184295uGTdC_PNG/30247726864450234_1100508093.png?type=f640"
-            ></img>
+            />
             {CeramicAdvertisingItems.map((item, index) => (
               <div key={item.id}>
                 <ul>
@@ -40,7 +40,7 @@ class MainCeramicAdvertisingBanner extends Component {
                         : `buttonOnImage ${item.productName}`
                     }
                     onClick={() => this.viewInfo(index)}
-                  ></div>
+                  />
                   <div
                     className={
                       borderNumber - 1 === index
@@ -48,11 +48,11 @@ class MainCeramicAdvertisingBanner extends Component {
                         : `wrapPricePannel ${item.productName}Pannel pannelNotActive`
                     }
                   >
-                    <div className="pricePannelLeft"></div>
+                    <div className="pricePannelLeft" />
                     <div className="pricePannel">
                       <span>{item.price}</span>
                     </div>
-                    <div className="pricePannelRight"></div>
+                    <div className="pricePannelRight" />
                   </div>
                 </ul>
               </div>
@@ -64,18 +64,18 @@ class MainCeramicAdvertisingBanner extends Component {
             <div className="wrapContentPictures">
               {CeramicAdvertisingItems.map((item, index) => (
                 <div key={item.id}>
-                  <ul>
-                    <li>
-                      <img
-                        className={
-                          this.state.borderNumber - 1 === index
-                            ? 'contentPictures borderColor'
-                            : 'contentPictures'
-                        }
-                        src={item.img}
-                      ></img>
-                    </li>
-                  </ul>
+                  {/* <ul> */}
+                  <li>
+                    <img
+                      className={
+                        this.state.borderNumber - 1 === index
+                          ? 'contentPictures borderColor'
+                          : 'contentPictures'
+                      }
+                      src={item.img}
+                    />
+                  </li>
+                  {/* </ul> */}
                 </div>
               ))}
             </div>

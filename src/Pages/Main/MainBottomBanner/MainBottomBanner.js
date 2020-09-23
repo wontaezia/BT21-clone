@@ -17,11 +17,11 @@ class MainBottomBanner extends Component {
           </p>
           <div className="wrapMainBottomBannerButton">
             <button className="mainBottomBannerWishButton">
-              <span className="wishIcon"></span>
+              <span className="wishIcon" />
               <span className="wishText">찜하기 97,115</span>
             </button>
             <button className="mainBottomBannerShare">
-              <span className="shareIcon"></span>
+              <span className="shareIcon" />
             </button>
           </div>
         </div>

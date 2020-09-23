@@ -39,7 +39,7 @@ class MainLookAround extends Component {
                   src={item.img}
                   onMouseEnter={() => this.mouseEnter(index)}
                   onMouseOut={this.mouseout}
-                ></img>
+                />
                 <div
                   className={
                     this.state.current === index
@@ -49,10 +49,10 @@ class MainLookAround extends Component {
                   onMouseEnter={() => this.mouseEnter(index)}
                 >
                   <div className="wrapLookAroundItemImageWishButton">
-                    <button className="LookAroundItemImageWishButton"></button>
+                    <button className="LookAroundItemImageWishButton" />
                   </div>
                   <div className="wrapLookAroundItemImageDetailButton">
-                    <button className="LookAroundItemImageDetailButton"></button>
+                    <button className="LookAroundItemImageDetailButton" />
                   </div>
                 </div>
                 <div className="LookAroundItemTextContainer">

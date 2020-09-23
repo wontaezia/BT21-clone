@@ -47,12 +47,12 @@ class MainRealReview extends Component {
           <button
             className={`preButton ${preButtonOpacity}`}
             onClick={this.prePage}
-          ></button>
+          />
           <div className="slideShow">
             <div className={`wrapSlideShowItem ${prePage} ${nextPage}`}>
               {reviewContent.map((review) => (
                 <div className="slideShowItem" key={review.id}>
-                  <img className="mainImage" src={review.reviewMainImg}></img>
+                  <img className="mainImage" src={review.reviewMainImg} />
                   <div className="textContents">
                     <strong>{review.alt}</strong>
                     <div className="ratingContainer">
@@ -63,35 +63,35 @@ class MainRealReview extends Component {
                               ? 'fa fa-star star'
                               : 'fa fa-star-o star'
                           }
-                        ></span>
+                        />
                         <span
                           className={
                             review.ratingNum > 1
                               ? 'fa fa-star star'
                               : 'fa fa-star-o star'
                           }
-                        ></span>
+                        />
                         <span
                           className={
                             review.ratingNum > 2
                               ? 'fa fa-star star'
                               : 'fa fa-star-o star'
                           }
-                        ></span>
+                        />
                         <span
                           className={
                             review.ratingNum > 3
                               ? 'fa fa-star star'
                               : 'fa fa-star-o star'
                           }
-                        ></span>
+                        />
                         <span
                           className={
                             review.ratingNum > 4
                               ? 'fa fa-star star'
                               : 'fa fa-star-o star'
                           }
-                        ></span>
+                        />
                       </div>
                       <span className="ratingNum">
                         {review.ratingNum.toFixed(1)}
@@ -102,7 +102,7 @@ class MainRealReview extends Component {
                       <span className="userId">{review.userId}</span>
                       <span className="date">{review.date}</span>
                     </div>
-                    <img className="subImage" src={review.reviewSubImg}></img>
+                    <img className="subImage" src={review.reviewSubImg} />
                   </div>
                 </div>
               ))}
@@ -111,7 +111,7 @@ class MainRealReview extends Component {
           <button
             className={`nextButton  ${nextButtonOpacity}`}
             onClick={this.nextPage}
-          ></button>
+          />
         </div>
       </div>
     );

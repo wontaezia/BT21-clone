@@ -10,17 +10,13 @@ class MainGoToCategory extends Component {
         <div className="wrapGoToCategoryItems">
           {GoToCategoryItems.map((item) => (
             <Link to={item.endPoint} key={item.id}>
-              <div>
-                <ul>
-                  <li>
-                    <img src={item.img}></img>
-                    <div className="categoryItemSpans">
-                      <span className="categoryName">{item.categoryName}</span>
-                      <span className="categoryTag">{item.categoryTag}</span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              <li>
+                <img src={item.img}></img>
+                <div className="categoryItemSpans">
+                  <span className="categoryName">{item.categoryName}</span>
+                  <span className="categoryTag">{item.categoryTag}</span>
+                </div>
+              </li>
             </Link>
           ))}
         </div>
