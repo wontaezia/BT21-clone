@@ -12,6 +12,7 @@ class SignIn extends Component {
       passwordValue: '',
       staySignIn: false,
       ipSecurity: false,
+      currentLanguage: '한국어',
     };
   }
 
@@ -69,12 +70,11 @@ class SignIn extends Component {
               placeholder="한국어"
               options={['한국어', 'English', '中文']}
               value="one"
-              onChange={(value) => console.log('change!', value)}
-              onSelect={(value) => console.log('selected!', value)}
-              onClose={(closedBySelection) =>
-                console.log('closedBySelection?:', closedBySelection)
-              }
-              onOpen={() => console.log('open!')}
+              onChange={(e) => {
+                this.setState({
+                  currentLanguage: e.value,
+                });
+              }}
             />
           </nav>
           <content>
@@ -109,7 +109,7 @@ class SignIn extends Component {
                 this.handleClick();
               }}
             >
-              로그인
+              {this.state.currentLanguage === 'English' ? 'login' : '로그인'}
             </button>
             <div className="signInOption">
               <div className="signInStayBtn">
