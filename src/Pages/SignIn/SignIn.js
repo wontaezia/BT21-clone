@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SignIn.scss';
 import Dropdown, { Selection } from 'react-dropdown-now';
 import 'react-dropdown/style.css';
+import { API } from '../../config';
 
 class SignIn extends Component {
   constructor() {
@@ -35,7 +36,7 @@ class SignIn extends Component {
   };
 
   handleClick = () => {
-    fetch('http://10.58.4.217:8000/user/signin', {
+    fetch(`${API}/user/signin`, {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.idValue,

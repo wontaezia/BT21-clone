@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
+import { API } from '../../config';
 
 class SignUp extends Component {
   constructor() {
@@ -206,7 +207,7 @@ class SignUp extends Component {
   };
 
   handleClick = () => {
-    fetch('http://10.58.4.217:8000/user/signup', {
+    fetch(`${API}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
         ID: this.state.signUpIdValue,
