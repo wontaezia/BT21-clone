@@ -18,8 +18,8 @@ class PhotoReview extends Component {
   };
 
   closeModal = (e) => {
-    if (e.target.className === 'popUp isActive') {
-      e.target.className = 'popUp';
+    if (e.target.className === 'PopUp isActive') {
+      e.target.className = 'PopUp';
       this.handleActiveModal();
     }
   };

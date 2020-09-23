@@ -84,7 +84,7 @@ class ItemDetail extends Component {
   };
 
   getItemData = () => {
-    fetch(`${API}/products/8`)
+    fetch(`${API}/products/20`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({

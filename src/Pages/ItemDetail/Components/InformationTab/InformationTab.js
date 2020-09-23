@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Reviews from './Reviews/Reviews';
 import './InformationTab.scss';
 
 class InformationTab extends Component {
@@ -21,6 +22,7 @@ class InformationTab extends Component {
 
   render() {
     const {
+      photoReview,
       productStatus,
       itemNumber,
       supplier,
@@ -147,6 +149,21 @@ class InformationTab extends Component {
         <h2 className="tab" data-name="reviewsTab" ref={this.reviewsTab}>
           리뷰
         </h2>
+        <Reviews reviews={photoReview} />
+        <ul className="writeReviewsForm">
+          <li>
+            <span>이름</span>
+            <input type="text" placeholder="이름을 입력해주세요 (필수)" />
+          </li>
+          <li>
+            <span>이름</span>
+            <input type="text" placeholder="이름을 입력해주세요 (필수)" />
+          </li>
+          <li>
+            <span>이름</span>
+            <input type="text" placeholder="이름을 입력해주세요 (필수)" />
+          </li>
+        </ul>
       </div>
     );
   }
