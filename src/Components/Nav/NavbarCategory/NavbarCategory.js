@@ -9,9 +9,6 @@ export default class NavbarCategory extends Component {
     this.state = {
       isHovered: false,
     };
-
-    this.onHover = this.onHover.bind(this);
-    this.onLeaveHover = this.onLeaveHover.bind(this);
   }
   onHover = () => {
     this.setState({

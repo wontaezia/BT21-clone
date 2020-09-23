@@ -24,6 +24,7 @@ class SignUp extends Component {
       isDayValid: null,
       isGenderValid: null,
       isNumValid: null,
+      pwdSecurity: false,
     };
   }
 
@@ -62,7 +63,9 @@ class SignUp extends Component {
   };
 
   handleEqualPwd = () => {
-    const pwdEqual = this.state.signUpPwdValue === this.state.signUpPwdCheck;
+    const pwdEqual =
+      this.state.signUpPwdValue === this.state.signUpPwdCheck &&
+      this.state.signUpPwdCheck > 0;
     this.setState({
       isPwdValid: pwdEqual,
     });
@@ -116,7 +119,10 @@ class SignUp extends Component {
   };
 
   dayCheck = () => {
-    const dayValid = this.state.signUpDayValue.length === 2;
+    const dayValid =
+      this.state.signUpDayValue.length === 2 &&
+      this.state.signUpDayValue < 32 &&
+      this.state.signUpDayValue > 0;
 
     this.setState({
       isDayValid: dayValid,
@@ -256,18 +262,21 @@ class SignUp extends Component {
       <div className="signUp">
         <header>
           <div className="signUpLogoBorder">
-            <img className="signUpLogo"></img>
+            <img className="signUpLogo" />
           </div>
         </header>
         <div className="signUpForm">
           <div className="signUpId">
             <a className="signUpIdText">아이디</a>
-            <input
-              className="signUpIdInput"
-              type="text"
-              onChange={this.idInput}
-              onBlur={this.idCheck}
-            ></input>
+            <div className="signUpIdBorder">
+              <input
+                className="signUpIdInput"
+                type="text"
+                onChange={this.idInput}
+                onBlur={this.idCheck}
+              ></input>
+              <div className="naverEmail">@naver.com</div>
+            </div>
             <span
               className={
                 isIdValid === null || isIdValid
@@ -280,12 +289,34 @@ class SignUp extends Component {
           </div>
           <div className="signUpPwd">
             <a className="signUpPwdText">비밀번호</a>
-            <input
-              className="signUpPwdInput"
-              type="password"
-              onChange={this.pwdInput}
-              onBlur={this.pwdInputCheck}
-            ></input>
+            <div className="signUpPwdInputBorder">
+              <input
+                className="signUpPwdInput"
+                type="password"
+                onChange={this.pwdInput}
+                onBlur={this.pwdInputCheck}
+              ></input>
+
+              <div className="pwdSecurityContainer">
+                <div
+                  className={
+                    isPwdInputValid === true
+                      ? 'pwdSecurityText'
+                      : 'pwdSecurityText check'
+                  }
+                >
+                  안전
+                </div>
+                <div
+                  className={
+                    isPwdInputValid === true
+                      ? 'pwdSecurity'
+                      : 'pwdSecurity check'
+                  }
+                ></div>
+              </div>
+            </div>
+
             <span
               className={
                 isPwdInputValid === null || isPwdInputValid
@@ -298,12 +329,21 @@ class SignUp extends Component {
           </div>
           <div className="signUpPwdRepeat">
             <a className="signUpPwdTextRepeat">비밀번호 재확인</a>
-            <input
-              className="signUpPwdCheck"
-              type="password"
-              onChange={this.pwdCheckInput}
-              onBlur={this.handleEqualPwd}
-            ></input>
+            <div className="signUpRepeatPwdBorder">
+              <input
+                className="signUpPwdCheck"
+                type="password"
+                onChange={this.pwdCheckInput}
+                onBlur={this.handleEqualPwd}
+              ></input>
+              <div
+                className={
+                  isPwdValid === true
+                    ? 'pwdRepeatSecurity'
+                    : 'pwdRepeatSecurity check'
+                }
+              ></div>
+            </div>
             <span
               className={
                 isPwdValid === null || isPwdValid
@@ -450,6 +490,20 @@ class SignUp extends Component {
             </button>
           </div>
         </div>
+        <footer>
+          <div className="footerInfo">
+            <div className="termsCondition">
+              이용약관 | <strong> 개인정보처리방침 </strong> | 책임의 한계와
+              법적고지 | 회원정보 | 고객센터
+            </div>
+            <div className="corpInfo">
+              <img className="smallLogo" />
+              <div className="copyright">
+                Copyright <strong>NAVER Corp.</strong> All Rights Reserved.
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }

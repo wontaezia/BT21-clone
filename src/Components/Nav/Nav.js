@@ -1,10 +1,68 @@
 import React, { Component } from 'react';
 import NavbarCategory from './NavbarCategory/NavbarCategory';
 import './Nav.scss';
+import { withRouter } from 'react-router-dom';
+
+class Nav extends Component {
+  signInGo = () => {
+    this.props.history.push('/SignIn');
+  };
+
+  render() {
+    return (
+      <div className="Nav">
+        <div className="naverLogobar">
+          <div className="naverLink">
+            <img className="naverLogo" />
+            <img className="naverShoppingLogo" />
+          </div>
+          <div className="signInBar">
+            <button className="naverSignInBtn" onClick={this.signInGo}>
+              로그인
+            </button>
+            <img className="signInImg" />
+          </div>
+        </div>
+        <div className="logobar">
+          <div className="logoDiv">
+            <img
+              className="linefriendsLogo"
+              alt="lineLogo"
+              src="https://shop-phinf.pstatic.net/20200504_93/1588582588622OE2qc_PNG/main_logo_b.png"
+            />
+          </div>
+          <div className="searchDiv">
+            <input
+              className="searchbox"
+              type="search"
+              placeholder="검색어를 입력해보세요"
+            ></input>
+            <div className="magnifyImg"></div>
+          </div>
+        </div>
+        <div className="Navbar">
+          <NavbarCategory text="케릭터" options={CHARACTER_OPTIONS} />
+          <NavbarCategory text="NEW" />
+          <NavbarCategory text="THEME" options={THEME_OPTIONS} />
+          <NavbarCategory text="BT21 BABY" options={BT21BABY_OPTIONS} />
+          <NavbarCategory text="SALE" />
+          <NavbarCategory text="토이" options={TOY_OPTIONS} />
+          <NavbarCategory text="디자인문구" options={OFFICE_OPTIONS} />
+          <NavbarCategory text="디지털" options={DIGITAL_OPTIONS} />
+          <NavbarCategory text="패션의류" options={CLOTHING_OPTIONS} />
+          <NavbarCategory text="패션잡화" options={ACCESSORIES_OPTIONS} />
+          <NavbarCategory text="리빙" options={LIVING_OPTIONS} />
+          <NavbarCategory text="키즈" options={KIDS_OPTIONS} />
+          <NavbarCategory text="더보기" />
+        </div>
+      </div>
+    );
+  }
+}
 
 const CHARACTER_OPTIONS = {
   브라운앤프렌즈: '/brownandfriends',
-  BT21: '/bt21',
+  BT21: '/itemlist',
   브롤스타즈: '/brawlstars',
 };
 
@@ -72,44 +130,4 @@ const KIDS_OPTIONS = {
   '주방,욕실': '/kitchen',
   '양말,슬리퍼': '/kidssocks',
 };
-
-class Nav extends Component {
-  render() {
-    return (
-      <div className="Nav">
-        <div className="Logobar">
-          <div className="logoDiv">
-            <img
-              className="linefriendsLogo"
-              src="https://shop-phinf.pstatic.net/20200504_93/1588582588622OE2qc_PNG/main_logo_b.png"
-            ></img>
-          </div>
-          <div className="searchDiv">
-            <input
-              className="searchbox"
-              type="search"
-              placeholder="검색어를 입력해보세요"
-            ></input>
-            <div className="magnifyImg"></div>
-          </div>
-        </div>
-        <div className="Navbar">
-          <NavbarCategory text="케릭터" options={CHARACTER_OPTIONS} />
-          <NavbarCategory text="NEW" />
-          <NavbarCategory text="THEME" options={THEME_OPTIONS} />
-          <NavbarCategory text="BT21 BABY" options={BT21BABY_OPTIONS} />
-          <NavbarCategory text="SALE" />
-          <NavbarCategory text="토이" options={TOY_OPTIONS} />
-          <NavbarCategory text="디자인문구" options={OFFICE_OPTIONS} />
-          <NavbarCategory text="디지털" options={DIGITAL_OPTIONS} />
-          <NavbarCategory text="패션의류" options={CLOTHING_OPTIONS} />
-          <NavbarCategory text="패션잡화" options={ACCESSORIES_OPTIONS} />
-          <NavbarCategory text="리빙" options={LIVING_OPTIONS} />
-          <NavbarCategory text="키즈" options={KIDS_OPTIONS} />
-          <NavbarCategory text="더보기" />
-        </div>
-      </div>
-    );
-  }
-}
-export default Nav;
+export default withRouter(Nav);

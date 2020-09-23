@@ -78,7 +78,7 @@ class SignIn extends Component {
           </nav>
           <content>
             <div className="signInLogoBorder">
-              <img className="signInLogo"></img>
+              <img className="signInLogo" />
             </div>
             <div className="signInInput">
               <input
