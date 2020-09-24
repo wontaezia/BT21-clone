@@ -45,11 +45,11 @@ class ItemList extends Component {
         sort: name,
         currentIdx: index,
       },
-      () => this.handleFetcth()
+      () => this.handleFetch()
     );
   };
 
-  handleFetcth = () => {
+  handleFetch = () => {
     const { num, sort, offset } = this.state;
     fetch(`${API}/products?num=${num}&page_no=${offset}&sort=${sort}`)
       .then((res) => res.json())
@@ -136,7 +136,7 @@ class ItemList extends Component {
   nextPage = (e) => {
     const { name } = e.target;
     this.setState({ offset: name, currentPageIdx: name }, () =>
-      this.handleFetcth()
+      this.handleFetch()
     );
   };
 
@@ -152,7 +152,7 @@ class ItemList extends Component {
       popup,
     } = this.state;
     return (
-      <Fragment>
+      <>
         <div className="itemListNav">
           <Nav />
         </div>
@@ -160,7 +160,7 @@ class ItemList extends Component {
           <div className="itemListCategory">
             <div className="categoryName">BT21</div>
             <div className="categoryLink">
-              <span onClick={() => this.gotoMain()} className="home">
+              <span onClick={this.gotoMain} className="home">
                 홈
               </span>
               <span className="character">캐릭터</span>
@@ -199,7 +199,7 @@ class ItemList extends Component {
         <div className="itemListFooter">
           <Footer />
         </div>
-      </Fragment>
+      </>
     );
   }
 }
