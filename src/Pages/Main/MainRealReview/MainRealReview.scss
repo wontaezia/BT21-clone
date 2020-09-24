@@ -1,0 +1,193 @@
+.MainRealReview {
+  margin-top: 114px;
+
+  .title {
+    display: block;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    line-height: 48px;
+    word-break: break-all;
+    white-space: nowrap;
+    word-wrap: normal;
+    font-size: 32px;
+    font-weight: bolder;
+    text-align: center;
+    padding-bottom: 54px;
+  }
+
+  .wrapSlideContent {
+    display: flex;
+    justify-content: center;
+
+    .preButton {
+      width: 70px;
+      height: 70px;
+      position: relative;
+      top: 230px;
+      left: -8px;
+      border: 1px solid #c2c2c2;
+      background-size: 120px 150px;
+      background-position: 15px -12px;
+      background-image: url(https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spBs_arrow_svg.svg);
+    }
+
+    .slideShow {
+      margin: auto;
+      width: 1450px;
+      height: 800px;
+
+      .wrapSlideShowItem {
+        display: flex;
+        margin-left: 40px;
+        width: 1300px;
+        height: 800px;
+        overflow: hidden;
+
+        &.prePage {
+          .slideShowItem {
+            left: 0px;
+            transition-duration: 0.3s;
+          }
+        }
+
+        &.nextPage {
+          .slideShowItem {
+            left: -870px;
+            transition-duration: 0.3s;
+          }
+        }
+
+        .slideShowItem {
+          position: relative;
+          width: 436px;
+          height: 552px;
+          padding: 0 14px;
+
+          .mainImage {
+            width: 408px;
+            height: 408px;
+            border-radius: 20px;
+          }
+
+          .textContents {
+            width: 408px;
+            height: 118px;
+            margin-top: 26px;
+
+            strong {
+              display: block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              line-height: 28px;
+              white-space: nowrap;
+              word-wrap: normal;
+              font-weight: normal;
+              font-size: 24px;
+              color: #000000;
+            }
+
+            .ratingContainer {
+              display: flex;
+              width: 408px;
+              height: 24px;
+              margin-top: 8px;
+
+              .ratingStarContent {
+                width: 100px;
+                height: 20px;
+                margin-top: 5px;
+
+                .star {
+                  position: relative;
+                  top: -2px;
+                  margin-right: 3px;
+                  font-size: 18px;
+                  color: red;
+                }
+              }
+              .ratingNum {
+                position: relative;
+                left: 5px;
+                width: 31.74px;
+                height: 24px;
+                font-size: 20px;
+                font-weight: bolder;
+              }
+            }
+            p {
+              width: 328px;
+              font-size: 13px;
+              bottom: 60px;
+              display: block;
+              overflow: hidden;
+              -o-text-overflow: ellipsis;
+              text-overflow: ellipsis;
+              line-height: 20px;
+              word-break: break-all;
+              display: -webkit-box;
+              max-height: 60px;
+              -webkit-line-clamp: 3;
+            }
+
+            .reviewerInfoContent {
+              width: 408px;
+              height: 83px;
+              margin-top: 15px;
+
+              .userId {
+                display: inline-block;
+                font-size: 11px;
+                color: rgba(0, 0, 0, 0.5);
+              }
+
+              .date {
+                position: relative;
+                display: inline-block;
+                left: 15px;
+                font-size: 11px;
+                color: rgba(0, 0, 0, 0.5);
+                &::before {
+                  position: absolute;
+                  top: 50%;
+                  left: -8px;
+                  width: 2px;
+                  height: 2px;
+                  margin-top: -1px;
+                  background-color: #d8d8d8;
+                  content: '';
+                }
+              }
+            }
+
+            .subImage {
+              position: relative;
+              left: 350px;
+              bottom: 80px;
+              width: 60px;
+              height: 60px;
+              background: #000;
+              border-radius: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    .nextButton {
+      width: 63px;
+      height: 70px;
+      position: relative;
+      top: 230px;
+      left: 0px;
+      border: 1px solid #c2c2c2;
+      background-size: 120px 150px;
+      background-position: -68px -11px;
+      background-image: url(https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spBs_arrow_svg.svg);
+    }
+
+    .opacity {
+      opacity: 0.2;
+    }
+  }
+}
