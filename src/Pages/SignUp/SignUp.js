@@ -55,12 +55,28 @@ class SignUp extends Component {
   };
 
   pwdInputCheck = () => {
+    const { signUpPwdValue } = this.state;
+
+    const numbers = /^[0-9]+$/;
+    const upperCase = /[A - Z]/;
+    const regexNum = RegExp(numbers);
+    const regexUpper = RegExp(upperCase);
+
     const pwdInputValid =
-      this.state.signUpPwdValue.length > 8 &&
-      this.state.signUpPwdValue.length < 20;
+      signUpPwdValue.length > 8 && signUpPwdValue.length < 20;
+
+    const pwdValidWithNumber = regexNum.test(signUpPwdValue);
+
+    const pwdValidWithUpper = regexUpper.test(signUpPwdValue);
+
     this.setState({
       isPwdInputValid: pwdInputValid,
+      isPwdValidWithNumber: pwdValidWithNumber,
+      isPwdValidWithUpper: pwdValidWithUpper,
     });
+    console.log(pwdInputValid, '8');
+    console.log(pwdValidWithNumber, 'num');
+    console.log(pwdValidWithUpper, 'upper');
   };
 
   handleEqualPwd = () => {
@@ -375,7 +391,7 @@ class SignUp extends Component {
           </div>
           <div className="signUpBday">
             <div className="signUpInputBox">
-              <div classname="signUpBdayText">생년월일</div>
+              <div className="signUpBdayText">생년월일</div>
               <input
                 className="bDayYr"
                 type="text"
@@ -387,8 +403,9 @@ class SignUp extends Component {
                 className="month"
                 onChange={this.monthInput}
                 onBlur={this.monthCheck}
+                defaultValue={'DEFAULT'}
               >
-                <option value="" disabled selected>
+                <option value="default" disabled>
                   월
                 </option>
                 <option value="01">1</option>

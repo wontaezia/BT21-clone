@@ -61,6 +61,52 @@ class SignIn extends Component {
   };
 
   render() {
+    const { currentLanguage } = this.state;
+    let signInLanguage;
+    if (currentLanguage === '한국어') {
+      signInLanguage = '로그인';
+    } else if (currentLanguage === 'English') {
+      signInLanguage = 'Login';
+    } else if (currentLanguage === '中文') {
+      signInLanguage = '登录';
+    }
+
+    let signInId;
+    if (currentLanguage === '한국어') {
+      signInId = '   아이디';
+    } else if (currentLanguage === 'English') {
+      signInId = '   ID';
+    } else if (currentLanguage === '中文') {
+      signInId = '   ID';
+    }
+
+    let signInPwd;
+    if (currentLanguage === '한국어') {
+      signInPwd = '   비밀번호';
+    } else if (currentLanguage === 'English') {
+      signInPwd = '   Password';
+    } else if (currentLanguage === '中文') {
+      signInPwd = '    密码';
+    }
+
+    let continueSignIn;
+    if (currentLanguage === '한국어') {
+      continueSignIn = '로그인 상태 유지';
+    } else if (currentLanguage === 'English') {
+      continueSignIn = 'Stay Signed In';
+    } else if (currentLanguage === '中文') {
+      continueSignIn = '维持登录状态';
+    }
+
+    let secureSignIn;
+    if (currentLanguage === '한국어') {
+      secureSignIn = 'IP 보안';
+    } else if (currentLanguage === 'English') {
+      secureSignIn = 'IP Secured';
+    } else if (currentLanguage === '中文') {
+      secureSignIn = 'IP 保护';
+    }
+
     return (
       <main>
         <div className="mainContainer">
@@ -74,6 +120,7 @@ class SignIn extends Component {
                 this.setState({
                   currentLanguage: e.value,
                 });
+                console.log(e.value);
               }}
             />
           </nav>
@@ -89,7 +136,7 @@ class SignIn extends Component {
                     : 'signInIdInput'
                 }
                 type="text"
-                placeholder="   아이디"
+                placeholder={signInId}
                 onKeyUp={this.colorIdChange}
               />
               <input
@@ -99,7 +146,7 @@ class SignIn extends Component {
                     : 'signInPwdInput'
                 }
                 type="password"
-                placeholder="   비밀번호"
+                placeholder={signInPwd}
                 onKeyUp={this.colorPasswordChange}
               />
             </div>
@@ -109,7 +156,7 @@ class SignIn extends Component {
                 this.handleClick();
               }}
             >
-              {this.state.currentLanguage === 'English' ? 'login' : '로그인'}
+              {signInLanguage}
             </button>
             <div className="signInOption">
               <div className="signInStayBtn">
@@ -121,10 +168,10 @@ class SignIn extends Component {
                   }
                   onClick={this.staySignIn}
                 ></div>
-                <p class="signInStayText">로그인 상태 유지</p>
+                <p className="signInStayText">{continueSignIn}</p>
               </div>
               <div className="ipSecurity">
-                <p className="ipSecurityText">IP 보안</p>
+                <p className="ipSecurityText">{secureSignIn}</p>
                 <div
                   className={
                     this.state.ipSecurity
