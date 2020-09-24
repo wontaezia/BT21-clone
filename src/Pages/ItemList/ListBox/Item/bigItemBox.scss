@@ -1,0 +1,195 @@
+@import '../../../../Styles/common.scss';
+@import '../../../../Styles/reset.scss';
+
+.itemListContainer {
+  .bigItemBox {
+    @include flex(center, null, column);
+    width: 327px;
+    margin: 20px 0;
+    padding: 0 20px;
+
+    .clickBox {
+      cursor: pointer;
+    }
+
+    .image {
+      position: relative;
+      width: 293px;
+      height: 380px;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        height: 380px;
+      }
+
+      .imageButtonBox {
+        position: absolute;
+        @include flex(space-between, center, null);
+        top: 311px;
+        left: 50%;
+        padding: 0;
+        margin-left: -54px;
+        z-index: 1;
+        opacity: 0%;
+        transition: opacity 0.8s;
+
+        .likeButtonBox {
+          @include flex(center, center, null);
+          width: 50px;
+          height: 50px;
+          background-color: white;
+          border-radius: 50%;
+          cursor: pointer;
+
+          .imageInnerLike {
+            width: 21px;
+            height: 19px;
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+              no-repeat;
+            background-size: 100% auto;
+            content: '';
+            cursor: pointer;
+          }
+        }
+
+        .likeCheckedButtonBox {
+          @include flex(center, center, null);
+          width: 50px;
+          height: 50px;
+          background-color: #f54c4a;
+          border-radius: 50%;
+          cursor: pointer;
+
+          .likeChecked {
+            width: 21px;
+            height: 19px;
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
+              no-repeat;
+            background-size: 100% auto;
+            content: '';
+            cursor: pointer;
+          }
+        }
+
+        .viewButtonBox {
+          @include flex(center, center, null);
+          width: 50px;
+          height: 50px;
+          margin-left: 8px;
+          background-color: white;
+          border-radius: 50%;
+          cursor: pointer;
+
+          .detailView {
+            color: #8f8f8f;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .itemName {
+      @include flex(space-between, center, null);
+      margin-top: 14px;
+
+      #name {
+        width: 256px;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 16px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .like,
+      .smallLikeChecked {
+        width: 17px;
+        height: 14px;
+        background-position: auto;
+        cursor: pointer;
+      }
+
+      .like {
+        background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+          no-repeat;
+      }
+
+      .smallLikeChecked {
+        background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
+          no-repeat;
+      }
+    }
+
+    .itemPrice {
+      margin-top: 3px;
+
+      #price {
+        font-size: 13px;
+        line-height: 17px;
+        font-weight: bold;
+      }
+    }
+
+    .reviewGrade {
+      margin-top: 20px;
+      font-size: 12px;
+      line-height: 13px;
+
+      .review {
+        margin-right: 4px;
+        color: #8f8f8f;
+      }
+
+      .grade {
+        position: relative;
+        margin-left: 14px;
+        margin-right: 4px;
+        color: #8f8f8f;
+
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: -8px;
+          width: 2px;
+          height: 2px;
+          margin-top: -1px;
+          background-color: #d8d8d8;
+          content: '';
+        }
+      }
+
+      .value {
+        color: #6b90dc;
+      }
+
+      .slash {
+        margin: auto 1px;
+        color: #8f8f8f;
+      }
+    }
+
+    .soldout {
+      margin-top: 16px;
+      width: 64px;
+      height: 21px;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: bold;
+
+      div {
+        margin: auto auto;
+        color: white;
+        background-color: #535967;
+        font-size: 9px;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+
+    &:hover .imageButtonBox {
+      opacity: 100%;
+    }
+  }
+}

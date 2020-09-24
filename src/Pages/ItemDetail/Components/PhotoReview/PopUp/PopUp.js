@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { GoChevronLeft } from 'react-icons/go';
-import { GoChevronRight } from 'react-icons/go';
+import { FiArrowLeftCircle, FiArrowRightCircle } from 'react-icons/fi';
 import './PopUp.scss';
 
 class PopUp extends Component {
@@ -8,26 +7,18 @@ class PopUp extends Component {
     const {
       isActive,
       currentReview,
-      reviewData,
+      reviews,
       max,
       goToNextPage,
       goToPrevPage,
       closeModal,
     } = this.props;
 
-    const {
-      userName,
-      userImage,
-      rating,
-      review,
-      date,
-      photo,
-      option,
-    } = reviewData;
+    const { reviewer, grade, detail, registerDate, photo } = reviews;
     return (
       <div
         onClick={closeModal}
-        className={isActive ? 'popUp isActive' : 'popUp'}
+        className={isActive ? 'PopUp isActive' : 'PopUp'}
       >
         <div className="inner">
           <h3>
@@ -40,29 +31,32 @@ class PopUp extends Component {
             </div>
             <div className="userInfo">
               <div className="userPhoto">
-                <img src={userImage} alt="유저 이미지" />
+                <img
+                  src="https://profile-phinf.pstatic.net/404/default.png?type=f80_80"
+                  alt="유저 이미지"
+                />
               </div>
               <div className="textInfo">
                 <div className="rating">
                   <span
                     className="ratingIcon"
                     style={{
-                      transform: `translateX(-${(5 - rating) * 15}px)`,
+                      transform: `translateX(-${(5 - grade) * 15}px)`,
                     }}
                   />
                   <span className="ratingIconBackground" />
-                  <span>{rating}</span>
+                  <span>{grade}</span>
                 </div>
                 <div className="reviewer">
-                  <span className="userName">{userName}</span>
-                  <span className="date">{date}</span>
-                  <span className="option">{option}</span>
+                  <span className="userName">{reviewer}</span>
+                  <span className="date">{registerDate}</span>
+                  <span className="option">사이즈: 단품</span>
                 </div>
               </div>
             </div>
-            <p className="review">{review}</p>
-            <GoChevronLeft onClick={goToPrevPage} className="prevButton" />
-            <GoChevronRight onClick={goToNextPage} className="nextButton" />
+            <p className="review">{detail}</p>
+            <FiArrowLeftCircle onClick={goToPrevPage} className="prevButton" />
+            <FiArrowRightCircle onClick={goToNextPage} className="nextButton" />
           </div>
         </div>
       </div>

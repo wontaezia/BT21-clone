@@ -1,0 +1,72 @@
+@import '../../../../Styles/common.scss';
+
+.itemListContainer {
+  .viewCountButtonContainer {
+    position: relative;
+    @include flex(center, flex-end, row);
+    margin: 0 43px 0 5px;
+
+    .selectedView {
+      @include flex(space-between, flex-end, row);
+
+      .defaultUp,
+      .defaultDown {
+        position: relative;
+        top: 3px;
+        text-align: end;
+        font-size: 12px;
+        line-height: 27px;
+        cursor: pointer;
+
+        &::after {
+          position: absolute;
+          top: 12px;
+          left: 79px;
+          display: block;
+          border: 5px solid transparent;
+          content: '';
+          cursor: pointer;
+        }
+      }
+
+      .defaultDown::after {
+        border-bottom: none;
+        border-top-color: #000;
+      }
+
+      .defaultUp::after {
+        border-top: none;
+        border-bottom-color: #000;
+      }
+    }
+
+    .selectOption {
+      position: absolute;
+      z-index: 1;
+      top: 30px;
+      left: -8px;
+      width: 100px;
+      padding: 5px 0;
+      background-color: white;
+      border: 1px solid #e2e2e2;
+      font-size: 13px;
+      line-height: 29px;
+
+      .select {
+        padding: 0 15px;
+        width: 100%;
+        color: #00c73c;
+        font-weight: bold;
+        background-color: #e8f7ff;
+      }
+
+      .normal {
+        padding: 0 15px;
+        width: 100%;
+      }
+    }
+    .invisibleSelectOption {
+      display: none;
+    }
+  }
+}

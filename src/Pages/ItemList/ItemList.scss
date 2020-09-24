@@ -1,1 +1,67 @@
 @import '../../Styles/common.scss';
+@import '../../Styles/reset.scss';
+
+.itemListContainer {
+  @include flex(center, center, column);
+  width: 1325px;
+  margin: 256px auto;
+
+  .itemListCategory {
+    position: relative;
+    width: 100%;
+    text-align: start;
+  }
+
+  .categoryName {
+    padding: 25px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 24px;
+    text-align: start;
+  }
+
+  .categoryLink {
+    position: absolute;
+    top: 45px;
+    right: 25px;
+    color: #8f8f8f;
+    font-size: 12px;
+    cursor: pointer;
+
+    .home {
+      margin-right: 25px;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 20px;
+        display: inline-block;
+        color: #dddddd;
+        vertical-align: top;
+        content: '>';
+      }
+    }
+
+    .character {
+      margin-right: 25px;
+
+      &:after {
+        position: absolute;
+        top: 0;
+        left: 78px;
+        display: inline-block;
+        color: #dddddd;
+        vertical-align: top;
+        content: '>';
+      }
+    }
+
+    .BT21 {
+      color: #545454;
+    }
+  }
+
+  .paginationContainer {
+    @include flex(center, center, row);
+  }
+}

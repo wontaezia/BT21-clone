@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
 import Slider from 'react-slick';
 import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
 import MainLookAround from './MainLookAround/MainLookAround';

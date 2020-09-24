@@ -1,1 +1,296 @@
 @import '../../Styles/common.scss';
+
+.signUp {
+  background-color: #f5f6f7;
+  padding: 30px 50px;
+
+  header {
+    .signUpLogoBorder {
+      text-align: center;
+      margin: 0 0 40px 0;
+
+      .signUpLogo {
+        width: 250px;
+        height: 60px;
+        background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+        background-position: -150px -90px;
+        text-align: center;
+        padding: 30px 0 30px 0px;
+      }
+    }
+  }
+
+  .signUpForm {
+    text-align: center;
+    width: 460px;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    .signUpId {
+      .signUpIdText {
+        display: block;
+      }
+      .signUpIdBorder {
+        display: flex;
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+
+        .signUpIdInput {
+          width: 370px;
+          height: 49px;
+          margin-left: 5px;
+        }
+        .naverEmail {
+          color: #8e8e8e;
+          margin: auto;
+          margin-right: 10px;
+          font-weight: lighter;
+        }
+      }
+    }
+
+    .signUpPwd {
+      .signUpPwdText {
+        display: block;
+      }
+
+      .signUpPwdInputBorder {
+        position: relative;
+        display: flex;
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+        .signUpPwdInput {
+          width: 370px;
+          height: 49px;
+          margin-left: 5px;
+        }
+        .pwdSecurityContainer {
+          display: flex;
+          .pwdSecurityText {
+            position: relative;
+            width: 70px;
+            margin: 23px 5px;
+            padding-left: 15px;
+            color: #03c75a;
+            font-size: 13px;
+            &.check {
+              display: none;
+            }
+          }
+
+          .pwdSecurity {
+            position: absolute;
+            right: 0;
+            width: 13px;
+            height: 30px;
+            background-image: url('https://static.nid.naver.com/images/ui/join/m_icon_pw_step.png');
+            background-position: -50px -67px;
+            background-size: 120px;
+            padding: 7px 7px 7px 20px;
+            margin: 10px 10px 10px 50px;
+            &.check {
+              background-position: 0px -67px;
+            }
+          }
+        }
+      }
+    }
+
+    .signUpPwdRepeat {
+      .signUpPwdTextRepeat {
+        display: block;
+      }
+      .signUpRepeatPwdBorder {
+        display: flex;
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+
+        .signUpPwdCheck {
+          width: 370px;
+          height: 49px;
+          margin-left: 5px;
+        }
+
+        .pwdRepeatSecurity {
+          width: 13px;
+          height: 30px;
+          background-image: url('https://static.nid.naver.com/images/ui/join/m_icon_pw_step.png');
+          background-position: -77px -67px;
+          background-size: 120px;
+          padding: 7px 7px 7px 20px;
+          margin: 10px 0 10px 50px;
+          &.check {
+            background-position: -25px -67px;
+          }
+        }
+      }
+    }
+
+    .signUpName {
+      .signUpNameText {
+        display: block;
+      }
+
+      .signUpNameInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpBday {
+      display: block;
+      .signUpBdayText {
+      }
+
+      .bDayYr {
+        display: inline;
+        width: 146px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+
+      select {
+        display: inline;
+        width: 146px;
+        height: 51px;
+        margin: 15px 0 15px 10px;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+
+      .bDayDay {
+        display: inline;
+        width: 146px;
+        height: 51px;
+        margin: 15px 0 15px 10px;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpSex {
+      .signUpSexText {
+        display: block;
+      }
+
+      select {
+        display: inline;
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signUpEmail {
+      margin: 15px 0 15px 0;
+
+      .signUpemailText {
+        .signUpEmailText1 {
+          display: inline;
+        }
+
+        .signUpEmailText2 {
+          display: inline;
+          color: #fafafa;
+        }
+      }
+
+      .signUpEmailInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .phoneNumber {
+      .phoneNumberText {
+        display: block;
+      }
+
+      .phoneNumberInput {
+        width: 460px;
+        height: 51px;
+        margin: 15px 0 15px 0;
+        border: 1px solid #dadada;
+        background-color: white;
+      }
+    }
+
+    .signInBtn {
+      width: 460px;
+      height: 54px;
+      margin: 30px 0 0 0px;
+      padding: 15px 0px;
+      background-color: #03c75a;
+      color: white;
+      font-size: 18px;
+    }
+    .hideErrorMsg {
+      display: none;
+    }
+
+    .showErrorMsg {
+      display: block;
+      color: red;
+      font-size: 13px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+  }
+
+  .footerInfo {
+    text-align: center;
+    margin: 30px;
+
+    .termsCondition {
+      font-size: 12px;
+      margin-top: 25px;
+      font-weight: normal;
+      strong {
+        font-weight: bold;
+      }
+    }
+    .corpInfo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      .smallLogo {
+        width: 80px;
+        height: 13px;
+        background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+        background-position: -230px 4px;
+        background-size: 460px;
+        text-align: center;
+        padding: 10px;
+      }
+      .copyright {
+        margin-top: 3px;
+        font-size: 12px;
+        font-weight: normal;
+        strong {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

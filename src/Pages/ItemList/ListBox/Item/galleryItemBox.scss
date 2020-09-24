@@ -1,0 +1,193 @@
+@import '../../../../Styles/common.scss';
+@import '../../../../Styles/reset.scss';
+
+.itemListContainer {
+  .galleryItemBox {
+    @include flex(center, center, column);
+    width: 677px;
+    padding: 0 15px;
+    margin: 20px 0;
+
+    .clickBox {
+      cursor: pointer;
+    }
+
+    .image {
+      position: relative;
+      width: 602px;
+      height: 602px;
+
+      img {
+        width: 100%;
+      }
+
+      .imageButtonBox {
+        position: absolute;
+        top: 502px;
+        left: 50%;
+        @include flex(space-between, center, null);
+        padding: 0;
+        margin-left: -54px;
+        z-index: 1;
+        opacity: 0%;
+        transition: opacity 0.8s;
+
+        .likeButtonBox {
+          @include flex(center, center, null);
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: white;
+          cursor: pointer;
+
+          .imageInnerLike {
+            width: 21px;
+            height: 19px;
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+              no-repeat;
+            background-size: 100% auto;
+            content: '';
+            cursor: pointer;
+          }
+        }
+
+        .likeCheckedButtonBox {
+          @include flex(center, center, null);
+          width: 50px;
+          height: 50px;
+          background-color: #f54c4a;
+          border-radius: 50%;
+          cursor: pointer;
+
+          .likeChecked {
+            width: 21px;
+            height: 19px;
+            background: url(https://img-shop.pstatic.net/smartstore/p/static/20200918175251/media/icon_heart_15x13_white.a891e718.svg)
+              no-repeat;
+            background-size: 100% auto;
+            content: '';
+            cursor: pointer;
+          }
+        }
+
+        .viewButtonBox {
+          @include flex(center, center, null);
+          width: 50px;
+          height: 50px;
+          margin-left: 8px;
+          background-color: white;
+          border-radius: 50%;
+          cursor: pointer;
+
+          .detailView {
+            color: #8f8f8f;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .itemName {
+      @include flex(space-between, center, null);
+      margin-top: 14px;
+
+      #name {
+        padding-right: 16px;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 28px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .like {
+        width: 17px;
+        height: 14px;
+        background: url(https://img-shop.pstatic.net/smartstore/p/static/20200915081326/media/icon_heart_15x13_gray.412edbc4.svg)
+          no-repeat;
+        background-position: auto;
+        cursor: pointer;
+      }
+      .smallLikeChecked {
+        width: 17px;
+        height: 14px;
+        background: url(https://img-shop.pstatic.net/smartstore/p/static/20200916190316/media/icon_heart_15x13_red.7c83f183.svg)
+          no-repeat;
+        background-position: auto;
+        cursor: pointer;
+      }
+    }
+
+    .itemPrice {
+      margin-top: 3px;
+
+      #price {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 28px;
+      }
+    }
+
+    .reviewGrade {
+      margin-top: 20px;
+      margin-left: -500px;
+      font-size: 12px;
+      line-height: 13px;
+
+      .review {
+        margin-right: 4px;
+        color: #8f8f8f;
+      }
+
+      .grade {
+        position: relative;
+        margin-left: 14px;
+        margin-right: 4px;
+        color: #8f8f8f;
+
+        &::after {
+          position: absolute;
+          top: 50%;
+          left: -8px;
+          width: 2px;
+          height: 2px;
+          margin-top: -1px;
+          background-color: #d8d8d8;
+          content: '';
+        }
+      }
+
+      .value {
+        color: #6b90dc;
+      }
+
+      .slash {
+        color: #8f8f8f;
+        margin: auto 1px;
+      }
+    }
+
+    .soldout {
+      margin-top: 16px;
+      font-size: 12px;
+      line-height: 18px;
+      font-weight: bold;
+      height: 21px;
+      width: 64px;
+
+      div {
+        margin: auto auto;
+        color: white;
+        font-size: 9px;
+        font-weight: bold;
+        background-color: #535967;
+        text-align: center;
+      }
+    }
+
+    &:hover .imageButtonBox {
+      opacity: 100%;
+    }
+  }
+}
