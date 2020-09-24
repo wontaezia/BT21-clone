@@ -59,11 +59,11 @@ class ReviewsForm extends Component {
         imagePreviewUrl: reader.result,
       });
     };
-
     reader.readAsDataURL(file);
   };
 
   render() {
+    console.log(this.state.imagePreviewUrl);
     const { addNewReview } = this.props;
     const { grade, imagePreviewUrl, isActive, isClicked, review } = this.state;
     return (

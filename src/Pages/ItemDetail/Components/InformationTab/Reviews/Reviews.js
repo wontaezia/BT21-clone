@@ -27,7 +27,7 @@ class Reviews extends Component {
                       });
                     }}
                   >
-                    <div>
+                    <div className="userInfo">
                       <div className="userImage">
                         <img
                           src="https://profile-phinf.pstatic.net/404/default.png?type=f80_80"

@@ -22,12 +22,12 @@ class PopUp extends Component {
       >
         <div className="inner">
           <h3>
-            포토 리뷰 {currentReview + 1}
+            리뷰 {currentReview + 1}
             <span>{` / ${max}`}</span>
           </h3>
           <div className="content">
             <div className="reviewImage">
-              <img src={photo} alt="리뷰 이미지" />
+              {photo && <img src={photo} alt="리뷰 이미지" />}
             </div>
             <div className="userInfo">
               <div className="userPhoto">

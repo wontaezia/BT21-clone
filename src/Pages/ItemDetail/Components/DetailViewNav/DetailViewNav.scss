@@ -167,7 +167,7 @@
   .tabs {
     @include flex(space-between);
     width: 1020px;
-    margin: 10px auto -10px;
+    margin: 10px auto 0px;
 
     .tab {
       position: relative;

@@ -84,7 +84,7 @@ class PhotoReview extends Component {
       <div className="PhotoReview">
         <div className="head">
           <h3>
-            포토 리뷰 <span>({reviews?.length})</span>
+            리뷰 <span>({reviews?.length})</span>
           </h3>
           <div className="buttonContainer">
             <HiOutlineChevronLeft
@@ -134,7 +134,7 @@ class PhotoReview extends Component {
                         <div className="review">{detail}</div>
                       </div>
                       <div className="photo">
-                        <img src={photo} alt="리뷰 이미지" />
+                        {photo && <img src={photo} alt="리뷰 이미지" />}
                       </div>
                     </div>
                   </li>

@@ -32,28 +32,32 @@ class ItemDetail extends Component {
     reviewsTabStatus: false,
   };
 
-  addNewReview = (detail, grade, photo) => {
+  addNewReview = (detail, grade) => {
     const { itemData } = this.state;
     const { photoReview } = itemData;
+    const userToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.uuIUXAdybf5ZkUIVQ1ikcOz8AmAASTocvL3RtHhiiSg';
+    const productId = this.props.match.params.productId;
 
-    photoReview &&
-      this.setState({
-        itemData: {
-          ...itemData,
-          photoReview: [
-            ...photoReview,
-            {
-              detail,
-              grade,
-              photo,
-              productId: 8,
-              registerDate: '20.09.24',
-              reviewId: photoReview.length,
-              reviewer: signedInUser,
-            },
-          ],
-        },
-      });
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: userToken,
+      },
+      body: JSON.stringify({
+        detail,
+        grade,
+        photo: null,
+        productId,
+        registerDate: '20.09.25',
+        reviewId: photoReview.length,
+        reviewer: signedInUser,
+      }),
+    };
+
+    fetch(`${API}/review/comment`, requestOptions)
+      .then((res) => res.json())
+      .then(() => this.getItemData());
   };
 
   handleFixedNavDisplay = () => {
@@ -293,7 +297,7 @@ class ItemDetail extends Component {
 
 export default withRouter(ItemDetail);
 
-const signedInUser = 'BT21';
+const signedInUser = 'bt21****';
 
 const SHARE_ICON = [
   {
