@@ -1,0 +1,418 @@
+{
+  "itemListTestData": [
+    {
+      "itemId": 1,
+      "itemName": "라인프렌즈 BT21 MANG 유니버스 스탠딩 인형 세트 (3개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200901_6/1598927112348sx5eC_JPEG/17781365_49998930.jpg?type=f602_602",
+      "itemReview": 10,
+      "itemGrade": 3.0,
+      "isLiked": false
+    },
+    {
+      "itemId": 2,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 22,
+      "itemGrade": 2.0,
+      "isLiked": false
+    },
+    {
+      "itemId": 3,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 33,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 4,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 5,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 6,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 7,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 8,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 9,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 10,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 11,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 46,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 12,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 13,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 14,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 15,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 16,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 17,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 18,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 19,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 20,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 21,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 22,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 23,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "15000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 24,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "32000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 25,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 26,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "44000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 27,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 28,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 29,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 30,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 31,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "78000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 32,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 33,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 34,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 35,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 36,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 37,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 1538,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 39,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 40,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 41,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 42,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 43,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 44,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    },
+    {
+      "itemId": 45,
+      "itemName": "라인프렌즈 BT21 KOYA 유니버스 스탠딩 인형 세트 (7개입)",
+      "itemPrice": "55000",
+      "itemImage": "https://shop-phinf.pstatic.net/20200908_27/1599529516446tmOe8_JPEG/17831892_50316002.jpg?type=f602_602",
+      "itemReview": 77,
+      "itemGrade": 4.9,
+      "isLiked": false
+    }
+  ]
+}

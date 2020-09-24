@@ -1,0 +1,28 @@
+@import '../../../Styles/common.scss';
+.itemListContainer {
+  .listItemBoxContainer {
+    @include flex(center, null, row);
+    padding-left: 70px;
+  }
+  .itemBoxContainer,
+  .bigItemBoxContainer {
+    @include flex(center, null, row);
+    padding-left: 45px;
+  }
+
+  .galleryItemBoxContainer {
+    @include flex(center, null, row);
+  }
+
+  .listBox {
+    @include flex(null, null, row);
+    flex-wrap: wrap;
+    padding: 0 10px 50px;
+    list-style: none;
+    width: 1380px;
+
+    .noResult {
+      align-self: center;
+    }
+  }
+}
