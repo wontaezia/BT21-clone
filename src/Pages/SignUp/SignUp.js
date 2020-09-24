@@ -214,7 +214,8 @@ class SignUp extends Component {
 
   subscribeBtn = () => {
     if (this.isEveryInputValid()) {
-      this.handleSignUp();
+      // this.handleSignUp();
+      alert('all criteria passed');
     } else {
       this.numCheck();
       this.genderCheck();
@@ -232,14 +233,14 @@ class SignUp extends Component {
     fetch(`${API}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
-        ID: this.state.signUpIdValue,
+        email: this.state.signUpIdValue,
         password: this.state.signUpPwdCheck,
         name: this.state.signUpNameValue,
         year: this.state.signUpYrValue,
         month: this.state.signUpMonthValue,
         day: this.state.signUpDayValue,
         gender: this.state.signUpGenderValue,
-        email: this.state.signUpEmailValue,
+        email2: this.state.signUpEmailValue,
         number: this.state.signUpNumValue,
       }),
     })
@@ -248,7 +249,7 @@ class SignUp extends Component {
         if (result.Authorization) {
           localStorage.setItem('token', result.Authorization);
           alert('가입 성공');
-          this.props.history.push('/');
+          this.props.history.push('/signin');
         } else if (result.message === 'UNAUTHORIZED') {
           alert('누락된 정보가 있습니다');
         }
@@ -501,6 +502,7 @@ class SignUp extends Component {
               className="signInBtn"
               onClick={() => {
                 this.subscribeBtn();
+                this.handleSignUp();
               }}
             >
               가입하기
