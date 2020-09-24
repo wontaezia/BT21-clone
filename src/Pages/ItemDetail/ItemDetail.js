@@ -30,6 +30,30 @@ class ItemDetail extends Component {
     reviewsTabStatus: false,
   };
 
+  addNewReview = (detail, grade, photo) => {
+    const { itemData } = this.state;
+    const { photoReview } = itemData;
+
+    photoReview &&
+      this.setState({
+        itemData: {
+          ...itemData,
+          photoReview: [
+            ...photoReview,
+            {
+              detail,
+              grade,
+              photo,
+              productId: 8,
+              registerDate: '20.09.24',
+              reviewId: photoReview.length,
+              reviewer: signedInUser,
+            },
+          ],
+        },
+      });
+  };
+
   handleFixedNavDisplay = () => {
     const { InformationOffsetTop } = this.state;
     const scrollTop = window.scrollY;
@@ -84,7 +108,7 @@ class ItemDetail extends Component {
   };
 
   getItemData = () => {
-    fetch(`${API}/products/20`)
+    fetch(`${API}/products/8`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -132,7 +156,7 @@ class ItemDetail extends Component {
 
   handleTabBackground = () => {
     const { imagesTabOffsetTop, reviewsTabOffsetTop } = this.state;
-    const scroll = window.scrollY + 200;
+    const scroll = window.scrollY - 1600;
     const isFocusOnInfoTab = scroll > 0 && scroll < imagesTabOffsetTop;
     const isFocusOnImagesTab =
       scroll > imagesTabOffsetTop && scroll < reviewsTabOffsetTop;
@@ -146,7 +170,7 @@ class ItemDetail extends Component {
   };
 
   handleScrollIntoView = (element) => {
-    const offset = element.offsetTop - 70;
+    const offset = element.offsetTop + 1500;
     window.scrollTo({ top: offset, behavior: 'smooth' });
   };
 
@@ -246,6 +270,7 @@ class ItemDetail extends Component {
             reviewsTab={reviewsTab}
             getInformationOffsetTop={this.getInformationOffsetTop}
             getSectionsOffsetTop={this.getSectionsOffsetTop}
+            addNewReview={this.addNewReview}
           />
           <BestItem
             title="추천 상품"
@@ -260,6 +285,8 @@ class ItemDetail extends Component {
 }
 
 export default ItemDetail;
+
+const signedInUser = 'BT21';
 
 const SHARE_ICON = [
   {

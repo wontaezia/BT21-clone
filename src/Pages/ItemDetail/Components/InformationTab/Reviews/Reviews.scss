@@ -12,6 +12,17 @@
 
     .inner {
       @include flex(space-between, center);
+      cursor: pointer;
+
+      &.isActive {
+        @include flex(null, flex-start, column);
+        background: #fefefe;
+
+        .photo {
+          min-width: 300px;
+          margin-top: 30px;
+        }
+      }
 
       .userImage {
         align-self: start;
@@ -34,6 +45,10 @@
 
       .review {
         font-size: 12px;
+      }
+
+      .rating {
+        font-weight: bold;
       }
     }
   }
