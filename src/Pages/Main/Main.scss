@@ -12,149 +12,31 @@
     transform: translateX(-50%);
     z-index: 9999;
   }
-}
 
-.mainContainer {
-  font-family: $notoSans;
-
-  .firstSlide {
-    .title {
+  .slide {
+    .textContainer {
       position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
-      left: 150px;
-      bottom: 420px;
-      color: white;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 400px;
-      color: white;
-    }
-  }
-
-  .secondSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
       left: 150px;
       bottom: 420px;
       color: black;
+
+      .title {
+        font-size: 50px;
+        font-weight: bolder;
+        line-height: 70px;
+      }
+
+      .subTitle {
+        font-size: 15px;
+        margin-top: 20px;
+        line-height: 30px;
+      }
     }
 
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 400px;
-      color: black;
-    }
-  }
-
-  .thirdSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
-      left: 150px;
-      bottom: 280px;
-      color: white;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 260px;
-      color: white;
-    }
-  }
-
-  .fourthSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
-      left: 150px;
-      bottom: 420px;
-      color: black;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 400px;
-      color: black;
-    }
-  }
-
-  .fifthSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
-      left: 150px;
-      bottom: 420px;
-      color: black;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 400px;
-      color: black;
-    }
-  }
-
-  .sixthSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
-      left: 150px;
-      bottom: 420px;
-      color: black;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 400px;
-      color: black;
-    }
-  }
-
-  .seventhSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      font-weight: bolder;
-      line-height: 70px;
-      left: 150px;
-      bottom: 420px;
-      color: black;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      line-height: 25px;
-      left: 150px;
-      bottom: 400px;
-      color: black;
+    &.whiteText {
+      .textContainer {
+        color: white;
+      }
     }
   }
 
@@ -166,19 +48,23 @@
       top: 50%;
       z-index: 5;
     }
+
     .slick-next {
       right: 65px;
       top: 50%;
       z-index: 5;
     }
+
     .slick-prev:before {
       background: url('https://t1.kakaocdn.net/friends/new_store/2.0/pc/arrow-left.png')
         center center / 10px no-repeat;
     }
+
     .slick-next:before {
       background: url('https://t1.kakaocdn.net/friends/new_store/2.0/pc/arrow-right.png')
         center center / 10px no-repeat;
     }
+
     .slick-prev:before,
     .slick-next:before {
       content: '';
@@ -188,6 +74,7 @@
       z-index: 10;
       display: block;
     }
+
     .slick-dots {
       bottom: 150px;
       z-index: 20;
