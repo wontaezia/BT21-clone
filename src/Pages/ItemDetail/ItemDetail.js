@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import BestItem from './Components/BestItem/BestItem';
@@ -109,7 +110,9 @@ class ItemDetail extends Component {
   };
 
   getItemData = () => {
-    fetch(`${API}/products/8`)
+    const id = this.props.match.params.productId;
+
+    fetch(`${API}/products/${id}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -208,7 +211,7 @@ class ItemDetail extends Component {
     } = this.state;
     return (
       <>
-        <div className="navContainer">
+        <div className="itemDetailNav">
           <Nav />
         </div>
         <div className="ItemDetail">
@@ -288,7 +291,7 @@ class ItemDetail extends Component {
   }
 }
 
-export default ItemDetail;
+export default withRouter(ItemDetail);
 
 const signedInUser = 'BT21';
 

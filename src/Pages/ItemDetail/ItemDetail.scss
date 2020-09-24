@@ -1,15 +1,15 @@
 @import '../../Styles/common.scss';
 
+.itemDetailNav {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e2e2;
+}
+
 .ItemDetail {
   width: 1020px;
-  margin: 0 auto;
+  margin: 30px auto 0;
   font-family: $notoSans;
   background: #fff;
-
-  .navContainer {
-    width: 100%;
-    margin: 0 auto;
-  }
 
   .detailMain {
     display: flex;
