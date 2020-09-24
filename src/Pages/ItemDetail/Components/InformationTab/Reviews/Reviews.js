@@ -54,7 +54,7 @@ class Reviews extends Component {
                       </div>
                     </div>
                     <div className="photo">
-                      <img src={photo} alt="리뷰 이미지" />
+                      {photo && <img src={photo} alt="리뷰 이미지" />}
                     </div>
                   </div>
                 </li>
