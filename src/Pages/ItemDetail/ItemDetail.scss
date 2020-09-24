@@ -19,7 +19,7 @@
     font-weight: bold;
   }
 
-  nav {
+  .iconContainer {
     @include flex(space-between, center);
     padding: 10px 0;
 

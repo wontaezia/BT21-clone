@@ -215,7 +215,7 @@ class ItemDetail extends Component {
           <Nav />
         </div>
         <div className="ItemDetail">
-          <nav>
+          <div className="iconContainer">
             <ul className="share">
               {SHARE_ICON.map((icon) => {
                 const { name, backgroundPosition } = icon;
@@ -227,7 +227,7 @@ class ItemDetail extends Component {
               })}
             </ul>
             <div className="category"></div>
-          </nav>
+          </div>
           <div className="detailMain">
             <ImageView itemData={itemData} />
             <Info
