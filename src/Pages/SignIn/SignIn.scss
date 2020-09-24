@@ -72,7 +72,9 @@ main {
     }
 
     .signInOption {
+      width: 460px;
       display: inline-flex;
+      justify-content: space-between;
       margin: 10px 0 0 40px;
 
       .signInStayBtn {
@@ -101,7 +103,7 @@ main {
       }
 
       .ipSecurity {
-        margin-left: 175px;
+        margin-left: 10px;
         display: flex;
 
         .ipSecurityText {

@@ -23,7 +23,7 @@ class Nav extends Component {
         </div>
         <div className="logobar">
           <div className="logoDiv">
-            <Link to={'/main'}>
+            <Link to={'/'}>
               <img
                 className="linefriendsLogo"
                 alt="lineLogo"

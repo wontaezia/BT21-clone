@@ -30,9 +30,12 @@ class SignUp extends Component {
   }
 
   idInput = (event) => {
-    this.setState({
-      signUpIdValue: event.target.value,
-    });
+    this.setState(
+      {
+        signUpIdValue: event.target.value,
+      },
+      () => this.idCheck()
+    );
   };
 
   idCheck = () => {
@@ -43,22 +46,28 @@ class SignUp extends Component {
   };
 
   pwdInput = (event) => {
-    this.setState({
-      signUpPwdValue: event.target.value,
-    });
+    this.setState(
+      {
+        signUpPwdValue: event.target.value,
+      },
+      () => this.pwdInputCheck()
+    );
   };
 
   pwdCheckInput = (event) => {
-    this.setState({
-      signUpPwdCheck: event.target.value,
-    });
+    this.setState(
+      {
+        signUpPwdCheck: event.target.value,
+      },
+      () => this.handleEqualPwd()
+    );
   };
 
   pwdInputCheck = () => {
-    const { signUpPwdValue } = this.state;
-
+    console.log('pwInput >>>', this.state.signUpPwdValue);
     const pwdInputValid =
-      signUpPwdValue.length > 8 && signUpPwdValue.length < 20;
+      this.state.signUpPwdValue.length > 8 &&
+      this.state.signUpPwdValue.length < 20;
 
     this.setState({
       isPwdInputValid: pwdInputValid,
@@ -66,18 +75,27 @@ class SignUp extends Component {
   };
 
   handleEqualPwd = () => {
+    console.log('pwCheckInput >>>', this.state.signUpPwdCheck);
+
+    const { signUpPwdValue, signUpPwdCheck } = this.state;
     const pwdEqual =
-      this.state.signUpPwdValue === this.state.signUpPwdCheck &&
-      this.state.signUpPwdCheck > 0;
-    this.setState({
-      isPwdValid: pwdEqual,
-    });
+      signUpPwdValue.length > 0 && signUpPwdValue === signUpPwdCheck;
+
+    this.setState(
+      {
+        isPwdValid: pwdEqual,
+      },
+      () => this.state.isPwdValid
+    );
   };
 
   nameInput = (event) => {
-    this.setState({
-      signUpNameValue: event.target.value,
-    });
+    this.setState(
+      {
+        signUpNameValue: event.target.value,
+      },
+      () => this.nameCheck()
+    );
   };
 
   nameCheck = () => {
@@ -180,6 +198,7 @@ class SignUp extends Component {
       isGenderValid,
       isNumValid,
     } = this.state;
+
     return (
       isIdValid &&
       isPwdInputValid &&
@@ -195,7 +214,7 @@ class SignUp extends Component {
 
   subscribeBtn = () => {
     if (this.isEveryInputValid()) {
-      alert('가입 성공');
+      this.handleSignUp();
     } else {
       this.numCheck();
       this.genderCheck();
@@ -205,10 +224,11 @@ class SignUp extends Component {
       this.yrCheck();
       this.monthCheck();
       this.dayCheck();
+      this.handleEqualPwd();
     }
   };
 
-  handleClick = () => {
+  handleSignUp = () => {
     fetch(`${API}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
@@ -227,10 +247,10 @@ class SignUp extends Component {
       .then((result) => {
         if (result.Authorization) {
           localStorage.setItem('token', result.Authorization);
-          alert('로그인 성공');
-          this.props.history.push('/Main');
+          alert('가입 성공');
+          this.props.history.push('/');
         } else if (result.message === 'UNAUTHORIZED') {
-          alert('비밀번호 확인');
+          alert('누락된 정보가 있습니다');
         }
       });
   };
@@ -276,7 +296,6 @@ class SignUp extends Component {
                 className="signUpIdInput"
                 type="text"
                 onChange={this.idInput}
-                onBlur={this.idCheck}
               ></input>
               <div className="naverEmail">@naver.com</div>
             </div>
@@ -297,7 +316,6 @@ class SignUp extends Component {
                 className="signUpPwdInput"
                 type="password"
                 onChange={this.pwdInput}
-                onBlur={this.pwdInputCheck}
               ></input>
 
               <div className="pwdSecurityContainer">
@@ -337,13 +355,10 @@ class SignUp extends Component {
                 className="signUpPwdCheck"
                 type="password"
                 onChange={this.pwdCheckInput}
-                onBlur={this.handleEqualPwd}
               ></input>
               <div
                 className={
-                  isPwdValid === true
-                    ? 'pwdRepeatSecurity'
-                    : 'pwdRepeatSecurity check'
+                  isPwdValid ? 'pwdRepeatSecurity' : 'pwdRepeatSecurity check'
                 }
               ></div>
             </div>
@@ -363,7 +378,6 @@ class SignUp extends Component {
               className="signUpNameInput"
               type="text"
               onChange={this.nameInput}
-              onBlur={this.nameCheck}
             ></input>
             <span
               className={
@@ -487,7 +501,6 @@ class SignUp extends Component {
               className="signInBtn"
               onClick={() => {
                 this.subscribeBtn();
-                this.handleClick();
               }}
             >
               가입하기

@@ -50,7 +50,7 @@ class SignIn extends Component {
         if (result.Authorization) {
           localStorage.setItem('token', result.Authorization);
           alert('로그인 성공');
-          this.props.history.push('/Main');
+          this.props.history.push('/');
         } else if (result.message === 'UNAUTHORIZED') {
           alert('비밀번호 확인');
         }
@@ -110,6 +110,33 @@ class SignIn extends Component {
       secureSignIn = 'IP Secured';
     } else if (currentLanguage === '中文') {
       secureSignIn = 'IP 保护';
+    }
+
+    let findId;
+    if (currentLanguage === '한국어') {
+      findId = '아이디 찾기';
+    } else if (currentLanguage === 'English') {
+      findId = 'Find ID';
+    } else if (currentLanguage === '中文') {
+      findId = '查找ID';
+    }
+
+    let findPwd;
+    if (currentLanguage === '한국어') {
+      findPwd = '비밀번호 찾기';
+    } else if (currentLanguage === 'English') {
+      findPwd = 'Forgot Password';
+    } else if (currentLanguage === '中文') {
+      findPwd = '找回密码';
+    }
+
+    let subscribe;
+    if (currentLanguage === '한국어') {
+      subscribe = '회원 가입';
+    } else if (currentLanguage === 'English') {
+      subscribe = 'Sign Up';
+    } else if (currentLanguage === '中文') {
+      subscribe = '注册';
     }
 
     return (
@@ -188,13 +215,12 @@ class SignIn extends Component {
               </div>
             </div>
             <div className="externalLinks">
-              <div className="findId">아이디 찾기 </div>
+              <div className="findId">{findId} </div>
               <div className="dividerLeft">|</div>
-              <div className="findPwd">비밀번호 찾기</div>
+              <div className="findPwd">{findPwd}</div>
               <div className="dividerRight">|</div>
               <div className="goToSignUp" onClick={this.signUpGo}>
-                {' '}
-                회원가입
+                {subscribe}
               </div>
             </div>
           </content>

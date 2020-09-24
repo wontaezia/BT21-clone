@@ -4,73 +4,67 @@
 .Main {
   position: relative;
   width: 100vw;
+  pointer-events: initial;
+
   .Nav {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
   }
-}
 
-.mainContainer {
-  font-family: $notoSans;
-
-  .firstSlide {
-    .title {
+  .slide {
+    .textContainer {
       position: relative;
-      font-size: 50px;
       left: 150px;
-      bottom: 500px;
-      color: white;
-      //z-index: 8;
-    }
-
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 480px;
-      color: white;
-    }
-  }
-
-  .secondSlide {
-    .title {
-      position: relative;
-      font-size: 50px;
-      left: 150px;
-      bottom: 500px;
+      bottom: 420px;
       color: black;
+
+      .title {
+        font-size: 50px;
+        font-weight: bolder;
+        line-height: 70px;
+      }
+
+      .subTitle {
+        font-size: 15px;
+        margin-top: 20px;
+        line-height: 30px;
+      }
     }
 
-    .subTitle {
-      position: relative;
-      font-size: 15px;
-      left: 150px;
-      bottom: 480px;
-      color: black;
+    &.whiteText {
+      .textContainer {
+        color: white;
+      }
     }
   }
 
   .slide {
+    height: 800px;
+
     .slick-prev {
       left: 27px;
       top: 50%;
       z-index: 5;
     }
+
     .slick-next {
       right: 65px;
       top: 50%;
       z-index: 5;
     }
+
     .slick-prev:before {
       background: url('https://t1.kakaocdn.net/friends/new_store/2.0/pc/arrow-left.png')
         center center / 10px no-repeat;
     }
+
     .slick-next:before {
       background: url('https://t1.kakaocdn.net/friends/new_store/2.0/pc/arrow-right.png')
         center center / 10px no-repeat;
     }
+
     .slick-prev:before,
     .slick-next:before {
       content: '';
@@ -80,8 +74,9 @@
       z-index: 10;
       display: block;
     }
+
     .slick-dots {
-      margin-bottom: 100px;
+      bottom: 150px;
       z-index: 20;
     }
   }
