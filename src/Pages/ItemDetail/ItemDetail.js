@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Nav from '../../Components/Nav/Nav';
 import Footer from '../../Components/Footer/Footer';
 import BestItem from './Components/BestItem/BestItem';
 import DetailViewNav from './Components/DetailViewNav/DetailViewNav';
@@ -207,7 +208,10 @@ class ItemDetail extends Component {
     } = this.state;
     return (
       <>
-        <main className="ItemDetail">
+        <div className="navContainer">
+          <Nav />
+        </div>
+        <div className="ItemDetail">
           <nav>
             <ul className="share">
               {SHARE_ICON.map((icon) => {
@@ -277,7 +281,7 @@ class ItemDetail extends Component {
             itemList={suggestionItems}
             getBestItemsOffsetTop={this.getBestItemsOffsetTop}
           />
-        </main>
+        </div>
         <Footer />
       </>
     );
