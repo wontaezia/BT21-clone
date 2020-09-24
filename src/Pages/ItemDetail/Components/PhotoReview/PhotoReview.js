@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import { HiOutlineChevronLeft } from 'react-icons/hi';
-import { HiOutlineChevronRight } from 'react-icons/hi';
+import { HiOutlineChevronLeft, HiOutlineChevronRight } from 'react-icons/hi';
 import PopUp from './PopUp/PopUp';
 import './PhotoReview.scss';
 
 class PhotoReview extends Component {
-  constructor() {
-    super();
-    this.state = {
-      reviews: [],
-      reviewPage: 0,
-      currentReview: 0,
-      isActive: false,
-    };
-  }
+  state = {
+    reviewPage: 0,
+    currentReview: 0,
+    isActive: false,
+  };
 
   handleActiveModal = () => {
     const { isActive } = this.state;
@@ -23,8 +18,8 @@ class PhotoReview extends Component {
   };
 
   closeModal = (e) => {
-    if (e.target.className === 'popUp isActive') {
-      e.target.className = 'popUp';
+    if (e.target.className === 'PopUp isActive') {
+      e.target.className = 'PopUp';
       this.handleActiveModal();
     }
   };
@@ -37,7 +32,8 @@ class PhotoReview extends Component {
   };
 
   handlePopUpRightButton = () => {
-    let { currentReview, reviews } = this.state;
+    const { reviews } = this.props;
+    const { currentReview } = this.state;
     const max = currentReview >= reviews.length - 1;
 
     this.setState({
@@ -46,7 +42,8 @@ class PhotoReview extends Component {
   };
 
   handlePopUpLeftButton = () => {
-    let { currentReview, reviews } = this.state;
+    const { reviews } = this.props;
+    const { currentReview } = this.state;
     const lastReview = reviews.length - 1;
 
     this.setState({
@@ -55,7 +52,8 @@ class PhotoReview extends Component {
   };
 
   handleReviewRightButton = () => {
-    let { reviewPage, reviews } = this.state;
+    const { reviews } = this.props;
+    const { reviewPage } = this.state;
     const max = reviewPage + 1 >= Math.ceil(reviews.length / 4);
 
     this.setState({
@@ -64,7 +62,8 @@ class PhotoReview extends Component {
   };
 
   handleReviewLeftButton = () => {
-    let { reviewPage, reviews } = this.state;
+    const { reviews } = this.props;
+    const { reviewPage } = this.state;
     const lastPage = Math.ceil(reviews.length / 4) - 1;
 
     this.setState({
@@ -72,35 +71,20 @@ class PhotoReview extends Component {
     });
   };
 
-  getReviewData = () => {
-    fetch('/data/reviews.json')
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({
-          reviews: res.reviews,
-        });
-      });
-  };
-
-  reviewList = React.createRef();
-
-  componentDidMount() {
-    this.getReviewData();
-  }
-
   render() {
-    const { reviews, reviewPage, isActive, currentReview } = this.state;
+    const { reviews } = this.props;
+    const { reviewPage, isActive, currentReview } = this.state;
 
-    const moveReviewPage = {
-      width: `${Math.ceil(reviews.length / 2) * 50}%`,
+    const setStyleReviewPage = {
+      width: `${Math.ceil(reviews?.length / 2) * 50}%`,
       transform: `translateX(-${reviewPage * 1018}px)`,
     };
 
     return (
-      <div className="photoReview">
+      <div className="PhotoReview">
         <div className="head">
           <h3>
-            포토 리뷰 <span>({reviews.length})</span>
+            포토 리뷰 <span>({reviews?.length})</span>
           </h3>
           <div className="buttonContainer">
             <HiOutlineChevronLeft
@@ -114,62 +98,54 @@ class PhotoReview extends Component {
           </div>
         </div>
         <div className="reviewContainer">
-          <ul
-            className="reviewList"
-            style={moveReviewPage}
-            ref={this.reviewList}
-          >
-            {reviews.map((reviewData, index) => {
-              const {
-                id,
-                userName,
-                rating,
-                review,
-                date,
-                photo,
-                option,
-              } = reviewData;
-              return (
-                <li key={id}>
-                  <div
-                    className="inner"
-                    onClick={() => {
-                      this.setState(
-                        { currentReview: index },
-                        this.handleActiveModal
-                      );
-                    }}
-                  >
-                    <div className="left">
-                      <div className="rating">
-                        <span
-                          className="ratingIcon"
-                          style={{
-                            transform: `translateX(-${(5 - rating) * 15}px)`,
-                          }}
-                        />
-                        <span className="ratingIconBackground" />
-                        <span>{rating}</span>
+          <ul className="reviewList" style={setStyleReviewPage}>
+            {reviews?.map(
+              (
+                { reviewId, reviewer, grade, detail, registerDate, photo },
+                index
+              ) => {
+                return (
+                  <li key={reviewId}>
+                    <div
+                      className="inner"
+                      onClick={() => {
+                        this.setState(
+                          { currentReview: index },
+                          this.handleActiveModal
+                        );
+                      }}
+                    >
+                      <div className="left">
+                        <div className="rating">
+                          <span
+                            className="ratingIcon"
+                            style={{
+                              transform: `translateX(-${(5 - grade) * 15}px)`,
+                            }}
+                          />
+                          <span className="ratingIconBackground" />
+                          <span>{grade}</span>
+                        </div>
+                        <div className="reviewer">
+                          <span className="userName">{reviewer}</span>
+                          <span className="date">{registerDate}</span>
+                          <span className="option">사이즈: 단품</span>
+                        </div>
+                        <div className="review">{detail}</div>
                       </div>
-                      <div className="reviewer">
-                        <span className="userName">{userName}</span>
-                        <span className="date">{date}</span>
-                        <span className="option">{option}</span>
+                      <div className="photo">
+                        <img src={photo} alt="리뷰 이미지" />
                       </div>
-                      <div className="review">{review}</div>
                     </div>
-                    <div className="photo">
-                      <img src={photo} alt="리뷰 이미지" />
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+                  </li>
+                );
+              }
+            )}
           </ul>
           <PopUp
             isActive={isActive}
             currentReview={currentReview}
-            reviewData={reviews.length && reviews[currentReview]}
+            reviews={reviews[currentReview]}
             max={reviews.length}
             goToNextPage={this.handlePopUpRightButton}
             goToPrevPage={this.handlePopUpLeftButton}

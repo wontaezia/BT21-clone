@@ -1,1 +1,100 @@
 @import '../../Styles/common.scss';
+
+.Nav {
+  width: 100%;
+
+  .naverLogobar {
+    margin-top: 5px;
+    display: flex;
+    border-bottom: 1px solid #dadada;
+    justify-content: space-between;
+    .naverLink {
+      display: flex;
+      justify-content: center;
+      .naverLogo {
+        width: 50px;
+        height: 23px;
+        background-image: url('https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spText_svg.svg');
+        background-size: 361pxx;
+        background-position: -233px -165px;
+        padding: 11px;
+        margin: auto;
+        margin-left: 50px;
+      }
+      .naverShoppingLogo {
+        width: 70px;
+        height: 29px;
+        background-size: 361px;
+        background-position: -138px -96px;
+        padding: 14px;
+        margin: auto;
+        margin-left: 30px;
+        background-image: url('https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spText_svg.svg');
+      }
+    }
+    .signInBar {
+      display: flex;
+      justify-content: center;
+      .naverSignInBtn {
+        border: 1px solid #dadada;
+        background-color: transparent;
+        font-weight: lighter;
+        height: 20px;
+        font-size: 12px;
+        margin-top: 3px;
+        cursor: pointer;
+      }
+      .signInImg {
+        width: 15px;
+        height: 15px;
+        background-image: url('https://ssl.pstatic.net/static/common/gnb/one/sp_gnb_v15.png?v=2006)%20no-repeat%20-999px%20-999px');
+        background-position: -60px 0px;
+        padding: 10px;
+        margin-top: 4px;
+        margin-left: 10px;
+      }
+    }
+  }
+  .logobar {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+  }
+
+  .linefriendsLogo {
+    width: 250px;
+  }
+
+  .searchDiv {
+    position: absolute;
+    right: 60px;
+
+    .searchbox {
+      height: 36px;
+      border-radius: 20px;
+      background-image: url('https://www.iconfinder.com/data/icons/ios-7-icons/50/search-512.png')
+        20px no-repeat;
+      background-color: #00000008;
+      padding: 2px 40px 0px 20px;
+    }
+    > .magnifyImg {
+      background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200918175251/img/sprite/svg/spIcon_svg.svg');
+      background-size: 678px 673px;
+      background-position: -517px -582px;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .Navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

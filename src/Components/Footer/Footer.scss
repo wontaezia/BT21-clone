@@ -1,1 +1,151 @@
 @import '../../Styles/common.scss';
+
+.Footer {
+  width: 100%;
+  padding-bottom: 100px;
+
+  .inner {
+    width: 1410px;
+    margin: 0 auto;
+  }
+
+  .storeInfo {
+    @include flex(null, center);
+    padding: 14px 0;
+    background: #fafafa;
+    font-size: 12px;
+
+    .returns {
+      margin-right: 14px;
+      color: #999;
+
+      &::before {
+        content: '!';
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        margin: 0 20px;
+        background: #3fc910;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        line-height: 14px;
+      }
+    }
+
+    .customerCare::after {
+      content: '인증';
+      margin-left: 6px;
+      color: #6b90dc;
+    }
+
+    .more {
+      position: relative;
+
+      .moreButton {
+        margin-left: 10px;
+        border: 1px solid #aaa;
+        font-size: 12px;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+          background: #aaa;
+          color: #fff;
+        }
+      }
+
+      .info {
+        position: absolute;
+        left: 10px;
+        display: none;
+        width: 410px;
+        padding: 26px 20px;
+        background: #fff;
+        border: 1px solid #aaa;
+
+        &.isActive {
+          display: block;
+        }
+
+        h3 {
+          padding-bottom: 16px;
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        table {
+          text-align: left;
+
+          tr {
+            display: block;
+            padding: 6px 0;
+          }
+
+          th {
+            width: 100px;
+            color: #999;
+          }
+        }
+      }
+    }
+  }
+
+  .termsAndConditions {
+    display: flex;
+    margin: 16px 0;
+
+    li {
+      border-right: $lightGrayBorder;
+      font-size: 12px;
+
+      button {
+        cursor: pointer;
+      }
+
+      &:nth-child(4) {
+        button {
+          font-weight: bold;
+        }
+      }
+
+      &:last-child {
+        border: 0;
+      }
+
+      button {
+        padding: 0;
+        padding-right: 16px;
+      }
+    }
+  }
+
+  .corporationContainer {
+    display: flex;
+  }
+
+  .responsibility,
+  .copyright {
+    display: block;
+    color: #666;
+  }
+
+  .responsibility {
+    padding: 40px 0 16px;
+    font-size: 12px;
+  }
+
+  .copyright {
+    font-size: 11px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 64px;
+      height: 11px;
+      margin-right: 6px;
+      background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200918175251/img/sprite/svg/spText_svg.svg');
+      background-position: -163px -127px;
+    }
+  }
+}

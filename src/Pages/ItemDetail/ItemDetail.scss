@@ -1,6 +1,6 @@
 @import '../../Styles/common.scss';
 
-.itemDetail {
+.ItemDetail {
   width: 1020px;
   margin: 0 auto;
   font-family: $notoSans;
@@ -31,6 +31,7 @@
           height: 100%;
           background: url('https://ssl.pstatic.net/static/common/spi/2020/0806/sp_spi_pc.png')
             no-repeat;
+          cursor: pointer;
         }
 
         &.release {

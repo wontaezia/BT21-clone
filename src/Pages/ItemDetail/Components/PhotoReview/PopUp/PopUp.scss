@@ -1,27 +1,28 @@
 @import '../../../../../Styles/common.scss';
 
-.itemDetail {
-  .popUp {
+.ItemDetail {
+  .PopUp {
     position: fixed;
     top: 0;
     left: 0;
     display: none;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
 
     &.isActive {
       display: block;
     }
 
-    .inner {
+    > .inner {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 600px;
-      padding: 50px 120px;
+      width: 500px;
+      padding: 50px 60px;
       transform: translate(-50%, -50%);
-      background: #eeeeee;
+      background: #fff;
 
       .content {
         position: relative;
@@ -67,7 +68,7 @@
         padding: 16px;
         margin-top: 10px;
         border-radius: 10px;
-        background: #fff;
+        background: #eee;
         color: #444;
         font-size: 13px;
         font-weight: lighter;
@@ -82,7 +83,7 @@
           display: block;
           width: 15px;
           height: 15px;
-          background: #fff;
+          background: #eee;
           transform: rotate(-45deg);
         }
       }
@@ -91,17 +92,24 @@
       .nextButton {
         position: absolute;
         top: 50%;
-        font-size: 50px;
+        color: rgba(148, 148, 148, 0.6);
+        font-size: 60px;
         transform: translateY(-50%);
+        transition: color 0.3s ease-in-out;
         cursor: pointer;
+        stroke-width: 1px;
+
+        &:hover {
+          color: rgba(255, 255, 255, 1);
+        }
       }
 
       .prevButton {
-        left: -80px;
+        left: -165px;
       }
 
       .nextButton {
-        right: -80px;
+        right: -165px;
       }
     }
   }

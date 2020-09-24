@@ -5,6 +5,18 @@
 //   background-color: aquamarine;
 // }
 
+.mainContainer {
+  position: relative;
+  width: 100vw;
+
+  .Nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
+}
+
 .Main {
   font-family: $notoSans;
 
