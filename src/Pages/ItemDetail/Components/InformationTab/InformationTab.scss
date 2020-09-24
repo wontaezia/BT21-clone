@@ -1,0 +1,221 @@
+@import '../../../../Styles/common.scss';
+
+.ItemDetail {
+  .InformationTab {
+    position: relative;
+
+    .tab {
+      width: 100%;
+      padding: 16px 0;
+      background: #3d3d4f;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .shippingDays {
+      padding: 30px 0;
+
+      h2 {
+        font-size: 14px;
+        line-height: lighter;
+      }
+
+      .content {
+        display: flex;
+        width: 100%;
+        padding: 20px 0;
+        margin-top: 18px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+
+        .text,
+        .chart {
+          width: 50%;
+        }
+
+        .text {
+          @include flex(center, center, column);
+          border-right: 1px solid #ddd;
+
+          .top {
+            font-size: 14px;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 4px;
+              display: inline-block;
+              width: 13px;
+              height: 8px;
+              background-image: url('https://img-shop.pstatic.net/smartstore/p/static/20200918175251/img/sprite/svg/spIcon_svg.svg');
+              background-color: #6b90dc;
+              background-position: -552px -391px;
+              z-index: 10;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: -4px;
+              top: -2px;
+              display: inline-block;
+              width: 18px;
+              height: 18px;
+              border-radius: 50%;
+              background-color: #6b90dc;
+              background-position: -552px -391px;
+              z-index: 1;
+            }
+          }
+
+          .middle {
+            padding: 6px 0;
+            font-weight: bold;
+            font-size: 20px;
+
+            span {
+              color: #6b90dc;
+            }
+          }
+
+          .bottom {
+            color: #aaa;
+            font-weight: lighter;
+            font-size: 12px;
+          }
+        }
+
+        .chart {
+          @include flex(space-between, null, column);
+          padding: 0 72px;
+
+          li {
+            @include flex(space-between, center);
+            font-size: 12px;
+            padding: 10px 0;
+
+            span:last-child {
+              width: 70px;
+              text-align: center;
+            }
+          }
+
+          .line {
+            position: relative;
+            width: 55%;
+            height: 3px;
+
+            .activeLine,
+            .backgroundLine {
+              position: absolute;
+              height: 3px;
+              background: #aaa;
+            }
+
+            .activeLine {
+              z-index: 100;
+
+              &.max {
+                background: #6b90dc;
+              }
+            }
+
+            .backgroundLine {
+              width: 100%;
+              height: 100%;
+              background: #ddd;
+              z-index: 10;
+            }
+          }
+
+          .count {
+            color: #aaa;
+
+            &.max {
+              color: #6b90dc;
+            }
+          }
+        }
+      }
+    }
+
+    .productTable {
+      margin-bottom: 40px;
+      font-weight: lighter;
+
+      h3 {
+        padding-bottom: 18px;
+        font-weight: normal;
+      }
+
+      > div {
+        padding: 10px 0;
+        font-size: 12px;
+
+        span {
+          font-weight: normal;
+          text-decoration: underline;
+        }
+
+        &::before {
+          content: '!';
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-right: 6px;
+          border: 1px solid #ddd;
+          border-radius: 50%;
+          text-align: center;
+          line-height: 15px;
+        }
+      }
+
+      table {
+        width: 100%;
+        border-top: 1px solid #ededed;
+        border-bottom: 1px solid #ededed;
+        color: #333;
+        font-weight: lighter;
+        font-size: 12px;
+        text-align: left;
+
+        tr {
+          border-bottom: 1px solid #ededed;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          th,
+          td {
+            padding: 10px 20px;
+          }
+
+          th {
+            width: 160px;
+            background: #fafafa;
+          }
+        }
+      }
+
+      .afterService {
+        td div {
+          line-height: 18px;
+        }
+      }
+      .certification {
+        line-height: 18px;
+        .code {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .imageContainer {
+      @include flex(null, center, column);
+      margin-bottom: 40px;
+    }
+  }
+}

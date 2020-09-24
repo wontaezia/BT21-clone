@@ -57,7 +57,7 @@ class SignUp extends Component {
   pwdInputCheck = () => {
     const { signUpPwdValue } = this.state;
 
-    const numbers = /^[0-9]+$/;
+    const numbers = /.*[0-9].*/;
     const upperCase = /[A - Z]/;
     const regexNum = RegExp(numbers);
     const regexUpper = RegExp(upperCase);

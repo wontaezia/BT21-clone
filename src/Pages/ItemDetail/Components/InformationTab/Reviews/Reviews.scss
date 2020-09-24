@@ -1,0 +1,55 @@
+@import '../../../../../Styles/common.scss';
+
+.ItemDetail {
+  .Reviews {
+    li {
+      padding: 20px 20px;
+      font-weight: lighter;
+      letter-spacing: 1px;
+      line-height: 18px;
+      border-bottom: $lightGrayBorder;
+    }
+
+    .inner {
+      @include flex(space-between, center);
+      cursor: pointer;
+
+      &.isActive {
+        @include flex(null, flex-start, column);
+        background: #fefefe;
+
+        .photo {
+          min-width: 300px;
+          margin-top: 30px;
+        }
+      }
+
+      .userImage {
+        align-self: start;
+        width: 30px;
+        min-width: 30px;
+        margin-right: 10px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .left {
+        padding-right: 20px;
+      }
+
+      .photo {
+        width: 80px;
+        min-width: 80px;
+        cursor: pointer;
+      }
+
+      .review {
+        font-size: 12px;
+      }
+
+      .rating {
+        font-weight: bold;
+      }
+    }
+  }
+}

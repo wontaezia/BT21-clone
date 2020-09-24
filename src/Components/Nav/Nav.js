@@ -12,15 +12,18 @@ class Nav extends Component {
     return (
       <div className="Nav">
         <div className="naverLogobar">
-          <div className="naverLink">
-            <img className="naverLogo" />
-            <img className="naverShoppingLogo" />
-          </div>
-          <div className="signInBar">
-            <button className="naverSignInBtn" onClick={this.signInGo}>
-              로그인
-            </button>
-            <img className="signInImg" />
+          <div className="naverLogobarInner">
+            <div className="naverLink">
+              <img className="naverLogo" />
+              <img className="naverShoppingLogo" />
+            </div>
+
+            <div className="signInBar">
+              <button className="naverSignInBtn" onClick={this.signInGo}>
+                로그인
+              </button>
+              <img className="signInImg" />
+            </div>
           </div>
         </div>
         <div className="logobar">

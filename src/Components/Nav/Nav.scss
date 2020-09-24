@@ -5,9 +5,14 @@
 
   .naverLogobar {
     margin-top: 5px;
-    display: flex;
     border-bottom: 1px solid #dadada;
-    justify-content: space-between;
+
+    .naverLogobarInner {
+      width: 1280px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+    }
     .naverLink {
       display: flex;
       justify-content: center;
@@ -19,7 +24,6 @@
         background-position: -233px -165px;
         padding: 11px;
         margin: auto;
-        margin-left: 50px;
       }
       .naverShoppingLogo {
         width: 70px;
@@ -48,7 +52,7 @@
         width: 15px;
         height: 15px;
         background-image: url('https://ssl.pstatic.net/static/common/gnb/one/sp_gnb_v15.png?v=2006)%20no-repeat%20-999px%20-999px');
-        background-position: -60px 0px;
+        background-position: 0px -130px;
         padding: 10px;
         margin-top: 4px;
         margin-left: 10px;
@@ -56,11 +60,13 @@
     }
   }
   .logobar {
+    width: 1280px;
+    margin: auto;
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
-    padding: 80px;
+    padding: 50px;
   }
 
   .linefriendsLogo {
@@ -69,7 +75,7 @@
 
   .searchDiv {
     position: absolute;
-    right: 60px;
+    right: 0px;
 
     .searchbox {
       height: 36px;
@@ -93,8 +99,10 @@
   }
 
   .Navbar {
+    width: 1300px;
+    margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
   }
 }

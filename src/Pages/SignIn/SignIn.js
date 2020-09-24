@@ -182,6 +182,11 @@ class SignIn extends Component {
                 ></div>
               </div>
             </div>
+            <div className="externalLinks">
+              <div className="findId">아이디 찾기 </div>
+              <div className="findPwd"> | 비밀번호 찾기 | </div>
+              <div className="goToSignUp"> 회원가입</div>
+            </div>
           </content>
         </div>
       </main>
