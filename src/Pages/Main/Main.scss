@@ -2,23 +2,37 @@
 @import '../../Styles/reset.scss';
 
 .Main {
+  position: relative;
+  width: 100vw;
+  pointer-events: initial;
+
+  .Nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
+}
+
+.mainContainer {
   font-family: $notoSans;
 
   .firstSlide {
     .title {
       position: relative;
       font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
       left: 150px;
-      bottom: 500px;
+      bottom: 420px;
       color: white;
-      //z-index: 8;
     }
 
     .subTitle {
       position: relative;
       font-size: 15px;
       left: 150px;
-      bottom: 480px;
+      bottom: 400px;
       color: white;
     }
   }
@@ -27,8 +41,10 @@
     .title {
       position: relative;
       font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
       left: 150px;
-      bottom: 500px;
+      bottom: 420px;
       color: black;
     }
 
@@ -36,12 +52,115 @@
       position: relative;
       font-size: 15px;
       left: 150px;
-      bottom: 480px;
+      bottom: 400px;
+      color: black;
+    }
+  }
+
+  .thirdSlide {
+    .title {
+      position: relative;
+      font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
+      left: 150px;
+      bottom: 280px;
+      color: white;
+    }
+
+    .subTitle {
+      position: relative;
+      font-size: 15px;
+      left: 150px;
+      bottom: 260px;
+      color: white;
+    }
+  }
+
+  .fourthSlide {
+    .title {
+      position: relative;
+      font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
+      left: 150px;
+      bottom: 420px;
+      color: black;
+    }
+
+    .subTitle {
+      position: relative;
+      font-size: 15px;
+      left: 150px;
+      bottom: 400px;
+      color: black;
+    }
+  }
+
+  .fifthSlide {
+    .title {
+      position: relative;
+      font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
+      left: 150px;
+      bottom: 420px;
+      color: black;
+    }
+
+    .subTitle {
+      position: relative;
+      font-size: 15px;
+      left: 150px;
+      bottom: 400px;
+      color: black;
+    }
+  }
+
+  .sixthSlide {
+    .title {
+      position: relative;
+      font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
+      left: 150px;
+      bottom: 420px;
+      color: black;
+    }
+
+    .subTitle {
+      position: relative;
+      font-size: 15px;
+      left: 150px;
+      bottom: 400px;
+      color: black;
+    }
+  }
+
+  .seventhSlide {
+    .title {
+      position: relative;
+      font-size: 50px;
+      font-weight: bolder;
+      line-height: 70px;
+      left: 150px;
+      bottom: 420px;
+      color: black;
+    }
+
+    .subTitle {
+      position: relative;
+      font-size: 15px;
+      line-height: 25px;
+      left: 150px;
+      bottom: 400px;
       color: black;
     }
   }
 
   .slide {
+    height: 800px;
+
     .slick-prev {
       left: 27px;
       top: 50%;
@@ -70,7 +189,7 @@
       display: block;
     }
     .slick-dots {
-      margin-bottom: 100px;
+      bottom: 150px;
       z-index: 20;
     }
   }

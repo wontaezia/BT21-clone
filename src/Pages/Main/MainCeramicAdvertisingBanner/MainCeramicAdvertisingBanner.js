@@ -18,7 +18,7 @@ class MainCeramicAdvertisingBanner extends Component {
   };
 
   render() {
-    const { buttonOnImage, borderNumber } = this.state;
+    const { borderNumber } = this.state;
     return (
       <div className="MainCeramicAdvertisingBanner">
         <div className="bannerTitle">
