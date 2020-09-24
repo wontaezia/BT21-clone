@@ -57,26 +57,12 @@ class SignUp extends Component {
   pwdInputCheck = () => {
     const { signUpPwdValue } = this.state;
 
-    const numbers = /.*[0-9].*/;
-    const upperCase = /[A - Z]/;
-    const regexNum = RegExp(numbers);
-    const regexUpper = RegExp(upperCase);
-
     const pwdInputValid =
       signUpPwdValue.length > 8 && signUpPwdValue.length < 20;
 
-    const pwdValidWithNumber = regexNum.test(signUpPwdValue);
-
-    const pwdValidWithUpper = regexUpper.test(signUpPwdValue);
-
     this.setState({
       isPwdInputValid: pwdInputValid,
-      isPwdValidWithNumber: pwdValidWithNumber,
-      isPwdValidWithUpper: pwdValidWithUpper,
     });
-    console.log(pwdInputValid, '8');
-    console.log(pwdValidWithNumber, 'num');
-    console.log(pwdValidWithUpper, 'upper');
   };
 
   handleEqualPwd = () => {

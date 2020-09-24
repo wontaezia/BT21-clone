@@ -74,52 +74,52 @@ main {
     .signInOption {
       display: inline-flex;
       margin: 10px 0 0 40px;
-    }
 
-    .signInStayBtn {
-      display: flex;
-      align-items: middle;
-      margin-right: 55px;
+      .signInStayBtn {
+        display: flex;
+        align-items: middle;
+        margin-right: 55px;
 
-      .signInStayCheck {
-        width: 20px;
-        height: 30px;
-        background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
-        background-position: 0 -110px;
-        background-size: 460px;
-        padding: 7px 20px 10px 11px;
-        margin: 8px 0 0 0px;
-        &.isSignIn {
-          background-position: 0 -141px;
+        .signInStayCheck {
+          width: 20px;
+          height: 30px;
+          background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+          background-position: 0 -110px;
+          background-size: 460px;
+          padding: 7px 20px 10px 11px;
+          margin: 8px 0 0 0px;
+          &.isSignIn {
+            background-position: 0 -141px;
+          }
+        }
+
+        .signInStayText {
+          align-self: center;
+          width: 120px;
+          margin-bottom: 5px;
         }
       }
 
-      .signInStayText {
-        align-self: center;
-        width: 120px;
-        margin-bottom: 5px;
-      }
-    }
+      .ipSecurity {
+        margin-left: 175px;
+        display: flex;
 
-    .ipSecurity {
-      margin-left: 175px;
-      display: flex;
+        .ipSecurityText {
+          align-self: center;
+          margin-bottom: 5px;
+        }
 
-      .ipSecurityText {
-        align-self: center;
-        margin-bottom: 5px;
-      }
-
-      .securityOnOff {
-        width: 30px;
-        height: 10px;
-        background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
-        background-position: 0 -67px;
-        background-size: 600px;
-        padding: 7px 35px 8px 11px;
-        margin: 20px 0 20px 0px;
-        &.check {
-          background-position: 0 -86px;
+        .securityOnOff {
+          width: 30px;
+          height: 10px;
+          background-image: url('https://static.nid.naver.com/images/ui/login/t_sp_login_190522.png');
+          background-position: 0 -67px;
+          background-size: 600px;
+          padding: 7px 35px 8px 11px;
+          margin: 20px 0 20px 0px;
+          &.check {
+            background-position: 0 -86px;
+          }
         }
       }
     }
@@ -130,6 +130,21 @@ main {
       justify-content: center;
       font-size: 14px;
       color: #8e8e8e;
+      .findId {
+      }
+      .dividerLeft {
+        margin: 0 10px;
+        font-size: 11px;
+        align-items: center;
+      }
+      .dividerRight {
+        margin: 0 10px;
+        font-size: 11px;
+        align-items: center;
+      }
+      .goToSignUp {
+        cursor: pointer;
+      }
     }
   }
 }

@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Filter from './Filter/Filetr';
 import ListBox from './ListBox/ListBox';
 import Pagination from './Pagination/Pagination';
+import Nav from '../../Components/Nav/Nav';
+import Footer from '../../Components/Footer/Footer';
 import './ItemList.scss';
-// import { API } from '../../../src/config.js';
+import { API } from '../../config';
 
 class ItemList extends Component {
   constructor() {
@@ -43,15 +45,13 @@ class ItemList extends Component {
         sort: name,
         currentIdx: index,
       },
-      () => this.handleFetcth()
+      () => this.handleFetch()
     );
   };
 
-  handleFetcth = () => {
+  handleFetch = () => {
     const { num, sort, offset } = this.state;
-    fetch(
-      `http://10.58.6.45:8000/products?num=${num}&page_no=${offset}&sort=${sort}`
-    )
+    fetch(`${API}/products?num=${num}&page_no=${offset}&sort=${sort}`)
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -62,9 +62,7 @@ class ItemList extends Component {
 
   handleFetchUntilPage = () => {
     const { num, sort, offset } = this.state;
-    fetch(
-      `http://10.58.6.45:8000/products?num=${num}&page_no=${offset}&sort=${sort}`
-    )
+    fetch(`${API}/products?num=${num}&page_no=${offset}&sort=${sort}`)
       .then((res) => res.json())
       .then((res) => {
         const newPageArray = [];
@@ -138,7 +136,7 @@ class ItemList extends Component {
   nextPage = (e) => {
     const { name } = e.target;
     this.setState({ offset: name, currentPageIdx: name }, () =>
-      this.handleFetcth()
+      this.handleFetch()
     );
   };
 
@@ -154,46 +152,54 @@ class ItemList extends Component {
       popup,
     } = this.state;
     return (
-      <div className="itemListContainer">
-        <div className="itemListCategory">
-          <div className="categoryName">BT21</div>
-          <div className="categoryLink">
-            <span onClick={() => this.gotoMain()} className="home">
-              홈
-            </span>
-            <span className="character">캐릭터</span>
-            <span className="BT21">BT21</span>
+      <>
+        <div className="itemListNav">
+          <Nav />
+        </div>
+        <div className="itemListContainer">
+          <div className="itemListCategory">
+            <div className="categoryName">BT21</div>
+            <div className="categoryLink">
+              <span onClick={this.gotoMain} className="home">
+                홈
+              </span>
+              <span className="character">캐릭터</span>
+              <span className="BT21">BT21</span>
+            </div>
+          </div>
+          <Filter
+            handleFiltering={this.handleFiltering}
+            handleView={this.handleView}
+            items={items}
+            currentIdx={currentIdx}
+            currentViewIdx={currentViewIdx}
+            num={num}
+            popup={popup}
+            selectNum={selectNum}
+            handlePopup={this.handlePopup}
+            selectViewCount={this.selectViewCount}
+            changeSelect={this.changeSelect}
+          />
+          <ListBox
+            items={items}
+            handleLike={this.handleLike}
+            currentViewIdx={currentViewIdx}
+          />
+          <div className="paginationContainer">
+            {pageArray?.map((pageNumber, index) => (
+              <Pagination
+                currentPageIdx={currentPageIdx}
+                key={index}
+                pageNumber={pageNumber}
+                nextPage={this.nextPage}
+              />
+            ))}
           </div>
         </div>
-        <Filter
-          handleFiltering={this.handleFiltering}
-          handleView={this.handleView}
-          items={items}
-          currentIdx={currentIdx}
-          currentViewIdx={currentViewIdx}
-          num={num}
-          popup={popup}
-          selectNum={selectNum}
-          handlePopup={this.handlePopup}
-          selectViewCount={this.selectViewCount}
-          changeSelect={this.changeSelect}
-        />
-        <ListBox
-          items={items}
-          handleLike={this.handleLike}
-          currentViewIdx={currentViewIdx}
-        />
-        <div className="paginationContainer">
-          {pageArray?.map((pageNumber, index) => (
-            <Pagination
-              currentPageIdx={currentPageIdx}
-              key={index}
-              pageNumber={pageNumber}
-              nextPage={this.nextPage}
-            />
-          ))}
+        <div className="itemListFooter">
+          <Footer />
         </div>
-      </div>
+      </>
     );
   }
 }

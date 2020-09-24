@@ -3,6 +3,7 @@ import './SignIn.scss';
 import Dropdown, { Selection } from 'react-dropdown-now';
 import 'react-dropdown/style.css';
 import { API } from '../../config';
+import { withRouter } from 'react-router-dom';
 
 class SignIn extends Component {
   constructor() {
@@ -58,6 +59,10 @@ class SignIn extends Component {
 
   checkToken = () => {
     const token = localStorage.getItem('token');
+  };
+
+  signUpGo = () => {
+    this.props.history.push('/SignUp');
   };
 
   render() {
@@ -184,8 +189,13 @@ class SignIn extends Component {
             </div>
             <div className="externalLinks">
               <div className="findId">아이디 찾기 </div>
-              <div className="findPwd"> | 비밀번호 찾기 | </div>
-              <div className="goToSignUp"> 회원가입</div>
+              <div className="dividerLeft">|</div>
+              <div className="findPwd">비밀번호 찾기</div>
+              <div className="dividerRight">|</div>
+              <div className="goToSignUp" onClick={this.signUpGo}>
+                {' '}
+                회원가입
+              </div>
             </div>
           </content>
         </div>
@@ -194,4 +204,4 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
