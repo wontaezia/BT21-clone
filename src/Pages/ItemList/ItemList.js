@@ -130,7 +130,7 @@ class ItemList extends Component {
   };
 
   gotoMain = () => {
-    this.props.history.push('/Main');
+    this.props.history.push('/');
   };
 
   nextPage = (e) => {
