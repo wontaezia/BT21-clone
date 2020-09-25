@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
 import { API } from '../../config';
+import { withRouter } from 'react-router-dom';
 
 class SignUp extends Component {
   constructor() {
@@ -30,9 +31,12 @@ class SignUp extends Component {
   }
 
   idInput = (event) => {
-    this.setState({
-      signUpIdValue: event.target.value,
-    });
+    this.setState(
+      {
+        signUpIdValue: event.target.value,
+      },
+      () => this.idCheck()
+    );
   };
 
   idCheck = () => {
@@ -43,39 +47,63 @@ class SignUp extends Component {
   };
 
   pwdInput = (event) => {
-    this.setState({
-      signUpPwdValue: event.target.value,
-    });
+    this.setState(
+      {
+        signUpPwdValue: event.target.value,
+      },
+      () => this.pwdInputCheck()
+    );
   };
 
   pwdCheckInput = (event) => {
-    this.setState({
-      signUpPwdCheck: event.target.value,
-    });
+    this.setState(
+      {
+        signUpPwdCheck: event.target.value,
+      },
+      () => this.handleEqualPwd()
+    );
   };
 
   pwdInputCheck = () => {
+    const { signUpPwdValue } = this.state;
+
+    const numbers = /.*[0-9].*/;
+    const upperCase = /[A-Z]/;
+    const regexNum = RegExp(numbers);
+    const regexUpper = RegExp(upperCase);
+
     const pwdInputValid =
-      this.state.signUpPwdValue.length > 8 &&
-      this.state.signUpPwdValue.length < 20;
+      signUpPwdValue.length > 8 && signUpPwdValue.length < 20;
+    const pwdIncludeNumber = regexNum.test(signUpPwdValue);
+    const pwdIncludeUpper = regexUpper.test(signUpPwdValue);
+
     this.setState({
       isPwdInputValid: pwdInputValid,
+      isPwdValidWithNumber: pwdIncludeNumber,
+      isPwdValidWithUpper: pwdIncludeUpper,
     });
   };
 
   handleEqualPwd = () => {
+    const { signUpPwdValue, signUpPwdCheck } = this.state;
     const pwdEqual =
-      this.state.signUpPwdValue === this.state.signUpPwdCheck &&
-      this.state.signUpPwdCheck > 0;
-    this.setState({
-      isPwdValid: pwdEqual,
-    });
+      signUpPwdValue.length > 0 && signUpPwdValue === signUpPwdCheck;
+
+    this.setState(
+      {
+        isPwdValid: pwdEqual,
+      },
+      () => this.state.isPwdValid
+    );
   };
 
   nameInput = (event) => {
-    this.setState({
-      signUpNameValue: event.target.value,
-    });
+    this.setState(
+      {
+        signUpNameValue: event.target.value,
+      },
+      () => this.nameCheck()
+    );
   };
 
   nameCheck = () => {
@@ -178,6 +206,7 @@ class SignUp extends Component {
       isGenderValid,
       isNumValid,
     } = this.state;
+
     return (
       isIdValid &&
       isPwdInputValid &&
@@ -193,7 +222,6 @@ class SignUp extends Component {
 
   subscribeBtn = () => {
     if (this.isEveryInputValid()) {
-      alert('가입 성공');
     } else {
       this.numCheck();
       this.genderCheck();
@@ -203,32 +231,31 @@ class SignUp extends Component {
       this.yrCheck();
       this.monthCheck();
       this.dayCheck();
+      this.handleEqualPwd();
     }
   };
 
-  handleClick = () => {
+  handleSignUp = () => {
     fetch(`${API}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
-        ID: this.state.signUpIdValue,
+        email: this.state.signUpIdValue,
         password: this.state.signUpPwdCheck,
         name: this.state.signUpNameValue,
         year: this.state.signUpYrValue,
         month: this.state.signUpMonthValue,
         day: this.state.signUpDayValue,
         gender: this.state.signUpGenderValue,
-        email: this.state.signUpEmailValue,
+        email2: this.state.signUpEmailValue,
         number: this.state.signUpNumValue,
       }),
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.Authorization) {
-          localStorage.setItem('token', result.Authorization);
-          alert('로그인 성공');
-          this.props.history.push('/Main');
-        } else if (result.message === 'UNAUTHORIZED') {
-          alert('비밀번호 확인');
+        if (result.message === 'SUCCESS') {
+          this.props.history.push('/SignIn');
+        } else {
+          alert('누락된 정보가 있습니다');
         }
       });
   };
@@ -248,6 +275,8 @@ class SignUp extends Component {
       isDayValid,
       isGenderValid,
       isNumValid,
+      isPwdValidWithNumber,
+      isPwdValidWithUpper,
     } = this.state;
 
     let dateErrorMsg;
@@ -257,6 +286,17 @@ class SignUp extends Component {
       dateErrorMsg = '태어난 월을 선택하세요.';
     } else if (!isDayValid) {
       dateErrorMsg = '태어난 일(날짜) 2자리를 정확하게 입력하세요.';
+    }
+
+    let pwdErrorMsg;
+    if (!isPwdInputValid) {
+      pwdErrorMsg = '대문자, 숫자를 포함한 비밀번호 8 - 20자리를 입력하세요.';
+    } else if (!isPwdValidWithNumber && !isPwdValidWithUpper) {
+      pwdErrorMsg = '비밀번호에 대문자, 숫자를 포함해주세요.';
+    } else if (!isPwdValidWithNumber) {
+      pwdErrorMsg = '비밀번호에 숫자를 포함해주세요.';
+    } else if (!isPwdValidWithUpper) {
+      pwdErrorMsg = '비밀번호에 대문자를 포함해주세요.';
     }
 
     return (
@@ -274,7 +314,6 @@ class SignUp extends Component {
                 className="signUpIdInput"
                 type="text"
                 onChange={this.idInput}
-                onBlur={this.idCheck}
               ></input>
               <div className="naverEmail">@naver.com</div>
             </div>
@@ -295,13 +334,14 @@ class SignUp extends Component {
                 className="signUpPwdInput"
                 type="password"
                 onChange={this.pwdInput}
-                onBlur={this.pwdInputCheck}
               ></input>
 
               <div className="pwdSecurityContainer">
                 <div
                   className={
-                    isPwdInputValid === true
+                    isPwdInputValid &&
+                    isPwdValidWithNumber &&
+                    isPwdValidWithUpper === true
                       ? 'pwdSecurityText'
                       : 'pwdSecurityText check'
                   }
@@ -310,7 +350,9 @@ class SignUp extends Component {
                 </div>
                 <div
                   className={
-                    isPwdInputValid === true
+                    isPwdInputValid &&
+                    isPwdValidWithNumber &&
+                    isPwdValidWithUpper === true
                       ? 'pwdSecurity'
                       : 'pwdSecurity check'
                   }
@@ -320,12 +362,14 @@ class SignUp extends Component {
 
             <span
               className={
-                isPwdInputValid === null || isPwdInputValid
+                isPwdInputValid !== false &&
+                isPwdValidWithNumber !== false &&
+                isPwdValidWithUpper !== false
                   ? 'hideErrorMsg'
                   : 'showErrorMsg'
               }
             >
-              8-20자리 비밀번호가 필요합니다.
+              {pwdErrorMsg}
             </span>
           </div>
           <div className="signUpPwdRepeat">
@@ -335,13 +379,10 @@ class SignUp extends Component {
                 className="signUpPwdCheck"
                 type="password"
                 onChange={this.pwdCheckInput}
-                onBlur={this.handleEqualPwd}
               ></input>
               <div
                 className={
-                  isPwdValid === true
-                    ? 'pwdRepeatSecurity'
-                    : 'pwdRepeatSecurity check'
+                  isPwdValid ? 'pwdRepeatSecurity' : 'pwdRepeatSecurity check'
                 }
               ></div>
             </div>
@@ -361,7 +402,6 @@ class SignUp extends Component {
               className="signUpNameInput"
               type="text"
               onChange={this.nameInput}
-              onBlur={this.nameCheck}
             ></input>
             <span
               className={
@@ -375,7 +415,7 @@ class SignUp extends Component {
           </div>
           <div className="signUpBday">
             <div className="signUpInputBox">
-              <div classname="signUpBdayText">생년월일</div>
+              <div className="signUpBdayText">생년월일</div>
               <input
                 className="bDayYr"
                 type="text"
@@ -387,8 +427,9 @@ class SignUp extends Component {
                 className="month"
                 onChange={this.monthInput}
                 onBlur={this.monthCheck}
+                defaultValue={'DEFAULT'}
               >
-                <option value="" disabled selected>
+                <option value="default" disabled>
                   월
                 </option>
                 <option value="01">1</option>
@@ -484,7 +525,7 @@ class SignUp extends Component {
               className="signInBtn"
               onClick={() => {
                 this.subscribeBtn();
-                this.handleClick();
+                this.handleSignUp();
               }}
             >
               가입하기
@@ -510,4 +551,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

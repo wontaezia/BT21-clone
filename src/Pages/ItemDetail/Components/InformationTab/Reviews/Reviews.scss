@@ -24,6 +24,10 @@
         }
       }
 
+      .userInfo {
+        display: flex;
+      }
+
       .userImage {
         align-self: start;
         width: 30px;
