@@ -18,7 +18,7 @@ class Reviews extends Component {
               index
             ) => {
               return (
-                <li key={reviewId}>
+                <li key={index}>
                   <div
                     className={current === index ? 'inner isActive' : 'inner'}
                     onClick={() => {

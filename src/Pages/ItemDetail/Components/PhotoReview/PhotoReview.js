@@ -105,7 +105,7 @@ class PhotoReview extends Component {
                 index
               ) => {
                 return (
-                  <li key={reviewId}>
+                  <li key={index}>
                     <div
                       className="inner"
                       onClick={() => {
