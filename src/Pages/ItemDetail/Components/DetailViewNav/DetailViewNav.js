@@ -63,9 +63,11 @@ class DetailViewNav extends Component {
             <div className="inner">
               <div className="shipCost">
                 <span className="method">택배배송</span>
-                <span className="cost">3,000원</span>
+                <span className="cost">무료</span>
               </div>
-              <span className="shipCostNumb">30,000원 이상 구매 시 무료</span>
+              <span className="shipCostNumb">
+                🚀 택배비 무료 이벤트 진행 중 (09.20 ~ 10.01)
+              </span>
               <span className="shipDiscountItemList">배송비 절약상품 보기</span>
             </div>
           </div>
