@@ -29,6 +29,7 @@ class MainCeramicAdvertisingBanner extends Component {
             <img
               className="mainPicture"
               src="https://shop-phinf.pstatic.net/20200623_43/1592886184295uGTdC_PNG/30247726864450234_1100508093.png?type=f640"
+              alt="도자기속 사랑스러움"
             />
             {CeramicAdvertisingItems.map((item, index) => (
               <div key={item.id}>
@@ -72,6 +73,7 @@ class MainCeramicAdvertisingBanner extends Component {
                           : 'contentPictures'
                       }
                       src={item.img}
+                      alt={item.productName}
                     />
                   </li>
                 </div>

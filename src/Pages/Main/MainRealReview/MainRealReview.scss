@@ -19,6 +19,7 @@
   .wrapSlideContent {
     display: flex;
     justify-content: center;
+    cursor: pointer;
 
     .preButton {
       width: 70px;
@@ -30,6 +31,7 @@
       background-size: 120px 150px;
       background-position: 15px -12px;
       background-image: url(https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spBs_arrow_svg.svg);
+      cursor: pointer;
     }
 
     .slideShow {
@@ -184,6 +186,7 @@
       background-size: 120px 150px;
       background-position: -68px -11px;
       background-image: url(https://img-shop.pstatic.net/brandstore/p/static/20200917164420/img/sprite/svg/spBs_arrow_svg.svg);
+      cursor: pointer;
     }
 
     .opacity {

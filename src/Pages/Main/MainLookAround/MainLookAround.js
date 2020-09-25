@@ -39,6 +39,7 @@ class MainLookAround extends Component {
                   src={item.img}
                   onMouseEnter={() => this.mouseEnter(index)}
                   onMouseOut={this.mouseout}
+                  alt={item.productName}
                 />
                 <div
                   className={

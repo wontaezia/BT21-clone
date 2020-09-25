@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import Slider from 'react-slick';
-import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
-import MainLookAround from './MainLookAround/MainLookAround';
-import MainAdvertisingBanner from './MainAdvertisingBanner/MainAdvertisingBanner';
-import MainCeramicAdvertisingBanner from './MainCeramicAdvertisingBanner/MainCeramicAdvertisingBanner';
 import MainGoToCategory from './MainGoToCategory/MainGoToCategory';
 import MainRealReview from './MainRealReview/MainRealReview';
+import MainAdvertisingBanner from './MainAdvertisingBanner/MainAdvertisingBanner';
+import MainCeramicAdvertisingBanner from './MainCeramicAdvertisingBanner/MainCeramicAdvertisingBanner';
+import MainLookAround from './MainLookAround/MainLookAround';
+import MainBottomBanner from './MainBottomBanner/MainBottomBanner';
 import Footer from '../../../src/Components/Footer/Footer';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -31,6 +31,7 @@ class Main extends Component {
       slidesToScroll: 1,
       arrows: true,
       className: 'slide',
+      pauseOnHover: false,
     };
 
     return (
