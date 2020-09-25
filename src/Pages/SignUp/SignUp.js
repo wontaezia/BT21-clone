@@ -65,7 +65,6 @@ class SignUp extends Component {
 
   pwdInputCheck = () => {
     const { signUpPwdValue } = this.state;
-    console.log('pwInput >>>', signUpPwdValue);
 
     const numbers = /.*[0-9].*/;
     const upperCase = /[A-Z]/;
@@ -82,14 +81,9 @@ class SignUp extends Component {
       isPwdValidWithNumber: pwdIncludeNumber,
       isPwdValidWithUpper: pwdIncludeUpper,
     });
-    console.log(pwdInputValid);
-    console.log(pwdIncludeNumber);
-    console.log(pwdIncludeUpper);
   };
 
   handleEqualPwd = () => {
-    console.log('pwCheckInput >>>', this.state.signUpPwdCheck);
-
     const { signUpPwdValue, signUpPwdCheck } = this.state;
     const pwdEqual =
       signUpPwdValue.length > 0 && signUpPwdValue === signUpPwdCheck;

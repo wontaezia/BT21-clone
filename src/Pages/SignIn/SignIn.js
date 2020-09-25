@@ -152,7 +152,6 @@ class SignIn extends Component {
                 this.setState({
                   currentLanguage: e.value,
                 });
-                console.log(e.value);
               }}
             />
           </nav>
