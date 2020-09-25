@@ -59,7 +59,6 @@ class ReviewsForm extends Component {
         imagePreviewUrl: reader.result,
       });
     };
-
     reader.readAsDataURL(file);
   };
 
