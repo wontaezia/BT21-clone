@@ -16,7 +16,11 @@ class Pagination extends Component {
       <div className="numberButton">
         <button
           id={mouse ? 'mouseon' : 'mouseout'}
-          className={pageNumber == currentPageIdx ? 'currentPage' : 'otherPage'}
+          className={
+            Number(pageNumber) === Number(currentPageIdx)
+              ? 'currentPage'
+              : 'otherPage'
+          }
           onClick={(e) => nextPage(e)}
           onMouseOver={() => this.setState({ mouse: !mouse })}
           onMouseOut={() => this.setState({ mouse: !mouse })}

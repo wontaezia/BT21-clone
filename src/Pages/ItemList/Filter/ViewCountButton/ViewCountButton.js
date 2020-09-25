@@ -16,7 +16,7 @@ class ViewCountButton extends Component {
       <li
         key={index}
         id={number}
-        className={number == selectNum ? 'select' : 'normal'}
+        className={Number(number) === Number(selectNum) ? 'select' : 'normal'}
         onMouseEnter={changeSelect}
       >
         {number}개씩 보기
