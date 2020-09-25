@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Filter from './Filter/Filetr';
 import ListBox from './ListBox/ListBox';
 import Pagination from './Pagination/Pagination';
