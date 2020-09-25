@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
-import { API } from '../../config';
+import { API2 } from '../../config';
 
 class SignUp extends Component {
   constructor() {
@@ -64,14 +64,27 @@ class SignUp extends Component {
   };
 
   pwdInputCheck = () => {
-    console.log('pwInput >>>', this.state.signUpPwdValue);
+    const { signUpPwdValue } = this.state;
+    console.log('pwInput >>>', signUpPwdValue);
+
+    const numbers = /.*[0-9].*/;
+    const upperCase = /[A-Z]/;
+    const regexNum = RegExp(numbers);
+    const regexUpper = RegExp(upperCase);
+
     const pwdInputValid =
-      this.state.signUpPwdValue.length > 8 &&
-      this.state.signUpPwdValue.length < 20;
+      signUpPwdValue.length > 8 && signUpPwdValue.length < 20;
+    const pwdIncludeNumber = regexNum.test(signUpPwdValue);
+    const pwdIncludeUpper = regexUpper.test(signUpPwdValue);
 
     this.setState({
       isPwdInputValid: pwdInputValid,
+      isPwdValidWithNumber: pwdIncludeNumber,
+      isPwdValidWithUpper: pwdIncludeUpper,
     });
+    console.log(pwdInputValid);
+    console.log(pwdIncludeNumber);
+    console.log(pwdIncludeUpper);
   };
 
   handleEqualPwd = () => {
@@ -230,7 +243,7 @@ class SignUp extends Component {
   };
 
   handleSignUp = () => {
-    fetch(`${API}/user/signup`, {
+    fetch(`${API2}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.signUpIdValue,
@@ -271,6 +284,8 @@ class SignUp extends Component {
       isDayValid,
       isGenderValid,
       isNumValid,
+      isPwdValidWithNumber,
+      isPwdValidWithUpper,
     } = this.state;
 
     let dateErrorMsg;
@@ -280,6 +295,17 @@ class SignUp extends Component {
       dateErrorMsg = '태어난 월을 선택하세요.';
     } else if (!isDayValid) {
       dateErrorMsg = '태어난 일(날짜) 2자리를 정확하게 입력하세요.';
+    }
+
+    let pwdErrorMsg;
+    if (!isPwdInputValid) {
+      pwdErrorMsg = '대문자, 숫자를 포함한 비밀번호 8 - 20자리를 입력하세요.';
+    } else if (!isPwdValidWithNumber && !isPwdValidWithUpper) {
+      pwdErrorMsg = '비밀번호에 대문자, 숫자를 포함해주세요.';
+    } else if (!isPwdValidWithNumber) {
+      pwdErrorMsg = '비밀번호에 숫자를 포함해주세요.';
+    } else if (!isPwdValidWithUpper) {
+      pwdErrorMsg = '비밀번호에 대문자를 포함해주세요.';
     }
 
     return (
@@ -322,7 +348,9 @@ class SignUp extends Component {
               <div className="pwdSecurityContainer">
                 <div
                   className={
-                    isPwdInputValid === true
+                    isPwdInputValid &&
+                    isPwdValidWithNumber &&
+                    isPwdValidWithUpper === true
                       ? 'pwdSecurityText'
                       : 'pwdSecurityText check'
                   }
@@ -331,7 +359,9 @@ class SignUp extends Component {
                 </div>
                 <div
                   className={
-                    isPwdInputValid === true
+                    isPwdInputValid &&
+                    isPwdValidWithNumber &&
+                    isPwdValidWithUpper === true
                       ? 'pwdSecurity'
                       : 'pwdSecurity check'
                   }
@@ -341,12 +371,14 @@ class SignUp extends Component {
 
             <span
               className={
-                isPwdInputValid === null || isPwdInputValid
+                isPwdInputValid !== false &&
+                isPwdValidWithNumber !== false &&
+                isPwdValidWithUpper !== false
                   ? 'hideErrorMsg'
                   : 'showErrorMsg'
               }
             >
-              8-20자리 비밀번호가 필요합니다.
+              {pwdErrorMsg}
             </span>
           </div>
           <div className="signUpPwdRepeat">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SignIn.scss';
 import Dropdown, { Selection } from 'react-dropdown-now';
 import 'react-dropdown/style.css';
-import { API } from '../../config';
+import { API2 } from '../../config';
 import { withRouter } from 'react-router-dom';
 
 class SignIn extends Component {
@@ -38,7 +38,7 @@ class SignIn extends Component {
   };
 
   handleClick = () => {
-    fetch(`${API}/user/signin`, {
+    fetch(`${API2}/user/signin`, {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.idValue,
