@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
 import NavbarCategory from './NavbarCategory/NavbarCategory';
 import './Nav.scss';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Nav extends Component {
-  signInGo = () => {
-    this.props.history.push('/SignIn');
-  };
-
   render() {
     return (
       <div className="Nav">
         <div className="naverLogobar">
-          <div className="naverLink">
-            <img className="naverLogo" />
-            <img className="naverShoppingLogo" />
-          </div>
-          <div className="signInBar">
-            <button className="naverSignInBtn" onClick={this.signInGo}>
-              로그인
-            </button>
-            <img className="signInImg" />
+          <div className="naverLogobarInner">
+            <div className="naverLink">
+              <img className="naverLogo" />
+              <img className="naverShoppingLogo" />
+            </div>
+            <Link to={'/SignIn'}>
+              <div className="signInBar">
+                <button className="naverSignInBtn">로그인</button>
+                <img className="signInImg" />
+              </div>
+            </Link>
           </div>
         </div>
         <div className="logobar">
           <div className="logoDiv">
-            <img
-              className="linefriendsLogo"
-              alt="lineLogo"
-              src="https://shop-phinf.pstatic.net/20200504_93/1588582588622OE2qc_PNG/main_logo_b.png"
-            />
+            <Link to={'/'}>
+              <img
+                className="linefriendsLogo"
+                alt="lineLogo"
+                src="https://shop-phinf.pstatic.net/20200504_93/1588582588622OE2qc_PNG/main_logo_b.png"
+              />
+            </Link>
           </div>
           <div className="searchDiv">
             <input
