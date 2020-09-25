@@ -52,7 +52,11 @@ class MainRealReview extends Component {
             <div className={`wrapSlideShowItem ${prePage} ${nextPage}`}>
               {reviewContent.map((review) => (
                 <div className="slideShowItem" key={review.id}>
-                  <img className="mainImage" src={review.reviewMainImg} />
+                  <img
+                    className="mainImage"
+                    src={review.reviewMainImg}
+                    alt={review.alt}
+                  />
                   <div className="textContents">
                     <strong>{review.alt}</strong>
                     <div className="ratingContainer">
@@ -102,7 +106,11 @@ class MainRealReview extends Component {
                       <span className="userId">{review.userId}</span>
                       <span className="date">{review.date}</span>
                     </div>
-                    <img className="subImage" src={review.reviewSubImg} />
+                    <img
+                      className="subImage"
+                      src={review.reviewSubImg}
+                      alt="리뷰 작은 이미지"
+                    />
                   </div>
                 </div>
               ))}
