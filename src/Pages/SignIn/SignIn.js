@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './SignIn.scss';
 import Dropdown, { Selection } from 'react-dropdown-now';
 import 'react-dropdown/style.css';
-import { API2 } from '../../config';
+import { API } from '../../config';
 import { withRouter } from 'react-router-dom';
 
 class SignIn extends Component {
@@ -38,7 +38,7 @@ class SignIn extends Component {
   };
 
   handleClick = () => {
-    fetch(`${API2}/user/signin`, {
+    fetch(`${API}/user/signin`, {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.idValue,
@@ -49,7 +49,6 @@ class SignIn extends Component {
       .then((result) => {
         if (result.Authorization) {
           localStorage.setItem('token', result.Authorization);
-          alert('로그인 성공');
           this.props.history.push('/');
         } else if (result.message === 'UNAUTHORIZED') {
           alert('비밀번호 확인');

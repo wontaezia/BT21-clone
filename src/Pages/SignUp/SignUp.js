@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './SignUp.scss';
-import { API2 } from '../../config';
+import { API } from '../../config';
+import { withRouter } from 'react-router-dom';
 
 class SignUp extends Component {
   constructor() {
@@ -221,8 +222,6 @@ class SignUp extends Component {
 
   subscribeBtn = () => {
     if (this.isEveryInputValid()) {
-      // this.handleSignUp();
-      alert('all criteria passed');
     } else {
       this.numCheck();
       this.genderCheck();
@@ -237,7 +236,7 @@ class SignUp extends Component {
   };
 
   handleSignUp = () => {
-    fetch(`${API2}/user/signup`, {
+    fetch(`${API}/user/signup`, {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.signUpIdValue,
@@ -253,11 +252,9 @@ class SignUp extends Component {
     })
       .then((response) => response.json())
       .then((result) => {
-        if (result.Authorization) {
-          localStorage.setItem('token', result.Authorization);
-          alert('가입 성공');
-          this.props.history.push('/signin');
-        } else if (result.message === 'UNAUTHORIZED') {
+        if (result.message === 'SUCCESS') {
+          this.props.history.push('/SignIn');
+        } else {
           alert('누락된 정보가 있습니다');
         }
       });
@@ -554,4 +551,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);
