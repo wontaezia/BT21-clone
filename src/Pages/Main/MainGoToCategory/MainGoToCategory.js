@@ -11,7 +11,7 @@ class MainGoToCategory extends Component {
           {GoToCategoryItems.map((item) => (
             <Link to={item.endPoint} key={item.id}>
               <li>
-                <img src={item.img}></img>
+                <img src={item.img} alt={item.alt}></img>
                 <div className="categoryItemSpans">
                   <span className="categoryName">{item.categoryName}</span>
                   <span className="categoryTag">{item.categoryTag}</span>
@@ -35,6 +35,7 @@ const GoToCategoryItems = [
     categoryName: 'SALE',
     categoryTag: 'ㄱ',
     endPoint: '/',
+    alt: '카테고리 이미지',
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ const GoToCategoryItems = [
     categoryName: '브라운앤프렌즈',
     categoryTag: 'ㄱ',
     endPoint: '/',
+    alt: '카테고리 이미지',
   },
   {
     id: 3,
@@ -51,6 +53,7 @@ const GoToCategoryItems = [
     categoryName: 'BT21',
     categoryTag: 'ㄱ',
     endPoint: '/ItemList',
+    alt: '카테고리 이미지',
   },
   {
     id: 4,
@@ -59,5 +62,6 @@ const GoToCategoryItems = [
     categoryName: '브롤스타즈',
     categoryTag: 'ㄱ',
     endPoint: '/',
+    alt: '카테고리 이미지',
   },
 ];
