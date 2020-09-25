@@ -47,7 +47,7 @@ class ItemDetail extends Component {
       body: JSON.stringify({
         detail,
         grade,
-        photo: null,
+        photo: `/Images/review_${photoReview.length}.jpg`,
         productId,
         registerDate: '20.09.25',
         reviewId: photoReview.length,
