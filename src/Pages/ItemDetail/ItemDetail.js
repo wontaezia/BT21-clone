@@ -35,8 +35,7 @@ class ItemDetail extends Component {
   addNewReview = (detail, grade) => {
     const { itemData } = this.state;
     const { photoReview } = itemData;
-    const userToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.uuIUXAdybf5ZkUIVQ1ikcOz8AmAASTocvL3RtHhiiSg';
+    const userToken = localStorage.getItem('token');
     const productId = this.props.match.params.productId;
 
     const requestOptions = {

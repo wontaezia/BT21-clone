@@ -222,6 +222,7 @@ class SignUp extends Component {
 
   subscribeBtn = () => {
     if (this.isEveryInputValid()) {
+      this.signInGo();
     } else {
       this.numCheck();
       this.genderCheck();
@@ -234,6 +235,11 @@ class SignUp extends Component {
       this.handleEqualPwd();
     }
   };
+
+  // signInGo = () => {
+  //   this.props.history.push('/SignIn');
+  //   alert('가입 성공');
+  // };
 
   handleSignUp = () => {
     fetch(`${API}/user/signup`, {

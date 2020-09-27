@@ -145,7 +145,7 @@ class PhotoReview extends Component {
           <PopUp
             isActive={isActive}
             currentReview={currentReview}
-            reviews={reviews[currentReview]}
+            reviews={reviews.length && reviews[currentReview]}
             max={reviews.length}
             goToNextPage={this.handlePopUpRightButton}
             goToPrevPage={this.handlePopUpLeftButton}

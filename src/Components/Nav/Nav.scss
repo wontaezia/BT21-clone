@@ -46,6 +46,10 @@
         font-size: 12px;
         margin-top: 3px;
         cursor: pointer;
+
+        &.token {
+          display: none;
+        }
       }
       .signInImg {
         width: 15px;

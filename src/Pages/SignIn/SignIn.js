@@ -64,6 +64,10 @@ class SignIn extends Component {
     this.props.history.push('/SignUp');
   };
 
+  // mainGo = () => {
+  //   this.props.history.push('/');
+  // };
+
   render() {
     const { currentLanguage } = this.state;
     let signInLanguage;
@@ -182,6 +186,8 @@ class SignIn extends Component {
             </div>
             <button
               className="signInBtn"
+              // onClick={this.mainGo}
+
               onClick={() => {
                 this.handleClick();
               }}

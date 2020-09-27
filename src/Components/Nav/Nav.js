@@ -4,6 +4,18 @@ import './Nav.scss';
 import { Link, withRouter } from 'react-router-dom';
 
 class Nav extends Component {
+  state = {
+    hasToken: false,
+  };
+
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    console.log(token);
+    this.setState({
+      hasToken: token,
+    });
+  }
+
   render() {
     return (
       <div className="Nav">
@@ -15,7 +27,15 @@ class Nav extends Component {
             </div>
             <Link to={'/SignIn'}>
               <div className="signInBar">
-                <button className="naverSignInBtn">로그인</button>
+                <button
+                  className={
+                    this.state.hasToken
+                      ? 'naverSignInBtn token'
+                      : 'naverSignInBtn'
+                  }
+                >
+                  로그인
+                </button>
                 <img className="signInImg" />
               </div>
             </Link>
